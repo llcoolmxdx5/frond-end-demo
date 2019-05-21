@@ -7,10 +7,11 @@ const imgport = 8011;
 
 // 创建一个API代理服务
 const apiServer = http.createServer((req, res) => {
-    const url = 'http://news-at.zhihu.com/api/4' + req.url;
+    // 修改的知乎api接口
+    const url = 'http://daily.zhihu.com/api/4' + req.url
     const options = {
-        url: url
-    };
+      url: url
+    }
     function callback (error, response, body) {
         if (!error && response.statusCode === 200) {
             res.setHeader('Content-Type', 'text/plain;charset=utf-8');
@@ -20,7 +21,7 @@ const apiServer = http.createServer((req, res) => {
     }
     request.get(options, callback);
 });
-// 监听8081端口
+// 监听8010端口
 apiServer.listen(port, hostname, () => {
     // eslint-disable-next-line no-console
     console.log(`接口代理运行在http://${hostname}:${port}/`);
