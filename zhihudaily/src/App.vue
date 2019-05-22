@@ -8,7 +8,7 @@
                 :class="{ on: type === 'daily' }"
                 @click="showThemes = !showThemes">主题日报</div>
             <ul v-show="showThemes">
-                <li v-for="item in themes">
+                <li v-for="item in themes" :key="item.id">
                     <a :class="{ on: item.id === themeId && type === 'daily' }"
                         @click="handleToTheme(item.id)">{{ item.name }}</a>
                 </li>
@@ -16,7 +16,7 @@
         </div>
         <div class="daily-list" ref="list">
             <template v-if="type === 'recommed'">
-                <div v-for="list in recommedList">
+                <div v-for="(list, index) in recommedList" :key="index">
                     <div class="daily-date">{{ formatDay(list.date) }}</div>
                     <Item v-for="item in list.stories"
                         :date="item"
@@ -41,6 +41,7 @@ import Item from './components/item.vue'
 import dailyArticle from './components/daily-article.vue'
 import $ from './assets/util';
 export default {
+    name: 'App',
     components: { Item, dailyArticle },
     data () {
         return {
@@ -52,6 +53,7 @@ export default {
             recommedList: [],
             dailyTime: $.getTodayTime(),
             isLoading: false,
+            articleId: 0,
         }
     },
     methods: {
@@ -117,74 +119,8 @@ export default {
                 this.dailyTime -= 86400000;
                 this.getRecommendList();
             };
-        });
+        })
     },
 }
 </script>
 
-<style scoped>
-.daily-menu{
-    width: 150px;
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    overflow: auto;
-    background: #f5f7f9;
-}
-.daily-menu ul{
-    list-style: none;
-}
-.daily-menu ul li a{
-    display: block;
-    color: inherit;
-    text-decoration: none;
-    padding: 5px 0;
-    margin: 5px 0;
-    cursor: pointer;
-}
-.daily-menu ul li a:hover, .daily-menu ul li a.on{
-    color: #3399ff;
-}
-.daily-menu-item{
-    font-size: 18px;
-    text-align: center;
-    margin: 5px 0;
-    padding: 10px 0;
-    cursor: pointer;
-    border-right: 2px solid transparent;
-    transition: all .3s ease-in-out;
-}
-.daily-menu-item:hover{
-    background: #e3e8ee;
-}
-.daily-menu-item.on{
-    border-right: 2px solid #3399ff;
-}
-
-.daily-list{
-    width: 300px;
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    left: 150px;
-    overflow: auto;
-    border-right: 1px solid #d7dde4;
-}
-.daily-date{
-    text-align: center;
-    margin: 10px 0;
-}
-.daily-item{
-    display: block;
-    color: inherit;
-    text-decoration: none;
-    padding: 16px;
-    overflow: hidden;
-    cursor: pointer;
-    transition: all .3s ease-in-out;
-}
-.daily-item:hover{
-    background: #e3e8ee;
-}
-</style>

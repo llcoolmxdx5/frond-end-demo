@@ -1,32 +1,34 @@
 /* eslint-disable no-console */
 const http = require('http');
 const request = require('request');
+
 const hostname = '127.0.0.1';
 const port = 8010;
-const imgport = 8011;
+const imgPort = 8011;
 
-// 创建一个API代理服务
+// 创建一个 API 代理服务
 const apiServer = http.createServer((req, res) => {
-    // 修改的知乎api接口
-    const url = 'http://daily.zhihu.com/api/4' + req.url
+    const url = 'http://news-at.zhihu.com/api/4' + req.url;
     const options = {
-      url: url
-    }
+        url: url
+    };
     function callback (error, response, body) {
         if (!error && response.statusCode === 200) {
-            res.setHeader('Content-Type', 'text/plain;charset=utf-8');
+            // 设置编码类型，否则中文会显示为乱码
+            res.setHeader('Content-Type', 'text/plain;charset=UTF-8');
+            // 设置所有域允许跨域
             res.setHeader('Access-Control-Allow-Origin', '*');
+            // 返回代理后的内容
             res.end(body);
         }
     }
     request.get(options, callback);
 });
-// 监听8010端口
+// 监听 8010 端口
 apiServer.listen(port, hostname, () => {
-    // eslint-disable-next-line no-console
-    console.log(`接口代理运行在http://${hostname}:${port}/`);
+    console.log(`接口代理运行在 http://${hostname}:${port}/`);
 });
-// 创建一个图片代理端口
+// 创建一个图片代理服务
 const imgServer = http.createServer((req, res) => {
     const url = req.url.split('/img/')[1];
     const options = {
@@ -43,7 +45,7 @@ const imgServer = http.createServer((req, res) => {
     }
     request.get(options, callback);
 });
-// 监听8011端口
-imgServer.listen(imgport, hostname, () => {
-    console.log(`图片代理运行在http://${hostname}:${imgport}/`);
+// 监听 8011 端口
+imgServer.listen(imgPort, hostname, () => {
+    console.log(`图片代理运行在 http://${hostname}:${imgPort}/`);
 });
