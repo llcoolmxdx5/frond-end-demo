@@ -3,31 +3,30 @@
         <div class="daily-article-title">{{ data.title }}</div>
         <div class="daily-article-content" v-html="data.body"></div>
 
-        <div class="daily-comments" v-show="comments.length">
-            <span>评论({{ comments.length }})</span>
-            <div class="daily-comment" v-for="(comment, index) in comments" :key="index">
-                <div class="daily-comment-avatar">
-                    <img :src="comment.avatar">
-                </div>
-                <div class="daily-comment-content">
-                    <div class="daily-comment-name">{{ comment.author }}</div>
-                    <div class="daily-comment-time" v-time="comment.time"></div>
-                    <div class="daily-comment-text">{{ comment.content }}</div>
-                </div>
+        <div class="daily-comments" v-show="comments.length"></div>
+        <span>评论({{ comments.length }})</span>
+        <div class="daily-comment" v-for="comment in comments" :key="comment.id">
+            <div class="daily-comment-avatar">
+                <img :src="comment.avatar">
+            </div>
+            <div class="daily-comment-content">
+                <div class="daily-comment-name">{{ comment.author }}</div>
+                <div class="daily-comment-time" v-time="comment.time"></div>
+                <div class="daily-comment-text">{{ comment.content }}</div>
             </div>
         </div>
     </div>
 </template>
 
 <script>
-import Time from '../../directives/time'
-import $ from '../assets/util';
+import Time from '../../directives/time.js'
+import $ from '../assets/util.js';
 
 export default {
     directives: { Time },
     props: {
         id: {
-            type: number,
+            type: Number,
             default: 0
         }
     },
@@ -42,9 +41,9 @@ export default {
             $.ajax.get('news/' + this.id).then(res => {
                 // 将文章中图片地址替换为代理地址
                 res.body = res.body
-                    .replace(/src="http"/g, 'src="' + $.imgPath + 'http');
+                    .replace(/src="http/g, 'src="' + $.imgPath + 'http');
                 res.body = res.body
-                    .replace(/src="https"/g, 'src="' + $.imgPath + 'https');
+                    .replace(/src="https/g, 'src="' + $.imgPath + 'https');
                 this.data = res;
                 // 返回文章顶端
                 window.scrollTo(0, 0);
@@ -53,7 +52,8 @@ export default {
         },
         getComments() {
             this.comments = [];
-            $.ajax.get(`story/${this.id}/short-comments`).then(res => {
+            // `story/${this.id}/short-comments`
+            $.ajax.get('story/' + this.id + '/short-comments').then(res => {
                 this.comments = res.comments.map(comment => {
                     comment.avatar = $.imgPath + comment.avatar;
                     return comment;

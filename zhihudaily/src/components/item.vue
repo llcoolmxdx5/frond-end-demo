@@ -11,15 +11,18 @@
 </template>
 
 <script>
-import $ from '../assets/util'
+import $ from '../assets/util.js'
 export default {
+    name: 'Item',
     props: {
         data: {
-            type: object,
+            type: Object,
         }
     },
     data() {
-        return $.imgPath
+        return {
+            imgPath: $.imgPath
+        }
     }
 }
 </script>

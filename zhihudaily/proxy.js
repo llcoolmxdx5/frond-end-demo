@@ -3,12 +3,13 @@ const http = require('http');
 const request = require('request');
 
 const hostname = '127.0.0.1';
-const port = 8010;
-const imgPort = 8011;
+const port = 8020;
+const imgPort = 8021;
 
 // 创建一个 API 代理服务
 const apiServer = http.createServer((req, res) => {
-    const url = 'http://news-at.zhihu.com/api/4' + req.url;
+    const url = 'http://daily.zhihu.com/api/4' + req.url
+    // const url = 'http://news-at.zhihu.com/api/4' + req.url;
     const options = {
         url: url
     };

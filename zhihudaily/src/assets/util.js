@@ -12,19 +12,19 @@ Util.getTodayTime = function() {
     date.setMinutes(0);
     date.setSeconds(0);
     date.setMilliseconds(0);
-    return date.getTime()
+    return date.getTime();
 }
 // 获取前一天的日期
-Util.getPrevDay = function(timestamp = (new Date()).getTime()) {
+Util.prevDay = function(timestamp = (new Date()).getTime()) {
     const date = new Date(timestamp);
     const year = date.getFullYear();
     const month = date.getMonth() + 1 < 10
         ? '0' + (date.getMonth() + 1)
         : date.getMonth() + 1;
-    const day = date.getDay() < 10
-        ? '0' + date.getDay()
-        : date.getDay();
-    return year + month + day
+    const day = date.getDate() < 10
+        ? '0' + date.getDate()
+        : date.getDate();
+    return year + '' + month + '' + day
 }
 // AJAX通用配置
 Util.ajax = axios.create({

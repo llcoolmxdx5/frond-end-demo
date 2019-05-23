@@ -28,7 +28,7 @@ var Time = {
     getLastDate: function(time) {
         var date = new Date(time);
         var month = date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1;
-        var day = date.getDay() < 10 ? '0' + date.getDay() : date.getDay();
+        var day = date.getDate() < 10 ? '0' + date.getDate() : date.getDate();
         return date.getFullYear() + '-' + month + '-' + day;   
     },
     // 转换时间
@@ -45,7 +45,7 @@ var Time = {
             tip = '刚刚';
         } else if (timer < 3600) {
             tip = Math.floor(timer / 60) + '分钟前';
-        } else if (timer >= 3600 && (timestamp - today) >= 0) {
+        } else if (timer >= 3600 && (timestamp - today >= 0)) {
             tip = Math.floor(timer / 3600) + '小时前';
         } else if (timer / 86400 <= 31) {
             tip = Math.ceil(timer / 86400) + '天前';
@@ -61,7 +61,7 @@ export default {
         el.innerHTML = Time.getFormatTime(binding.value * 1000);
         el.__timeout__ = setInterval(function() {
             el.innerHTML = Time.getFormatTime(binding.value * 1000);
-        }, 6000);
+        }, 60000);
     },
     unbind: function(el) {
         clearInterval(el.__timeout__);
