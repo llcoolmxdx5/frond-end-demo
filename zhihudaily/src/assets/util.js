@@ -2,8 +2,8 @@ import axios from 'axios';
 
 // 基本配置
 const Util = {
-    imgPath: 'http://127.0.0.1:8011/img/',
-    apiPath: 'http://127.0.0.1:8010/'
+    apiPath: 'http://127.0.0.1:8020/',
+    imgPath: 'http://127.0.0.1:8021/img/'
 };
 // 获取今天的时间戳
 Util.getTodayTime = function() {

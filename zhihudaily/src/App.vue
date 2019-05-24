@@ -25,11 +25,11 @@
             </div>
         </div>
         <div class="daily-list" ref="list">
-            <template v-if="type === 'recommed'">
+            <template v-if="type === 'recommend'">
                 <div v-for="(list, index) in recommedList" :key="index">
                     <div class="daily-date">{{ formatDay(list.date) }}</div>
                     <Item v-for="item in list.stories"
-                        :date="item"
+                        :data="item"
                         :key="item.id"
                         @click.native="handleClick(item.id)"></Item>
                 </div>
@@ -41,7 +41,7 @@
 <script>
 import Item from './components/item'
 import dailyArticle from './components/daily-article'
-import $ from './assets/util';
+import $ from './assets/util.js';
 export default {
     name: 'App',
     components: { Item, dailyArticle },
