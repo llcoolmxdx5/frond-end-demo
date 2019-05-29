@@ -6,7 +6,17 @@ Vue.use(Router)
 const router = new Router({
   mode: 'history',
   routes: [
-
+    {
+      path: '/list',
+      meta: {
+        title: '商品列表'
+      },
+      component: (resolve) => require(['./views/list.vue'], resolve)
+    },
+    {
+      path: '*',
+      redirect: '/list'
+    }
   ]
 })
 
