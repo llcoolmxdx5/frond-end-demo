@@ -14,6 +14,13 @@ const router = new Router({
       component: (resolve) => require(['./views/list.vue'], resolve)
     },
     {
+      path: '/product/:id',
+      meta: {
+        title: '商品详情'
+      },
+      component: (resolve) => require(['./views/product.vue'], resolve)
+    },
+    {
       path: '*',
       redirect: '/list'
     }

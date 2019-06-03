@@ -1,6 +1,28 @@
 <template>
   <div v-show="list.length">
     <div class="list-control">
+      <div class="list-control-filter">
+        <span>品牌:</span>
+        <span
+          class="list-control-filter-item"
+          :class="{ on: item === filterBrand }"
+          v-for="(item, index) in brands"
+          :key="index"
+          @click="handleFilterBrand(item)">
+          {{ item }}
+        </span>
+      </div>
+      <div class="list-control-filter">
+        <span>颜色:</span>
+        <span
+          class="list-control-filter-item"
+          :class="{ on: item === filterColor }"
+          v-for="(item, index) in colors"
+          :key="index"
+          @click="handleFilterColor(item)">
+          {{ item }}
+        </span>
+      </div>
       <div class="list-control-order">
         <span>排序:</span>
         <span
@@ -41,7 +63,9 @@ export default {
       // sales 销量
       // cost-desc(价格降序)
       // cost-asc(价格升序)
-      order: ''
+      order: '',
+      filterBrand: '',
+      filterColors: ''
     }
   },
   methods: {
@@ -57,6 +81,23 @@ export default {
       } else {
         this.order = 'cost-desc'
       }
+    },
+    // 筛选品牌
+    handleFilterBrand (brand) {
+      // 单次点击选中,再次点击取消选中
+      if (this.handleFilterBrand === brand) {
+        this.filterBrand = ''
+      } else {
+        this.filterBrand = brand
+      }
+    },
+    // 筛选颜色
+    handleFilterColor (color) {
+      if (this.filterColor === color) {
+        this.filterColor = ''
+      } else {
+        this.filterColor = color
+      }
     }
   },
   computed: {
@@ -64,11 +105,23 @@ export default {
       // 从vuex获取商品列表数据
       return this.$store.state.productList
     },
+    brands () {
+      return this.$store.getters.brands
+    },
+    colors () {
+      return this.$store.getters.colors
+    },
     filteredAndOrderedList () {
       // 复制原始数据
       let list = [...this.list]
-      // TODO 按品牌过滤
-      // TODO 按颜色过滤
+      // 按品牌过滤
+      if (this.filterBrand !== '') {
+        list = list.filter(item => item.brand === this.filterBrand)
+      }
+      // 按颜色过滤
+      if (this.filterColor !== '') {
+        list = list.filter(item => item.color === this.filterColor)
+      }
       // 排序
       if (this.order !== '') {
         if (this.order === 'sales') {
