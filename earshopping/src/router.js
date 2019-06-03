@@ -21,6 +21,13 @@ const router = new Router({
       component: (resolve) => require(['./views/product.vue'], resolve)
     },
     {
+      path: '/cart',
+      meta: {
+        title: '购物车'
+      },
+      component: (resolve) => require(['./views/cart.vue'], resolve)
+    },
+    {
       path: '*',
       redirect: '/list'
     }
