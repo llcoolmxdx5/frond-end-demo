@@ -40,7 +40,7 @@ router.beforeEach((to, from, next) => {
 })
 
 router.afterEach((to, from, next) => {
-  window.screenTop(0, 0)
+  window.scrollTo(0, 0)
 })
 
 export default router

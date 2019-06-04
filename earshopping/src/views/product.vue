@@ -21,9 +21,9 @@
 </template>
 
 <script>
-import product_data from '../product.js'
+import productData from '../product.js'
 export default {
-  data() {
+  data () {
     return {
       // 获取路由中的参数
       id: parseInt(this.$route.params.id),
@@ -34,20 +34,19 @@ export default {
     getProduct () {
       // 真实环境通过ajax获取,这里用异步模拟
       setTimeout(() => {
-        this.product = product_data.find(item => item.id === this.id)
+        this.product = productData.find(item => item.id === this.id)
       }, 500)
     },
     handleAddToCart () {
       this.$store.commit('addCart', this.id)
     }
   },
-  mounted() {
+  mounted () {
     // 初始化时请求数据
     this.getProduct()
   }
 }
 </script>
-
 
 <style lang="less" scoped>
 .product {
@@ -103,4 +102,3 @@ export default {
   }
 }
 </style>
-

@@ -46,7 +46,7 @@
         </span>
       </div>
     </div>
-    <product v-for="item in list" :key="item.id" :info="item"></product>
+    <product v-for="item in filteredAndOrderedList" :key="item.id" :info="item"></product>
     <div class="product-not-found" v-show="!filteredAndOrderedList.length">
       暂无相关商品
     </div>
@@ -65,7 +65,7 @@ export default {
       // cost-asc(价格升序)
       order: '',
       filterBrand: '',
-      filterColors: ''
+      filterColor: ''
     }
   },
   methods: {
@@ -85,7 +85,7 @@ export default {
     // 筛选品牌
     handleFilterBrand (brand) {
       // 单次点击选中,再次点击取消选中
-      if (this.handleFilterBrand === brand) {
+      if (this.filterBrand === brand) {
         this.filterBrand = ''
       } else {
         this.filterBrand = brand

@@ -36,7 +36,7 @@
     <div class="promotion" v-show="cartList.length">
       <span>使用优惠码：</span>
       <input type="text" v-model="promotionCode">
-      <sapn class="cart-control-promotion" @click="handleCheckCode">验证</sapn>
+      <span class="cart-control-promotion" @click="handleCheckCode">验证</span>
     </div>
     <div class="cart-footer" v-show="cartList.length">
       <div class="cart-footer-desc">
@@ -57,11 +57,11 @@
 </template>
 
 <script>
-import product_data from '../product.js'
+import productData from '../product.js'
 export default {
-  data() {
+  data () {
     return {
-      productList: product_data,
+      productList: productData,
       promotionCode: '',
       promotion: 0
     }
@@ -237,4 +237,3 @@ export default {
   }
 }
 </style>
-

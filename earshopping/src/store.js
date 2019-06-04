@@ -27,7 +27,7 @@ export default new Vuex.Store({
   },
   getters: {
     brands: state => {
-      const brands = state.productList.map(item => item.id)
+      const brands = state.productList.map(item => item.brand)
       return getFilterArray(brands)
     },
     colors: state => {
