@@ -1,0 +1,223 @@
+body {
+  font-size: 14px;
+  font-family: "Microsoft Yahei", "微软雅黑", "宋体";
+}
+ul {
+  list-style: none;
+}
+* {
+  margin: 0;
+  padding: 0;
+}
+a {
+  text-decoration: none;
+}
+#header {
+  background-color: #232323;
+}
+#header .header {
+  width: 1012px;
+  height: 62px;
+  margin: 0 auto;
+  clear: both;
+}
+#header .header h1 {
+  background: url("../images/qf_logo.jpg") no-repeat;
+  text-indent: -5000em;
+  width: 207px;
+  height: 62px;
+  float: left;
+}
+#header .header ul {
+  list-style: none;
+  float: right;
+}
+#header .header ul li {
+  float: left;
+  line-height: 62px;
+  background: url("../images/qf_nav_bg.png") no-repeat right center;
+}
+#header .header ul li.no-img {
+  background: none;
+}
+#header .header ul li a {
+  color: #ffffff;
+  text-decoration: none;
+  display: block;
+  padding: 0 13px 0 15px;
+}
+#header .header ul li a:hover {
+  background-color: #f15b23;
+}
+#banner {
+  width: 100%;
+  background: url("../images/banner_5_pic1.png") no-repeat;
+  height: 420px;
+  margin: 0 auto;
+}
+#main1 {
+  background-color: #f5f5f5;
+}
+#main1 div {
+  width: 1012px;
+  height: 350px;
+  margin: -20px auto 0;
+}
+#main1 div ul {
+  padding-top: 35px;
+}
+#main1 div ul li {
+  width: 252px;
+  border-left: solid 1px #dde6f0;
+  text-align: center;
+  position: relative;
+  margin: 35px 0;
+  float: left;
+}
+#main1 div ul li img {
+  padding-bottom: 16px;
+}
+#main1 div ul li h3 {
+  line-height: 30px;
+  font-size: 22px;
+  margin: 0 auto;
+  color: #252e3b;
+}
+#main1 div ul li h4 {
+  line-height: 24px;
+  padding: 9px 0 10px 0;
+  color: #546c7d;
+}
+#main1 div ul li p {
+  color: #a3bccd;
+}
+#main1 div ul li.main1-li1 {
+  border-left: none;
+}
+#main2 {
+  background-color: #ffffff;
+}
+#main2 div.outer {
+  width: 1012px;
+  height: 224px;
+  margin: 40px auto;
+}
+#main2 div.outer img {
+  float: left;
+  height: 224px;
+}
+#main2 div.outer div.main2-news {
+  float: left;
+  margin-left: 16px;
+  margin-right: 5px;
+  width: 325px;
+  font-style: normal;
+  color: #222222;
+}
+#main2 div.outer div.main2-news h2 {
+  line-height: 40px;
+  font-size: 22px;
+  font-style: normal;
+  color: #222222;
+}
+#main2 div.outer div.main2-news h3 {
+  line-height: 22px;
+  font-size: 18px;
+  font-style: normal;
+  color: #222222;
+}
+#main2 div.outer div.main2-news p {
+  text-indent: 24px;
+  line-height: 18px;
+  font-size: 12px;
+  padding-bottom: 10px;
+  border-bottom: 1px dashed #cccccc;
+  color: #999999;
+}
+#main2 div.outer div.main2-news li {
+  font-size: 16px;
+  line-height: 24px;
+  padding: 3px 0;
+  color: #222222;
+}
+#main2 div.outer div.main2-chat {
+  padding-left: 15px;
+  border-left: 1px solid #dcdcdc;
+  float: left;
+  height: 224px;
+  font-style: normal;
+}
+#main2 div.outer div.main2-chat div {
+  width: 300px;
+  height: 27px;
+  margin: 14px 0 22px;
+}
+#main2 div.outer div.main2-chat div img {
+  width: 125px;
+  height: 24px;
+}
+#main2 div.outer div.main2-chat p {
+  font-size: 16px;
+  line-height: 24px;
+  color: #666666;
+}
+#footer {
+  background-color: #222222;
+}
+#footer div {
+  width: 1012px;
+  height: 213px;
+  margin: 0 auto;
+}
+#footer div div.introduce {
+  float: left;
+  width: 490px;
+}
+#footer div div.introduce ul {
+  margin-right: 27px;
+  margin-left: 7px;
+  margin-top: 50px;
+  float: left;
+}
+#footer div div.introduce ul li {
+  font-size: 16px;
+  line-height: 24px;
+  color: #999999;
+}
+#footer div div.introduce ul li.intro-li1 {
+  color: #ffffff;
+  padding-bottom: 20px;
+}
+#footer div div.campus {
+  width: 315px;
+  float: left;
+}
+#footer div div.campus img {
+  margin-left: 35px;
+  margin-top: 25px;
+}
+#footer div div.qrcode {
+  float: left;
+  width: 190px;
+}
+#footer div div.qrcode img {
+  margin-top: 20px;
+  margin-left: 25px;
+}
+#footer div div.qrcode p {
+  text-align: center;
+  color: #999999;
+}
+#copy {
+  background-color: #101010;
+}
+#copy div {
+  width: 1012px;
+  height: 45px;
+  line-height: 45px;
+  margin: 0 auto;
+}
+#copy div p {
+  text-align: center;
+  color: #999999;
+}
