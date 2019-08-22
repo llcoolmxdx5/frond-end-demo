@@ -172,3 +172,146 @@ body {
   float: right;
   margin-right: 16px;
 }
+#market {
+  height: 305px;
+}
+#market div.base .market-title {
+  height: 65px;
+  background-color: #ffffff;
+}
+#market div.base .market-title h3 {
+  font-size: 20px;
+  font-weight: normal;
+  line-height: 50px;
+  padding-top: 15px;
+  padding-left: 20px;
+}
+#market div.base .market-desc {
+  height: 240px;
+  margin-left: 20px;
+}
+#market div.base .market-desc li {
+  margin-right: 40px;
+  float: left;
+}
+#market div.base .market-desc li img {
+  width: 210px;
+  margin-bottom: 16px;
+}
+#market div.base .market-desc li p {
+  width: 210px;
+  line-height: 24px;
+  color: #555555;
+}
+#market div.base .market-desc li:last-child {
+  margin-right: 0;
+}
+#product .base {
+  height: 250px;
+  background-color: #e5e5e5;
+}
+#product .base .product-center {
+  width: 450px;
+  height: 250px;
+  margin-right: 50px;
+  padding-left: 20px;
+  float: left;
+}
+#product .base .product-center h3 {
+  padding-left: 12px;
+  margin-top: 25px;
+  font-weight: normal;
+  font-size: 20px;
+  line-height: 36px;
+  border-bottom: 1px solid #c1c1c1;
+  color: #666666;
+}
+#product .base .product-center ul {
+  width: 150px;
+  margin-top: 16px;
+  float: left;
+}
+#product .base .product-center ul li > a {
+  color: #666666;
+  font-size: 16px;
+  line-height: 24px;
+}
+#product .base .product-center ul:nth-child(3) {
+  width: 190px;
+}
+#product .base .product-center ul:last-child {
+  width: 110px;
+}
+#product .base .product-tech {
+  width: 155px;
+  height: 250px;
+  margin-right: 50px;
+  float: left;
+}
+#product .base .product-tech h3 {
+  padding-left: 12px;
+  margin-top: 25px;
+  font-weight: normal;
+  font-size: 20px;
+  line-height: 36px;
+  border-bottom: 1px solid #c1c1c1;
+  color: #666666;
+}
+#product .base .product-tech ul {
+  width: 155px;
+  margin-top: 16px;
+  float: left;
+}
+#product .base .product-tech ul li > a {
+  color: #666666;
+  font-size: 16px;
+  line-height: 24px;
+}
+#product .base .product-network {
+  height: 250px;
+  width: 255px;
+  float: left;
+}
+#product .base .product-network h3 {
+  padding-left: 12px;
+  margin-top: 25px;
+  font-weight: normal;
+  font-size: 20px;
+  line-height: 36px;
+  border-bottom: 1px solid #c1c1c1;
+  color: #666666;
+}
+#product .base .product-network img {
+  margin-left: 30px;
+  margin-top: 15px;
+}
+#footer .base {
+  background-color: #fff;
+  height: 80px;
+}
+#footer .base .footer-site {
+  padding-left: 20px;
+  width: 330px;
+  float: left;
+}
+#footer .base .footer-site li {
+  float: left;
+  line-height: 56px;
+}
+#footer .base .footer-copy {
+  float: left;
+  line-height: 56px;
+  width: 480px;
+}
+#footer .base .footer-shared {
+  width: 170px;
+  float: left;
+  line-height: 56px;
+}
+#footer .base .footer-shared p {
+  float: left;
+}
+#footer .base .footer-shared img {
+  margin-top: 15px;
+  float: left;
+}
