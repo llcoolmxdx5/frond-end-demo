@@ -5,6 +5,53 @@ ul {list-style: none;}
 h1, h2, h3, h4, h5, h6, b, strong {font-weight: normal;}
 .fl {float: left;}
 .fr {float: right;}
-a {
-    
+.photo {
+    width: 620px;
+    margin: 200px;
+    ul {
+        li {
+            float: left;
+            .photo-outside {
+                width: 116px;
+                height: 91px;
+                margin-right: 6px;
+                margin-bottom: 6px;
+                background-color: #efefef;
+                border: 1px solid #dddddd;
+                .photo-inside {
+                    width: 104px;
+                    height: 79px;
+                    margin: 6px;
+                    background-color: #fff;
+                    border:1px solid #aaaaaa;
+                    position: relative;
+                    &-img1 {
+                        width: 100px;
+                        height: 75px;
+                        margin: 2px;
+                    }
+                    &-zoom {
+                        display: none;
+                        width: 204px;
+                        height: 154px;
+                        z-index: 1;
+                        border: 1px solid #000000;
+                        position: absolute;
+                        top: -38px;
+                        left: -49px;
+                        img {
+                            margin: 2px;
+                            width: 200px;
+                            height: 150px;
+                        }
+                    }
+                    &:hover {
+                        .photo-inside-zoom {
+                            display: block;
+                        }
+                    }
+                }
+            }
+        }
+    }
 }

@@ -31,3 +31,49 @@ strong {
 .fr {
   float: right;
 }
+.photo {
+  width: 620px;
+  margin: 200px;
+}
+.photo ul li {
+  float: left;
+}
+.photo ul li .photo-outside {
+  width: 116px;
+  height: 91px;
+  margin-right: 6px;
+  margin-bottom: 6px;
+  background-color: #efefef;
+  border: 1px solid #dddddd;
+}
+.photo ul li .photo-outside .photo-inside {
+  width: 104px;
+  height: 79px;
+  margin: 6px;
+  background-color: #fff;
+  border: 1px solid #aaaaaa;
+  position: relative;
+}
+.photo ul li .photo-outside .photo-inside-img1 {
+  width: 100px;
+  height: 75px;
+  margin: 2px;
+}
+.photo ul li .photo-outside .photo-inside-zoom {
+  display: none;
+  width: 204px;
+  height: 154px;
+  z-index: 1;
+  border: 1px solid #000000;
+  position: absolute;
+  top: -38px;
+  left: -49px;
+}
+.photo ul li .photo-outside .photo-inside-zoom img {
+  margin: 2px;
+  width: 200px;
+  height: 150px;
+}
+.photo ul li .photo-outside .photo-inside:hover .photo-inside-zoom {
+  display: block;
+}
