@@ -58,7 +58,20 @@ li div {
   top: -5px;
   left: -5px;
   background-color: #fff;
-  opacity: .5;
+  /* older safari/Chrome browsers */
+  -webkit-opacity: 0.65;
+  /* Netscape and Older than Firefox 0.9 */
+  -moz-opacity: 0.65;
+  /* Safari 1.x (pre WebKit!) 老式khtml内核的Safari浏览器*/
+  -khtml-opacity: 0.65;
+  /* IE9 + etc...modern browsers */
+  opacity: 0.65;
+  /* IE 4-9 */
+  filter: alpha(opacity=65);
+  /*This works in IE 8 & 9 too*/
+  -ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=65);
+  /*IE4-IE9*/
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=65);
   width: 218px;
   height: 228px;
   border: 1px solid #29a3f8;

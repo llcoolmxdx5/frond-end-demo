@@ -1,0 +1,117 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+a {
+  text-decoration: none;
+}
+.clearfix:after {
+  content: "";
+  visibility: hidden;
+  clear: both;
+  display: block;
+  height: 0;
+}
+ul {
+  list-style: none;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+b,
+strong {
+  font-weight: normal;
+}
+.fl {
+  float: left;
+}
+.fr {
+  float: right;
+}
+.nav {
+  width: 1000px;
+  height: 40px;
+  border: 1px solid #ccc;
+  margin: 50px auto;
+}
+.nav li {
+  height: 40px;
+  width: 99px;
+  line-height: 40px;
+  float: left;
+  border-right: 1px dashed #ccc;
+}
+.nav li a {
+  color: #909090;
+  position: relative;
+  display: block;
+  background: url("../images/360bg.png") no-repeat;
+  text-indent: 30px;
+  font-size: 14px;
+}
+.nav li a:hover {
+  color: green;
+}
+.nav li.li1 a {
+  background-position: 5px -54px;
+}
+.nav li.li1:hover a {
+  background-position: 5px -92px;
+}
+.nav li.li2 a {
+  background-position: 5px -130px;
+}
+.nav li.li2:hover a {
+  background-position: 5px -171px;
+}
+.nav li.li3 a {
+  background-position: 5px -294px;
+}
+.nav li.li3:hover a {
+  background-position: 5px -334px;
+}
+.nav li.li4 a {
+  background-position: 5px -212px;
+}
+.nav li.li4:hover a {
+  background-position: 5px -253px;
+}
+.nav li.li5 a {
+  background-position: 5px -374px;
+}
+.nav li.li5:hover a {
+  background-position: 5px -414px;
+}
+.nav li.li6 a {
+  background-position: 5px -453px;
+}
+.nav li.li6:hover a {
+  background-position: 5px -493px;
+}
+.nav li.li7 a {
+  background-position: 5px -531px;
+}
+.nav li.li7:hover a {
+  background-position: 5px -567px;
+}
+.nav li.li8 a {
+  background-position: 5px -603px;
+}
+.nav li.li8:hover a {
+  background-position: 5px -643px;
+}
+.nav li.li9 a {
+  background-position: 5px -683px;
+}
+.nav li.li9:hover a {
+  background-position: 5px -722px;
+}
+.nav li.li10 a {
+  background-position: 5px -760px;
+}
+.nav li.li10:hover a {
+  background-position: 5px -800px;
+}
