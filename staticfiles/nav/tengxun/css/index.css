@@ -1,0 +1,130 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+a {
+  text-decoration: none;
+}
+.clearfix:after {
+  content: "";
+  visibility: hidden;
+  clear: both;
+  display: block;
+  height: 0;
+}
+ul {
+  list-style: none;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+b,
+strong {
+  font-weight: normal;
+}
+.fl {
+  float: left;
+}
+.fr {
+  float: right;
+}
+.nav {
+  width: 738px;
+  height: 62px;
+  margin: 100px;
+}
+.nav li {
+  float: left;
+  margin-right: 2px;
+  height: 62px;
+  background: url("../images/tengxun.jpg") no-repeat;
+  position: relative;
+}
+.nav li span {
+  background: url("../images/tengxun.jpg") no-repeat;
+  z-index: 1;
+  position: absolute;
+  top: 55px;
+  left: 0;
+}
+.nav li:first-child {
+  background-position: 0px -16px;
+  width: 98px;
+  text-align: center;
+}
+.nav li:first-child:hover {
+  background-position: 0px -94px;
+}
+.nav li:first-child span {
+  background-position: 0 -149px;
+  height: 55px;
+  width: 98px;
+}
+.nav li:nth-child(2) {
+  background-position: -100px -16px;
+  width: 122px;
+  text-align: center;
+}
+.nav li:nth-child(2):hover {
+  background-position: -100px -94px;
+}
+.nav li:nth-child(2) span {
+  background-position: -100px -149px;
+  height: 55px;
+  width: 122px;
+}
+.nav li:nth-child(3) {
+  background-position: -224px -16px;
+  width: 144px;
+  text-align: center;
+}
+.nav li:nth-child(3):hover {
+  background-position: -224px -94px;
+}
+.nav li:nth-child(3) span {
+  background-position: -224px -149px;
+  height: 55px;
+  width: 144px;
+}
+.nav li:nth-child(4) {
+  background-position: -370px -16px;
+  width: 118px;
+  text-align: center;
+}
+.nav li:nth-child(4):hover {
+  background-position: -370px -94px;
+}
+.nav li:nth-child(4) span {
+  background-position: -370px -149px;
+  height: 55px;
+  width: 118px;
+}
+.nav li:nth-child(5) {
+  background-position: -490px -16px;
+  width: 122px;
+  text-align: center;
+}
+.nav li:nth-child(5):hover {
+  background-position: -490px -94px;
+}
+.nav li:nth-child(5) span {
+  background-position: -490px -149px;
+  height: 55px;
+  width: 122px;
+}
+.nav li:nth-child(6) {
+  background-position: -614px -16px;
+  width: 122px;
+  text-align: center;
+}
+.nav li:nth-child(6):hover {
+  background-position: -614px -94px;
+}
+.nav li:nth-child(6) span {
+  background-position: -614px -149px;
+  height: 55px;
+  width: 122px;
+}
