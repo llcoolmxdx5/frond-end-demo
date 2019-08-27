@@ -94,6 +94,31 @@ header {
 .header-nav-link li:first-child a {
   color: #53CAC3;
 }
+.header-nav-icon {
+  width: 199px;
+  height: 18px;
+  float: right;
+  margin-top: 19px;
+}
+.header-nav-icon li {
+  float: left;
+  background: url("../images/images_icon.png") no-repeat;
+}
+.header-nav-icon li a {
+  color: #000000;
+}
+.header-nav-icon li:first-child {
+  border-right: 1px solid #e5e5e5;
+  background-position: 0px 0;
+  padding-right: 21px;
+  padding-left: 30px;
+  width: 52px;
+}
+.header-nav-icon li:last-child {
+  width: 46px;
+  background-position: 19px -27px;
+  padding-left: 49px;
+}
 .column {
   margin: -68px auto 16px;
   width: 1170px;
