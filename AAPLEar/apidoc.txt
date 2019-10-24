@@ -5,21 +5,23 @@
 获取商品列表：
     /goodsList
         默认：
-            /goodsList?page=1#!
+            /goodsList?page=1
         排序：最新：
-            /goodsList?page=1#!&s=newest
+            /goodsList?page=1&s=newest
         排序：价格由低到高
-            /goodsList?page=1#!&s=priceLH
+            /goodsList?page=1&s=priceLH
         排序：价格由高到地
-            /goodsList?page=1#!&s=priceHL
+            /goodsList?page=1&s=priceHL
         产品类型：耳机
-            /goodsList?page=1#!f=headphone
+            /goodsList?page=1&f=headphone
         产品类型：扬声器
-            /goodsList?page=1#!f=speaker
+            /goodsList?page=1&f=speaker
         产品类型：耳机保护壳
-            /goodsList?page=1#!f=headphonecase
+            /goodsList?page=1&f=headphonecase
         产品类型：音频适配器
-            /goodsList?page=1#!f=audioadapter
+            /goodsList?page=1&f=audioadapter
+        产品类型：耳机+音频适配器
+            /goodsList?page=1&f=headphone-audioadapter
         请求数据类型:JSON(application/json)
         请求方式:GET
         返回:
