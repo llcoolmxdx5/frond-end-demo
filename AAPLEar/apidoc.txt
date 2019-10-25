@@ -1,15 +1,7 @@
 地址 : http://10.9.42.247:8081
 
 版本号 : /v1
-let arr = [
-    { "colorText": "暗蓝色", "alt": "暗蓝色", "height": "16", "width": "16", "src": "./img/sq_01.jpeg" },
-    { "colorText": "暗蓝色", "alt": "暗蓝色", "height": "16", "width": "16", "src": "./img/sq_02.jpeg" },
-    { "colorText": "暗蓝色", "alt": "暗蓝色", "height": "16", "width": "16", "src": "./img/sq_03.jpeg" },
-    { "colorText": "暗蓝色", "alt": "暗蓝色", "height": "16", "width": "16", "src": "./img/sq_04.jpeg" },
-    { "colorText": "暗蓝色", "alt": "暗蓝色", "height": "16", "width": "16", "src": "./img/sq_05.jpeg" },
-    { "colorText": "暗蓝色", "alt": "暗蓝色", "height": "16", "width": "16", "src": "./img/sq_06.jpeg" },
-    { "colorText": "暗蓝色", "alt": "暗蓝色", "height": "16", "width": "16", "src": "./img/sq_07.jpeg" }
-]
+
 获取商品列表：
     /goodsList
         默认：
