@@ -1,14 +1,7 @@
-let arr = [
-    { "colorText": "暗蓝色", "alt": "暗蓝色", "height": "16", "width": "16", "src": "./img/sq_01.jpeg" },
-    { "colorText": "暗蓝色", "alt": "暗蓝色", "height": "16", "width": "16", "src": "./img/sq_02.jpeg" },
-    { "colorText": "暗蓝色", "alt": "暗蓝色", "height": "16", "width": "16", "src": "./img/sq_03.jpeg" },
-    { "colorText": "暗蓝色", "alt": "暗蓝色", "height": "16", "width": "16", "src": "./img/sq_04.jpeg" },
-    { "colorText": "暗蓝色", "alt": "暗蓝色", "height": "16", "width": "16", "src": "./img/sq_05.jpeg" },
-    { "colorText": "暗蓝色", "alt": "暗蓝色", "height": "16", "width": "16", "src": "./img/sq_06.jpeg" },
-    { "colorText": "暗蓝色", "alt": "暗蓝色", "height": "16", "width": "16", "src": "./img/sq_07.jpeg" }
-]
+
 module.exports = [
     {
+        "id": 10001,
         "title": "AirPods (配无线充电盒)",
         "violatorTranslatedText": "免费激光镌刻服务",
         "productPrice": 1558,
@@ -37,6 +30,7 @@ module.exports = [
         "type": "headphone"
     },
     {
+        "id": 10002,
         "title": "AirPods (配充电盒)",
         "violatorTranslatedText": "免费激光镌刻服务",
         "productPrice": 1246,
@@ -59,6 +53,7 @@ module.exports = [
         "type": "headphone"
     },
     {
+        "id": 10003,
         "title": "适用于 AirPods 的无线充电盒",
         "violatorTranslatedText": "",
         "productPrice": 661,
@@ -81,6 +76,7 @@ module.exports = [
         "type": "headphone"
     },
     {
+        "id": 10004,
         "title": "HomePod - 白色",
         "violatorTranslatedText": "",
         "productPrice": 2299,
@@ -96,18 +92,16 @@ module.exports = [
             "size": 1
         },
         "colorGallery": {
-            "items": [
-                { "colorText": "暗蓝色", "alt": "暗蓝色", "height": "16", "width": "16", "src": "./img/sq_01.jpeg" },
-                { "colorText": "暗蓝色", "alt": "暗蓝色", "height": "16", "width": "16", "src": "./img/sq_02.jpeg" },
-            ],
+            "items": [],
             "size": 0
         },
         "time": 1571837934,
-        "type": "headphone"
+        "type": "speaker"
     },
     {
-        "title": "Beats Solo Pro 无线消噪头戴式耳机 - More Matte Collection - 深蓝色新款",
-        "violatorTranslatedText": "",
+        "id": 10005,
+        "title": "Beats Solo Pro 无线消噪头戴式耳机 - More Matte Collection - 深蓝色",
+        "violatorTranslatedText": "新款",
         "productPrice": 2499,
         "productImages": {
             "items": [
@@ -124,6 +118,10 @@ module.exports = [
             "items": [
                 { "colorText": "暗蓝色", "alt": "暗蓝色", "height": "16", "width": "16", "src": "./img/sq_01.jpeg" },
                 { "colorText": "暗蓝色", "alt": "暗蓝色", "height": "16", "width": "16", "src": "./img/sq_02.jpeg" },
+                { "colorText": "暗蓝色", "alt": "暗蓝色", "height": "16", "width": "16", "src": "./img/sq_03.jpeg" },
+                { "colorText": "暗蓝色", "alt": "暗蓝色", "height": "16", "width": "16", "src": "./img/sq_04.jpeg" },
+                { "colorText": "暗蓝色", "alt": "暗蓝色", "height": "16", "width": "16", "src": "./img/sq_05.jpeg" },
+                { "colorText": "暗蓝色", "alt": "暗蓝色", "height": "16", "width": "16", "src": "./img/sq_06.jpeg" },
             ],
             "size": 2
         },
@@ -131,9 +129,10 @@ module.exports = [
         "type": "headphone"
     },
     {
-        "title": "Powerbeats Pro - 完全无线耳机 - 海军蓝新款",
-        "violatorTranslatedText": "",
-        "productPrice": 2499,
+        "id": 10006,
+        "title": "Powerbeats Pro - 完全无线耳机 - 海军蓝",
+        "violatorTranslatedText": "新款",
+        "productPrice": 1888,
         "productImages": {
             "items": [
                 {
@@ -149,8 +148,6 @@ module.exports = [
             "items": [
                 { "colorText": "暗蓝色", "alt": "暗蓝色", "height": "16", "width": "16", "src": "./img/sq_02.jpeg" },
                 { "colorText": "暗蓝色", "alt": "暗蓝色", "height": "16", "width": "16", "src": "./img/sq_03.jpeg" },
-                { "colorText": "暗蓝色", "alt": "暗蓝色", "height": "16", "width": "16", "src": "./img/sq_04.jpeg" },
-                { "colorText": "暗蓝色", "alt": "暗蓝色", "height": "16", "width": "16", "src": "./img/sq_05.jpeg" },
                 { "colorText": "暗蓝色", "alt": "暗蓝色", "height": "16", "width": "16", "src": "./img/sq_06.jpeg" },
                 { "colorText": "暗蓝色", "alt": "暗蓝色", "height": "16", "width": "16", "src": "./img/sq_07.jpeg" }
             ],
@@ -160,9 +157,10 @@ module.exports = [
         "type": "headphone"
     },
     {
-        "title": "AirPods (配无线充电盒)",
-        "violatorTranslatedText": "免费激光镌刻服务",
-        "productPrice": 1558,
+        "id": 10007,
+        "title": "Beats Studio3 Wireless 头戴式耳机 – Beats Camo Collection – 迷彩沙",
+        "violatorTranslatedText": "新款",
+        "productPrice": 2789,
         "productImages": {
             "items": [
                 {
@@ -175,16 +173,20 @@ module.exports = [
             "size": 1
         },
         "colorGallery": {
-            "items": [],
+            "items": [
+                { "colorText": "暗蓝色", "alt": "暗蓝色", "height": "16", "width": "16", "src": "./img/sq_02.jpeg" },
+                { "colorText": "暗蓝色", "alt": "暗蓝色", "height": "16", "width": "16", "src": "./img/sq_03.jpeg" },
+            ],
             "size": 0
         },
         "time": 1571837934,
         "type": "headphone"
     },
     {
-        "title": "AirPods (配充电盒)",
-        "violatorTranslatedText": "免费激光镌刻服务",
-        "productPrice": 1246,
+        "id": 10008,
+        "title": "BeatsX 入耳式耳机 - Beats Decade Collection - 桀骜黑红",
+        "violatorTranslatedText": "新款",
+        "productPrice": 799,
         "productImages": {
             "items": [
                 {
@@ -197,16 +199,21 @@ module.exports = [
             "size": 1
         },
         "colorGallery": {
-            "items": [],
+            "items": [
+                { "colorText": "暗蓝色", "alt": "暗蓝色", "height": "16", "width": "16", "src": "./img/sq_04.jpeg" },
+                { "colorText": "暗蓝色", "alt": "暗蓝色", "height": "16", "width": "16", "src": "./img/sq_05.jpeg" },
+                { "colorText": "暗蓝色", "alt": "暗蓝色", "height": "16", "width": "16", "src": "./img/sq_06.jpeg" },
+            ],
             "size": 0
         },
         "time": 1571837934,
         "type": "headphone"
     },
     {
-        "title": "适用于 AirPods 的无线充电盒",
+        "id": 10009,
+        "title": "Beats Solo3 Wireless 头戴式耳机 - Beats Icon Collection - 丝缎银",
         "violatorTranslatedText": "",
-        "productPrice": 661,
+        "productPrice": 1699,
         "productImages": {
             "items": [
                 {
@@ -219,16 +226,23 @@ module.exports = [
             "size": 1
         },
         "colorGallery": {
-            "items": [],
+            "items": [
+                { "colorText": "暗蓝色", "alt": "暗蓝色", "height": "16", "width": "16", "src": "./img/sq_03.jpeg" },
+                { "colorText": "暗蓝色", "alt": "暗蓝色", "height": "16", "width": "16", "src": "./img/sq_04.jpeg" },
+                { "colorText": "暗蓝色", "alt": "暗蓝色", "height": "16", "width": "16", "src": "./img/sq_05.jpeg" },
+                { "colorText": "暗蓝色", "alt": "暗蓝色", "height": "16", "width": "16", "src": "./img/sq_06.jpeg" },
+                { "colorText": "暗蓝色", "alt": "暗蓝色", "height": "16", "width": "16", "src": "./img/sq_07.jpeg" }
+            ],
             "size": 0
         },
         "time": 1571837934,
         "type": "headphone"
     },
     {
-        "title": "HomePod - 白色",
+        "id": 10010,
+        "title": "Beats Solo3 Wireless 头戴式耳机 - Beats Club Collection – 学院红",
         "violatorTranslatedText": "",
-        "productPrice": 2299,
+        "productPrice": 1699,
         "productImages": {
             "items": [
                 {
@@ -251,9 +265,10 @@ module.exports = [
         "type": "headphone"
     },
     {
-        "title": "Beats Solo Pro 无线消噪头戴式耳机 - More Matte Collection - 深蓝色新款",
+        "id": 10011,
+        "title": "Beats Studio3 Wireless 头戴式耳机 - NBA Collection - 湖人紫",
         "violatorTranslatedText": "",
-        "productPrice": 2499,
+        "productPrice": 2789,
         "productImages": {
             "items": [
                 {
@@ -276,9 +291,10 @@ module.exports = [
         "type": "headphone"
     },
     {
-        "title": "Powerbeats Pro - 完全无线耳机 - 海军蓝新款",
+        "id": 10012,
+        "title": "Beats Studio3 Wireless 头戴式耳机 – Beats Skyline Collection - 午夜黑",
         "violatorTranslatedText": "",
-        "productPrice": 2499,
+        "productPrice": 2789,
         "productImages": {
             "items": [
                 {
@@ -305,9 +321,10 @@ module.exports = [
         "type": "headphone"
     },
     {
-        "title": "AirPods (配无线充电盒)",
-        "violatorTranslatedText": "免费激光镌刻服务",
-        "productPrice": 1558,
+        "id": 10013,
+        "title": "urBeats3 入耳式耳机 (采用闪电接头) - 丝缎金",
+        "violatorTranslatedText": "",
+        "productPrice": 486,
         "productImages": {
             "items": [
                 {
@@ -327,9 +344,10 @@ module.exports = [
         "type": "headphone"
     },
     {
-        "title": "AirPods (配充电盒)",
-        "violatorTranslatedText": "免费激光镌刻服务",
-        "productPrice": 1246,
+        "id": 10014,
+        "title": "urBeats3 入耳式耳机 (采用 3.5 毫米插头) - 黑色",
+        "violatorTranslatedText": "",
+        "productPrice": 486,
         "productImages": {
             "items": [
                 {
@@ -349,9 +367,10 @@ module.exports = [
         "type": "headphone"
     },
     {
-        "title": "适用于 AirPods 的无线充电盒",
+        "id": 10015,
+        "title": "Powerbeats3 Wireless 入耳式耳机 - Beats Decade Collection - 桀骜黑红",
         "violatorTranslatedText": "",
-        "productPrice": 661,
+        "productPrice": 1437,
         "productImages": {
             "items": [
                 {
@@ -371,9 +390,10 @@ module.exports = [
         "type": "headphone"
     },
     {
-        "title": "HomePod - 白色",
+        "id": 10016,
+        "title": "Powerbeats3 Wireless 入耳式耳机 – Beats Pop Collection – Pop 紫",
         "violatorTranslatedText": "",
-        "productPrice": 2299,
+        "productPrice": 1437,
         "productImages": {
             "items": [
                 {
@@ -396,9 +416,10 @@ module.exports = [
         "type": "headphone"
     },
     {
-        "title": "Beats Solo Pro 无线消噪头戴式耳机 - More Matte Collection - 深蓝色新款",
+        "id": 10017,
+        "title": "Beats EP 头戴式耳机 - 蓝色",
         "violatorTranslatedText": "",
-        "productPrice": 2499,
+        "productPrice": 761,
         "productImages": {
             "items": [
                 {
@@ -421,9 +442,10 @@ module.exports = [
         "type": "headphone"
     },
     {
-        "title": "Powerbeats Pro - 完全无线耳机 - 海军蓝新款",
+        "id": 10018,
+        "title": "Beats Pro 头戴式耳机 - 黑色",
         "violatorTranslatedText": "",
-        "productPrice": 2499,
+        "productPrice": 2982,
         "productImages": {
             "items": [
                 {
@@ -450,6 +472,7 @@ module.exports = [
         "type": "headphone"
     },
     {
+        "id": 10019,
         "title": "Beats Pill+ 便携式扬声器 - 黑色",
         "violatorTranslatedText": "",
         "productPrice": 1533,
@@ -472,6 +495,7 @@ module.exports = [
         "type": "speaker"
     },
     {
+        "id": 10020,
         "title": "Catalyst AirPods 防水保护套 - 特别版 - 夜光色",
         "violatorTranslatedText": "Apple 独家提供",
         "productPrice": 228,
@@ -494,6 +518,7 @@ module.exports = [
         "type": "headphonecase"
     },
     {
+        "id": 10021,
         "title": "Incase AirPods 保护壳 (外覆 Woolenex 材质) - 沥青色",
         "violatorTranslatedText": "Apple 独家提供",
         "productPrice": 228,
@@ -516,9 +541,10 @@ module.exports = [
         "type": "headphonecase"
     },
     {
-        "title": "HomePod - 白色",
+        "id": 10022,
+        "title": "Native Union 皮革保护壳 (适用于 AirPods)",
         "violatorTranslatedText": "",
-        "productPrice": 2299,
+        "productPrice": 348,
         "productImages": {
             "items": [
                 {
@@ -538,12 +564,13 @@ module.exports = [
             "size": 0
         },
         "time": 1571837934,
-        "type": "headphone"
+        "type": "headphonecase"
     },
     {
-        "title": "Beats Solo Pro 无线消噪头戴式耳机 - More Matte Collection - 深蓝色新款",
+        "id": 10023,
+        "title": "Bose® QuietComfort® 35 无线耳机 II",
         "violatorTranslatedText": "",
-        "productPrice": 2499,
+        "productPrice": 2298,
         "productImages": {
             "items": [
                 {
@@ -566,9 +593,10 @@ module.exports = [
         "type": "headphone"
     },
     {
-        "title": "Powerbeats Pro - 完全无线耳机 - 海军蓝新款",
+        "id": 10024,
+        "title": "采用闪电接头的 EarPods",
         "violatorTranslatedText": "",
-        "productPrice": 2499,
+        "productPrice": 223,
         "productImages": {
             "items": [
                 {
@@ -595,9 +623,10 @@ module.exports = [
         "type": "headphone"
     },
     {
-        "title": "AirPods (配无线充电盒)",
-        "violatorTranslatedText": "免费激光镌刻服务",
-        "productPrice": 1558,
+        "id": 10025,
+        "title": "采用闪电接口供电的 Pioneer Rayz Plus 耳机",
+        "violatorTranslatedText": "Apple 独家提供",
+        "productPrice": 628,
         "productImages": {
             "items": [
                 {
@@ -617,9 +646,10 @@ module.exports = [
         "type": "headphone"
     },
     {
-        "title": "AirPods (配充电盒)",
-        "violatorTranslatedText": "免费激光镌刻服务",
-        "productPrice": 1246,
+        "id": 10026,
+        "title": "Ultimate Ears BOOM 3 无线蓝牙扬声器",
+        "violatorTranslatedText": "Apple 独家提供",
+        "productPrice": 1266,
         "productImages": {
             "items": [
                 {
@@ -636,12 +666,13 @@ module.exports = [
             "size": 0
         },
         "time": 1571837934,
-        "type": "headphone"
+        "type": "speaker"
     },
     {
-        "title": "适用于 AirPods 的无线充电盒",
-        "violatorTranslatedText": "",
-        "productPrice": 661,
+        "id": 10027,
+        "title": "Ultimate Ears MEGABOOM 3 无线蓝牙扬声器",
+        "violatorTranslatedText": "Apple 独家提供",
+        "productPrice": 1750,
         "productImages": {
             "items": [
                 {
@@ -658,12 +689,13 @@ module.exports = [
             "size": 0
         },
         "time": 1571837934,
-        "type": "headphone"
+        "type": "speaker"
     },
     {
-        "title": "HomePod - 白色",
-        "violatorTranslatedText": "",
-        "productPrice": 2299,
+        "id": 10028,
+        "title": "Ultimate Ears WONDERBOOM 2 便携式无线蓝牙扬声器",
+        "violatorTranslatedText": "Apple 独家提供",
+        "productPrice": 730,
         "productImages": {
             "items": [
                 {
@@ -683,12 +715,13 @@ module.exports = [
             "size": 0
         },
         "time": 1571837934,
-        "type": "headphone"
+        "type": "speaker"
     },
     {
-        "title": "Beats Solo Pro 无线消噪头戴式耳机 - More Matte Collection - 深蓝色新款",
+        "id": 10029,
+        "title": "Bose® SoundLink® Micro 蓝牙扬声器",
         "violatorTranslatedText": "",
-        "productPrice": 2499,
+        "productPrice": 960,
         "productImages": {
             "items": [
                 {
@@ -708,12 +741,13 @@ module.exports = [
             "size": 2
         },
         "time": 1571837934,
-        "type": "headphone"
+        "type": "speaker"
     },
     {
-        "title": "Powerbeats Pro - 完全无线耳机 - 海军蓝新款",
+        "id": 10030,
+        "title": "Bose® QuietControl™ 30 无线耳机",
         "violatorTranslatedText": "",
-        "productPrice": 2499,
+        "productPrice": 2410,
         "productImages": {
             "items": [
                 {
@@ -740,9 +774,10 @@ module.exports = [
         "type": "headphone"
     },
     {
-        "title": "AirPods (配无线充电盒)",
-        "violatorTranslatedText": "免费激光镌刻服务",
-        "productPrice": 1558,
+        "id": 10031,
+        "title": "Bose® SoundLink® Revolve 蓝牙扬声器",
+        "violatorTranslatedText": "",
+        "productPrice": 1830,
         "productImages": {
             "items": [
                 {
@@ -759,12 +794,13 @@ module.exports = [
             "size": 0
         },
         "time": 1571837934,
-        "type": "headphone"
+        "type": "speaker"
     },
     {
-        "title": "AirPods (配充电盒)",
-        "violatorTranslatedText": "免费激光镌刻服务",
-        "productPrice": 1246,
+        "id": 10032,
+        "title": "Bose® SoundLink® Revolve+ 蓝牙扬声器",
+        "violatorTranslatedText": "",
+        "productPrice": 2530,
         "productImages": {
             "items": [
                 {
@@ -781,12 +817,13 @@ module.exports = [
             "size": 0
         },
         "time": 1571837934,
-        "type": "headphone"
+        "type": "speaker"
     },
     {
-        "title": "适用于 AirPods 的无线充电盒",
+        "id": 10033,
+        "title": "Bose SoundLink Color 蓝牙扬声器 II",
         "violatorTranslatedText": "",
-        "productPrice": 661,
+        "productPrice": 1158,
         "productImages": {
             "items": [
                 {
@@ -803,9 +840,10 @@ module.exports = [
             "size": 0
         },
         "time": 1571837934,
-        "type": "headphone"
+        "type": "speaker"
     },
     {
+        "id": 10034,
         "title": "闪电转 3.5 毫米耳机插孔转换器",
         "violatorTranslatedText": "",
         "productPrice": 67,
@@ -821,19 +859,17 @@ module.exports = [
             "size": 1
         },
         "colorGallery": {
-            "items": [
-                { "colorText": "暗蓝色", "alt": "暗蓝色", "height": "16", "width": "16", "src": "./img/sq_01.jpeg" },
-                { "colorText": "暗蓝色", "alt": "暗蓝色", "height": "16", "width": "16", "src": "./img/sq_02.jpeg" },
-            ],
+            "items": [],
             "size": 0
         },
         "time": 1571837934,
         "type": "audioadapter"
     },
     {
-        "title": "Beats Solo Pro 无线消噪头戴式耳机 - More Matte Collection - 深蓝色新款",
+        "id": 10035,
+        "title": "采用 3.5 毫米耳机插头的 EarPods",
         "violatorTranslatedText": "",
-        "productPrice": 2499,
+        "productPrice": 223,
         "productImages": {
             "items": [
                 {
@@ -846,19 +882,17 @@ module.exports = [
             "size": 1
         },
         "colorGallery": {
-            "items": [
-                { "colorText": "暗蓝色", "alt": "暗蓝色", "height": "16", "width": "16", "src": "./img/sq_01.jpeg" },
-                { "colorText": "暗蓝色", "alt": "暗蓝色", "height": "16", "width": "16", "src": "./img/sq_02.jpeg" },
-            ],
+            "items": [],
             "size": 2
         },
         "time": 1571837934,
         "type": "headphone"
     },
     {
-        "title": "Powerbeats Pro - 完全无线耳机 - 海军蓝新款",
+        "id": 10036,
+        "title": "USB-C 转 3.5 毫米耳机插孔转换器",
         "violatorTranslatedText": "",
-        "productPrice": 2499,
+        "productPrice": 67,
         "productImages": {
             "items": [
                 {
@@ -871,23 +905,17 @@ module.exports = [
             "size": 1
         },
         "colorGallery": {
-            "items": [
-                { "colorText": "暗蓝色", "alt": "暗蓝色", "height": "16", "width": "16", "src": "./img/sq_02.jpeg" },
-                { "colorText": "暗蓝色", "alt": "暗蓝色", "height": "16", "width": "16", "src": "./img/sq_03.jpeg" },
-                { "colorText": "暗蓝色", "alt": "暗蓝色", "height": "16", "width": "16", "src": "./img/sq_04.jpeg" },
-                { "colorText": "暗蓝色", "alt": "暗蓝色", "height": "16", "width": "16", "src": "./img/sq_05.jpeg" },
-                { "colorText": "暗蓝色", "alt": "暗蓝色", "height": "16", "width": "16", "src": "./img/sq_06.jpeg" },
-                { "colorText": "暗蓝色", "alt": "暗蓝色", "height": "16", "width": "16", "src": "./img/sq_07.jpeg" }
-            ],
+            "items": [],
             "size": 6
         },
         "time": 1571837934,
         "type": "audioadapter"
     },
     {
-        "title": "AirPods (配无线充电盒)",
-        "violatorTranslatedText": "免费激光镌刻服务",
-        "productPrice": 1558,
+        "id": 10037,
+        "title": "Bose 700 无线消噪耳机",
+        "violatorTranslatedText": "",
+        "productPrice": 2998,
         "productImages": {
             "items": [
                 {
@@ -907,9 +935,10 @@ module.exports = [
         "type": "headphone"
     },
     {
-        "title": "AirPods (配充电盒)",
+        "id": 10038,
+        "title": "Belkin 3.5 mm Audio + Charge Rockstar",
         "violatorTranslatedText": "免费激光镌刻服务",
-        "productPrice": 1246,
+        "productPrice": 270,
         "productImages": {
             "items": [
                 {
@@ -929,9 +958,10 @@ module.exports = [
         "type": "audioadapter"
     },
     {
-        "title": "适用于 AirPods 的无线充电盒",
-        "violatorTranslatedText": "",
-        "productPrice": 661,
+        "id": 10039,
+        "title": "Jaybird Tarah Pro 无线运动耳机",
+        "violatorTranslatedText": "Apple 独家提供",
+        "productPrice": 598,
         "productImages": {
             "items": [
                 {
@@ -951,9 +981,10 @@ module.exports = [
         "type": "headphone"
     },
     {
-        "title": "HomePod - 白色",
+        "id": 10040,
+        "title": "Bang & Olufsen Beoplay H9i 降噪蓝牙头戴式耳机",
         "violatorTranslatedText": "",
-        "productPrice": 2299,
+        "productPrice": 3798,
         "productImages": {
             "items": [
                 {
@@ -966,19 +997,17 @@ module.exports = [
             "size": 1
         },
         "colorGallery": {
-            "items": [
-                { "colorText": "暗蓝色", "alt": "暗蓝色", "height": "16", "width": "16", "src": "./img/sq_01.jpeg" },
-                { "colorText": "暗蓝色", "alt": "暗蓝色", "height": "16", "width": "16", "src": "./img/sq_02.jpeg" },
-            ],
+            "items": [],
             "size": 0
         },
         "time": 1571837934,
         "type": "headphone"
     },
     {
-        "title": "Beats Solo Pro 无线消噪头戴式耳机 - More Matte Collection - 深蓝色新款",
-        "violatorTranslatedText": "",
-        "productPrice": 2499,
+        "id": 10041,
+        "title": "采用闪电接口供电的 Pioneer Rayz Rally 会议扬声器 - 深空灰色",
+        "violatorTranslatedText": "Apple 独家提供",
+        "productPrice": 868,
         "productImages": {
             "items": [
                 {
@@ -991,19 +1020,17 @@ module.exports = [
             "size": 1
         },
         "colorGallery": {
-            "items": [
-                { "colorText": "暗蓝色", "alt": "暗蓝色", "height": "16", "width": "16", "src": "./img/sq_01.jpeg" },
-                { "colorText": "暗蓝色", "alt": "暗蓝色", "height": "16", "width": "16", "src": "./img/sq_02.jpeg" },
-            ],
+            "items": [],
             "size": 2
         },
         "time": 1571837934,
-        "type": "audioadapter"
+        "type": "speaker"
     },
     {
-        "title": "Powerbeats Pro - 完全无线耳机 - 海军蓝新款",
+        "id": 10042,
+        "title": "Belkin Lightning Audio + Charge Rockstar",
         "violatorTranslatedText": "",
-        "productPrice": 2499,
+        "productPrice": 288,
         "productImages": {
             "items": [
                 {
@@ -1016,23 +1043,17 @@ module.exports = [
             "size": 1
         },
         "colorGallery": {
-            "items": [
-                { "colorText": "暗蓝色", "alt": "暗蓝色", "height": "16", "width": "16", "src": "./img/sq_02.jpeg" },
-                { "colorText": "暗蓝色", "alt": "暗蓝色", "height": "16", "width": "16", "src": "./img/sq_03.jpeg" },
-                { "colorText": "暗蓝色", "alt": "暗蓝色", "height": "16", "width": "16", "src": "./img/sq_04.jpeg" },
-                { "colorText": "暗蓝色", "alt": "暗蓝色", "height": "16", "width": "16", "src": "./img/sq_05.jpeg" },
-                { "colorText": "暗蓝色", "alt": "暗蓝色", "height": "16", "width": "16", "src": "./img/sq_06.jpeg" },
-                { "colorText": "暗蓝色", "alt": "暗蓝色", "height": "16", "width": "16", "src": "./img/sq_07.jpeg" }
-            ],
+            "items": [],
             "size": 6
         },
         "time": 1571837934,
         "type": "audioadapter"
     },
     {
-        "title": "AirPods (配无线充电盒)",
-        "violatorTranslatedText": "免费激光镌刻服务",
-        "productPrice": 1558,
+        "id": 10043,
+        "title": "Libratone ZIPP Mini 无线扬声器",
+        "violatorTranslatedText": "Apple 独家提供",
+        "productPrice": 1350,
         "productImages": {
             "items": [
                 {
@@ -1049,12 +1070,13 @@ module.exports = [
             "size": 0
         },
         "time": 1571837934,
-        "type": "headphone"
+        "type": "speaker"
     },
     {
-        "title": "AirPods (配充电盒)",
-        "violatorTranslatedText": "免费激光镌刻服务",
-        "productPrice": 1246,
+        "id": 10044,
+        "title": "Belkin Mini Aux Extender 连接线",
+        "violatorTranslatedText": "",
+        "productPrice": 76,
         "productImages": {
             "items": [
                 {
@@ -1074,9 +1096,10 @@ module.exports = [
         "type": "audioadapter"
     },
     {
-        "title": "适用于 AirPods 的无线充电盒",
+        "id": 10045,
+        "title": "Bose QuietComfort 20 声学降噪耳机",
         "violatorTranslatedText": "",
-        "productPrice": 661,
+        "productPrice": 2008,
         "productImages": {
             "items": [
                 {
@@ -1093,12 +1116,13 @@ module.exports = [
             "size": 0
         },
         "time": 1571837934,
-        "type": "headphone"
+        "type": "audioadapter"
     },
     {
-        "title": "HomePod - 白色",
+        "id": 10046,
+        "title": "Apogee Sennheiser AMBEO 3D 录音耳机",
         "violatorTranslatedText": "Apple 独家提供",
-        "productPrice": 2299,
+        "productPrice": 2220,
         "productImages": {
             "items": [
                 {
@@ -1118,9 +1142,10 @@ module.exports = [
         "type": "headphone"
     },
     {
+        "id": 10047,
         "title": "Libratone ZIPP 无线扬声器",
         "violatorTranslatedText": "Apple 独家提供",
-        "productPrice": 2499,
+        "productPrice": 2120,
         "productImages": {
             "items": [
                 {
