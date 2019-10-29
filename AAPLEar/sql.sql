@@ -1,0 +1,11 @@
+CREATE TABLE IF NOT EXISTS `user` (
+  `uid` int(11) NOT NULL AUTO_INCREMENT,
+  `user` varchar(20) CHARACTER SET ascii COLLATE ascii_bin NOT NULL,
+  `password` varchar(16) CHARACTER SET ascii COLLATE ascii_bin NOT NULL,
+  PRIMARY KEY (`uid`)
+) ENGINE=INNODB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+
+CREATE TABLE IF NOT EXISTS `cart` (
+  `uid` int(11) NOT NULL,
+  `pid` int(11) NOT NULL
+) ENGINE=INNODB  DEFAULT CHARSET=utf8 ;

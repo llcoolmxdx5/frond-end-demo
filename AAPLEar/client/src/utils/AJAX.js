@@ -1,81 +1,67 @@
-import QueryString from "../utils/Querystring.js";
-import MainControl from "../controller/MainControl.js";
-import MainModel from "../model/MainModel.js";
-export default class AJAX {
-    static method = "POST";
-    static dataType = "JSON";
-    constructor() {
+// mothod = fetch 报错 跨域
+async function ajax (url = '', data = {}, type = 'GET', method = 'fetchs'){
+    // 整理表单数据
+    type = type.toUpperCase();
+    let sendData;
+    if (type === 'GET') {
+        let _data = [];
+        Object.keys(data).forEach(key => {
+            _data.push(key + '=' + data[key])
+        });
+        let baseUrl = 'http://10.9.42.247:4000/api/v1';
+        url = baseUrl + url + '?' + _data.join('&')
+    } else {
+        sendData = JSON.stringify(data)
+    }
+    // 创建ajax提交对象
 
-    }
-    static post(prom) {
-        if (AJAX.dataType === AJAX.JSON) {
-            AJAX.httpSend("POST", encodeURIComponent(JSON.stringify(prom)))
-        } else if (AJAX.dataType === AJAX.QUERYSTRING) {
-            AJAX.httpSend("POST", QueryString.stringify(prom));
+    if (window.fetch && method === 'fetch') {
+        let reqConfig = {
+            credentials: 'include',
+            method: type,
+            headers: {
+                'Accept': 'application/json',
+                'Content-type': 'application/json'
+            },
+            mode: 'cors',
+            cache: 'force-cache'
+        };
+        let response, responseJson;
+        try {
+            response = await fetch(url, reqConfig);
+            responseJson = await response.json();
+            return responseJson
+        } catch(error) {
+            throw new Error(error)
         }
-    }
-    static get(prom) {
-        if (AJAX.dataType === AJAX.JSON) {
-            AJAX.httpSend("GET", encodeURIComponent(JSON.stringify(prom)))
-        } else if (AJAX.dataType === AJAX.QUERYSTRING) {
-            AJAX.httpSend("GET", QueryString.stringify(prom));
-        }
-    }
-    static httpSend(type, data) {
-        var data1 = (type === "POST" ? data : null);
-        data = (type === "POST" ? "" : "?" + data);
-        var xhr = new XMLHttpRequest();
-        xhr.addEventListener("readystatechange", AJAX.readyStateChangeHandler);
-        xhr.open(type, "http://" + AJAX.URL + data);
-        xhr.send(data1);
-    }
+    } else {
+        return new Promise((resolve, reject) => {
+            let reqObj;
 
-    static readyStateChangeHandler(e) {
-        if (this.readyState !== 4) return;
-        if (this.readyState === 4 && this.status !== 200) {
-            console.log("失败了");
-            return;
-        }
-        var data;
-        if (AJAX.dataType === AJAX.JSON) {
-            data = JSON.parse(decodeURIComponent(this.response));
-        } else if (AJAX.dataType === AJAX.QUERYSTRING) {
-            data = QueryString.parse(this.response);
-        }
-        switch (data.type) {
-            case 0x01:
-                MainModel.getInstance().goodsList = data.result;
-                MainControl.dispatch(MainControl.CREATE_GOODS_LIST_EVENT);
-                break;
-            case 0x02:
-                MainModel.getInstance().shoppingList = data.result;
-                MainControl.dispatch(MainControl.CREATE_SHOPPING_LIST_EVENT);
-                break;
-            case 0x03:
-                MainModel.getInstance().shoppingList = data.result;
-                MainControl.dispatch(MainControl.ADD_GOODS_EVENT);
-                break;
-            case 0x04:
-                MainModel.getInstance().shoppingList = data.result;
-                MainControl.dispatch(MainControl.CHANGE_NUM_EVENT);
-                break;
-            case 0x05:
-                MainModel.getInstance().shoppingList = data.result;
-                MainControl.dispatch(MainControl.DELETED_NUM_EVENT);
-                break;
-            case 0x06:
-                MainModel.getInstance().shoppingList = data.result;
-                MainControl.dispatch(MainControl.SELECTED_GOODS_EVENT);
-                break;
-        }
-    }
-    static get URL() {
-        return "10.9.42.247:8010/api/v1";
-    }
-    static get JSON() {
-        return "JSON";
-    }
-    static get QUERYSTRING() {
-        return "queryString";
+            if (window.XMLHttpRequest) {
+                reqObj = new XMLHttpRequest()
+            } else {
+                reqObj = new ActiveXObject('Microsoft.XMLHTTP')
+            }
+
+            reqObj.open(type, url, true);
+            reqObj.setRequestHeader("Content-type", "application/x-www-form-urlencoded")
+            reqObj.send(sendData);
+
+            reqObj.onreadystatechange = () => {
+                if (reqObj.readyState === 4) {
+                    if (reqObj.status === 200) {
+                        let res = reqObj.response;
+                        if (typeof res !== 'object') {
+                            res = JSON.parse(res)
+                        }
+                        resolve(res)
+                    } else {
+                        reject(reqObj)
+                    }
+                }
+            }
+        })
     }
 }
+export default ajax

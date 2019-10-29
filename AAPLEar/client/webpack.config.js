@@ -17,13 +17,13 @@ var config = {
                 loader: 'babel-loader',
                 exclude: /node_modules/
             },
-            {
-                test: /\.css$/,
-                use: ExtractTextPlugin.extract({
-                    use: 'css-loader',
-                    fallback: 'style-loader'
-                })
-            },
+            // {
+            //     test: /\.css$/,
+            //     use: ExtractTextPlugin.extract({
+            //         use: 'css-loader',
+            //         fallback: 'style-loader'
+            //     })
+            // },
             {
                 test: /\.s[ac]ss$/i,
                 use: ExtractTextPlugin.extract({

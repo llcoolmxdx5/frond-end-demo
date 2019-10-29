@@ -1,29 +1,29 @@
 const products = require('./product');
 class GoodsList {
     constructor(f, s, page) {
-        this.f = f
-        this.s = s
-        this.page = page
-        this.product = products
+        this.f = f;
+        this.s = s;
+        this.page = page;
+        this.product = products;
         this.init()
     }
     init() {
         if (this.s) {
             switch (this.s) {
                 case 'newest':
-                    this.sNewest()
-                    break
+                    this.sNewest();
+                    break;
                 case 'priceLH':
-                    this.sPriceLH()
-                    break
+                    this.sPriceLH();
+                    break;
                 case 'priceHL':
-                    this.sPriceHL()
+                    this.sPriceHL();
                     break
             }
         }
         if (this.f) {
-            let arr = this.f.split('-')
-            let arr1 = []
+            let arr = this.f.split('-');
+            let arr1 = [];
             for (let i = 0; i < arr.length; i++) {
                 if (arr[i] === 'headphone') {
                     arr1 = arr1.concat(this.selectType('headphone'))
@@ -47,7 +47,8 @@ class GoodsList {
                 "results": {
                     "hasResults": true,
                     "items": this.product,
-                    "size": this.product.length
+                    "size": this.product.length,
+                    "page": Math.ceil(products.length / 30)
                 }
             }
         }
@@ -58,8 +59,8 @@ class GoodsList {
     sNewest() {
         function compare(prop) {
             return function (a, b) {
-                let value1 = a[prop]
-                let value2 = b[prop]
+                let value1 = a[prop];
+                let value2 = b[prop];
                 return value2 - value1
             }
         }
@@ -68,8 +69,8 @@ class GoodsList {
     sPriceLH() {
         function compare(prop) {
             return function (a, b) {
-                let value1 = a[prop]
-                let value2 = b[prop]
+                let value1 = a[prop];
+                let value2 = b[prop];
                 return value1 - value2
             }
         }
@@ -78,21 +79,21 @@ class GoodsList {
     sPriceHL() {
         function compare(prop) {
             return function (a, b) {
-                let value1 = a[prop]
-                let value2 = b[prop]
+                let value1 = a[prop];
+                let value2 = b[prop];
                 return value2 - value1
             }
         }
         this.product.sort(compare('productPrice'))
     }
     selectType(type1) {
-        let arr = []
+        let arr = [];
         this.product.forEach(function (item, index) {
             if (item.type === type1) {
                 arr.push(item)
             }
-        })
+        });
         return arr
     }
 }
-module.exports = GoodsList
+module.exports = GoodsList;

@@ -7,7 +7,7 @@ export default class Carousel {
         this.bool = false;
         this.imgConLeft = 0;
         this.speed = 0.5;
-        this.autoBool = false;
+        this.autoBool = true;
         this.time = 300;
         document.documentElement.style.fontSize = "100px";
         document.body.style.fontSize = "16px";
@@ -15,7 +15,7 @@ export default class Carousel {
         // 父容器比例发生变化。因此要求出父容器和屏幕的比例
         this.conWidth = parent.offsetWidth / 100 * screen.width / parent.offsetWidth;
         this.parent = parent;
-        Utils.loadImgs(imgList, "./img/", (list) => {
+        Utils.loadImgs(imgList, "./src/assets/img/", (list) => {
             this.imgLoadFinish(list)
         });
     }
@@ -24,13 +24,13 @@ export default class Carousel {
         this.imgList = list.map((item) => {
             Object.assign(item.style, {
                 width: this.conWidth + "rem",
-                height: this.conWidth / 3 + "rem"
-            })
+                height: this.conWidth / 7.46 + "rem"
+            });
             return item;
         });
         let carousel = Utils.ce("div", {
             width: this.conWidth + "rem",
-            height: this.conWidth / 3 + "rem",
+            height: this.conWidth / 7.466 + "rem",
             position: "relative",
             margin: "auto",
             overflow: "hidden"
@@ -38,7 +38,7 @@ export default class Carousel {
         this.createImgCon(carousel);
         this.createDot(carousel);
         this.createBn(carousel);
-        this.parent.appendChild(carousel);
+        this.parent.insertBefore(carousel, this.parent.firstChild);
         carousel.addEventListener("mouseenter", e => { this.mouseHandler(e); });
         carousel.addEventListener("mouseleave", e => { this.mouseHandler(e); });
         this.changeDot();
@@ -58,7 +58,7 @@ export default class Carousel {
     createImgCon(parent) {
         this.imgCon = Utils.ce("div", {
             width: this.conWidth * 2 + "rem",
-            height: this.conWidth / 3 + "rem",
+            height: this.conWidth / 7.466 + "rem",
             position: "absolute"
         });
         this.imgCon.appendChild(this.imgList[0]);
@@ -71,7 +71,7 @@ export default class Carousel {
             let li = Utils.ce("li", {
                 width: "0.2rem",
                 height: "0.2rem",
-                border: "1px solid #FF0000",
+                border: "1px solid #000000",
                 borderRadius: "0.1rem",
                 float: "left",
                 marginLeft: i === 0 ? 0 : "0.1rem"
@@ -84,9 +84,9 @@ export default class Carousel {
             margin: "0px",
             padding: "0px",
             position: "absolute",
-            bottom: "0.5rem",
+            bottom: "0.2rem",
             left: (this.conWidth - w) / 2 + "rem"
-        })
+        });
         this.dot.addEventListener("click", e => { this.dotClickHandler(e) });
         parent.appendChild(this.dot);
     }
@@ -94,10 +94,10 @@ export default class Carousel {
         for (let i = 0; i < this.bnList.length; i++) {
             Object.assign(this.bnList[i].style, {
                 position: "absolute",
-                top: (this.conWidth / 3 - (this.bnList[i].height / 100)) / 2 + "rem",
+                top: (this.conWidth / 7.466 - (this.bnList[i].height / 100)) / 2 + "rem",
                 left: i === 0 ? "0.5rem" : "none",
                 right: i === 1 ? "0.5rem" : "none"
-            })
+            });
             parent.appendChild(this.bnList[i]);
             this.bnList[i].addEventListener("click", e => { this.bnClickHandler(e) });
         }
@@ -121,7 +121,7 @@ export default class Carousel {
         } else {
             //rightBn
             this.position++;
-            this.direction = "right"
+            this.direction = "right";
             if (this.position > this.imgList.length - 1) this.position = 0;
         }
         this.createNextImg();
@@ -151,10 +151,10 @@ export default class Carousel {
     }
     changeDot() {
         if (this.pre) {
-            this.pre.style.backgroundColor = "rgba(255,0,0,0)";
+            this.pre.style.backgroundColor = "rgba(0,0,0,0)";
         }
         this.pre = this.dot.children[this.position];
-        this.pre.style.backgroundColor = "rgba(255,0,0,0.5)";
+        this.pre.style.backgroundColor = "rgba(0,0,0,0.5)";
     }
     imgConMove() {
         if (!this.bool) return;
