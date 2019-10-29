@@ -1,5 +1,5 @@
 // mothod = fetch 报错 跨域
-async function ajax (url = '', data = {}, type = 'GET', method = 'fetchs'){
+async function ajax (url = '', data = {}, type = 'GET', method = ''){
     // 整理表单数据
     type = type.toUpperCase();
     let sendData;

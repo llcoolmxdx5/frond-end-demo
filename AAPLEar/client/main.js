@@ -15,29 +15,19 @@ window.addEventListener('load', function (e) {
 window.addEventListener('hashchange', function (e) {
     hashChangeHandler(e)
 });
-let status = '';
+
 function hashChangeHandler(e) {
     let hash = location.hash.slice(2,);
     console.log(hash);
     if (hash === 'cart') {
-        if (status !== 'cart') {
-            app.innerHTML = '';
-            new Cart();
-            status = 'cart';
-        }
+        app.innerHTML = '';
+        new Cart();
     } else if (hash === 'detail') {
-        if (status !== 'detail') {
-            app.innerHTML = '';
-            new Detail();
-            status = 'detail';
-        }
+        app.innerHTML = '';
+        new Detail();
     } else if (hash.slice(0,5) === 'index') {
-        console.log('首页');
-        if (status !== 'index') {
-            app.innerHTML = '';
-            new Index(app);
-            status = 'index';
-        }
+        app.innerHTML = '';
+        new Index(app);
     }
 }
 

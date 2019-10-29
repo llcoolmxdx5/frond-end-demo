@@ -5,7 +5,7 @@
 获取商品列表：
     /goodsList
         默认：
-            /goodsList?page=1
+            /goodsList?page=1&s=featured
         排序：最新：
             /goodsList?page=1&s=newest
         排序：价格由低到高

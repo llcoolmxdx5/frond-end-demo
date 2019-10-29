@@ -38,6 +38,7 @@ export default class Carousel {
         this.createImgCon(carousel);
         this.createDot(carousel);
         this.createBn(carousel);
+        carousel.className = 'clearfix';
         this.parent.insertBefore(carousel, this.parent.firstChild);
         carousel.addEventListener("mouseenter", e => { this.mouseHandler(e); });
         carousel.addEventListener("mouseleave", e => { this.mouseHandler(e); });

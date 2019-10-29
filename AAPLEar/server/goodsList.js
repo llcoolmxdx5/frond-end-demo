@@ -37,7 +37,7 @@ class GoodsList {
             }
             this.product = arr1
         }
-        this.product = this.product.slice((this.page - 1) * 30, this.page * 30)
+        this.product1 = this.product.slice((this.page - 1) * 30, this.page * 30);
         this.data = {
             "head": {
                 "status": "200",
@@ -46,9 +46,9 @@ class GoodsList {
             "body": {
                 "results": {
                     "hasResults": true,
-                    "items": this.product,
-                    "size": this.product.length,
-                    "page": Math.ceil(products.length / 30)
+                    "items": this.product1,
+                    "size": this.product1.length,
+                    "page": Math.ceil(this.product.length / 30)
                 }
             }
         }

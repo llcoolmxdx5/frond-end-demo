@@ -248,7 +248,7 @@ module.exports = [
                     "alt": null,
                     "height": 445,
                     "width": 445,
-                    "src": "./img/010-01.jpeg"
+                    "src": "./img/10-01.jpeg"
                 }
             ],
             "size": 1
