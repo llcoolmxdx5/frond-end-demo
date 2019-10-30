@@ -1,8 +1,9 @@
 let express = require('express');
-let cors = require("cors");// 解决跨域问题.npm install cors
+// let cors = require("cors");// 解决跨域问题.npm install cors
 let bodyParser = require('body-parser'); // json解析中间件
 
 let GoodsList = require('./goodsList');
+let Detail = require('./detail');
 
 let app = express();
 let baseUrl = '/api/v1';
@@ -18,15 +19,15 @@ let baseUrl = '/api/v1';
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 
-// app.all("/*", function(req, res, next) {
-//     // 跨域处理
-//     res.header("Access-Control-Allow-Origin", "http://localhost:8080");
-//     res.header("Access-Control-Allow-Headers", "X-Requested-With");
-//     res.header("Access-Control-Allow-Methods", "PUT,POST,GET,DELETE,OPTIONS");
-//     res.header("Content-Type", "application/json;charset=utf-8");
-//     res.header("Access-Control-Allow-Credentials", 'true');
-//     next(); // 执行下一个路由
-// });
+app.all("/*", function (req, res, next) {
+    // 跨域处理
+    res.header("Access-Control-Allow-Origin", "http://localhost:8080");
+    res.header("Access-Control-Allow-Headers", "X-Requested-With");
+    res.header("Access-Control-Allow-Methods", "PUT,POST,GET,DELETE,OPTIONS");
+    res.header("Content-Type", "application/json;charset=utf-8");
+    res.header("Access-Control-Allow-Credentials", 'true');
+    next(); // 执行下一个路由
+});
 
 app.get(baseUrl + '/goodsList', function (req, res) {
     let data;
@@ -46,12 +47,25 @@ app.get(baseUrl + '/goodsList', function (req, res) {
             "body": {}
         }
     }
-    res.header("Access-Control-Allow-Origin", "http://localhost:8080");
-    res.header("Content-Type", "application/json;charset=utf-8");
-    res.header("Access-Control-Allow-Methods", "PUT,POST,GET,DELETE,OPTIONS");
-    res.header("Access-Control-Allow-Credentials", 'true');
     res.end(JSON.stringify(data))
+});
 
+app.get(baseUrl + '/detail', function (req, res) {
+    let data;
+    try {
+        console.log(req.query);
+        let detail = new Detail(req.query.id);
+        data = detail.getData();
+    } catch (e) {
+        data = {
+            "head": {
+                "status": "403",
+                "data": e
+            },
+            "body": {}
+        }
+    }
+    res.end(JSON.stringify(data))
 });
 
 app.post('/cart', function (req, res) {

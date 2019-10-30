@@ -70,6 +70,7 @@
       padding: 0 21px;
       border: 1px solid #d6d6d6;
       display: none;
+      z-index: 99;
       &::before {
         border-width: 7px;
         top: -7px;

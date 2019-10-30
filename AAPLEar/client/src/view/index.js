@@ -4,8 +4,8 @@ import AJAX from '../utils/AJAX.js';
 import '../assets/css/index.scss';
 
 
-export default class Index{
-    constructor(){
+export default class Index {
+    constructor() {
         document.title = '耳机商城';
         this.app = document.querySelector('#app');
         this.createCarousel();
@@ -16,21 +16,21 @@ export default class Index{
             let itemArr = item.split('=');
             prop[itemArr[0]] = itemArr[1]
         });
-        AJAX('/goodsList',prop).then(res => {
+        console.log(prop);
+        AJAX('/goodsList', prop).then(res => {
             this.page = res.body.results.page;
             this.item = res.body.results.items;
             this.createBody();
             let currentPage = prop.page;
             new Pagination(this.app, currentPage, this.page, prop);
             this.init();
-            console.log(this.page)
         });
     }
-    init(){
+
+    init() {
         let div = document.querySelector('#app > div.select');
         let divT = div.offsetTop + 224;
-        let div1 =document.querySelector('#body > div.con > div.body > div.left');
-        console.log(div1);
+        let div1 = document.querySelector('#body > div.con > div.body > div.left');
         window.addEventListener('scroll', e => {
             let scrollT = document.documentElement.scrollTop;
             if (scrollT > divT) {
@@ -45,11 +45,13 @@ export default class Index{
             }
         })
     }
-    createCarousel(){
-        let imgSrc=["left.png","right.png","lb01.png","lb02.png","lb03.png"];
+
+    createCarousel() {
+        let imgSrc = ["left.png", "right.png", "lb01.png", "lb02.png", "lb03.png"];
         new Carousel(imgSrc, this.app);
     }
-    createItemTitle(){
+
+    createItemTitle() {
         let divSelect = document.createElement('div');
         divSelect.className = 'select';
         let divContent = document.createElement('div');
@@ -88,7 +90,9 @@ export default class Index{
         divRight.textContent = '排序方式:';
         let span1 = document.createElement('span');
         span1.textContent = '精选';
-        span1.addEventListener('click', e => { this.sortClickHandler(e) });
+        span1.addEventListener('click', e => {
+            this.sortClickHandler(e)
+        });
         let span2 = document.createElement('span');
         span2.className = 'bottom';
         let divSort = document.createElement('div');
@@ -96,8 +100,8 @@ export default class Index{
         let ul = document.createElement('ul');
         let typeArr = ['精选', '最新', '价格:由低到高', '价格:由高到低'];
         let linkArr = ["/#/index?page=1&s=featured", "/#/index?page=1&s=newest",
-                       "/#/index?page=1&s=priceLH", "/#/index?page=1&s=priceHL"];
-        for (let i=0;i<4;i++){
+            "/#/index?page=1&s=priceLH", "/#/index?page=1&s=priceHL"];
+        for (let i = 0; i < 4; i++) {
             let li = document.createElement('li');
             let a = document.createElement('a');
             a.textContent = typeArr[i];
@@ -114,6 +118,7 @@ export default class Index{
         divSelect.appendChild(divContent);
         this.app.appendChild(divSelect);
     }
+
     sortClickHandler(e) {
         let divSort = e.target.nextElementSibling.nextElementSibling;
         divSort.style.display = 'block';
@@ -122,8 +127,6 @@ export default class Index{
         let arr = Array.from(divSort.childNodes[0].childNodes);
         arr.forEach((item) => {
             let a = item.firstChild;
-            console.log(a.href);
-            console.log(a.textContent);
             if (a.textContent === e.target.textContent) {
                 a.style.color = '#888';
                 a.style.cursor = 'default';
@@ -135,7 +138,8 @@ export default class Index{
             e.target.nextElementSibling.className = 'bottom';
         }
     }
-    createBody(){
+
+    createBody() {
         let divBody = document.createElement('div');
         divBody.id = 'body';
         divBody.className = 'clearfix';
@@ -156,7 +160,7 @@ export default class Index{
         let linkArr1 = ['headphone', 'speaker', 'headphonecase', 'audioadapter'];
         let textArr = ['耳机', '扬声器', '耳机保护壳', '音频适配器'];
         let btn = document.querySelector('#app > div.select > div > div.select-left > a');
-        for (let i = 0;i<4;i++) {
+        for (let i = 0; i < 4; i++) {
             let obj = {};
             location.hash.split('?')[1].split('&').forEach(item => {
                 let item1 = item.split('=');
@@ -173,7 +177,7 @@ export default class Index{
             }
             if (obj.f === undefined) {
                 btn.style.display = 'none';
-                a.href =`#/index?${str.slice(0, -1)}&f=${linkArr1[i]}`;
+                a.href = `#/index?${str.slice(0, -1)}&f=${linkArr1[i]}`;
                 a.style.color = '#333'
             } else {
                 btn.style.display = 'inline';
@@ -187,14 +191,14 @@ export default class Index{
                     li.style.backgroundColor = '#f2f2f2';
                     delete obj1[linkArr1[i]]
                 }
-                let str = linkArr1[i]+'-';
-                for (let k in obj1){
-                    str += k+'-'
+                let str = linkArr1[i] + '-';
+                for (let k in obj1) {
+                    str += k + '-'
                 }
                 if (Object.keys(obj1).length === 0) {
-                    a.href =`#/index?${str.slice(0, -1)}`
+                    a.href = `#/index?${str.slice(0, -1)}`
                 } else {
-                    a.href =`#/index?${str.slice(0, -1)}&f=${str.slice(0,-1)}`
+                    a.href = `#/index?${str.slice(0, -1)}&f=${str.slice(0, -1)}`
                 }
             }
             li.appendChild(a);
@@ -227,8 +231,8 @@ export default class Index{
             let divPrice = document.createElement('div');
             divPrice.className = 'price';
             let price = String(item.productPrice);
-            if (price.length >3) {
-                price = price.slice(0,-3)+','+price.slice(-3)
+            if (price.length > 3) {
+                price = price.slice(0, -3) + ',' + price.slice(-3)
             }
             divPrice.innerHTML = `RMB&nbsp;<span>${price}</span>`;
             let dl = document.createElement('dl');

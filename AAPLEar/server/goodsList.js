@@ -1,4 +1,5 @@
 const products = require('./product');
+
 class GoodsList {
     constructor(f, s, page) {
         this.f = f;
@@ -7,6 +8,7 @@ class GoodsList {
         this.product = products;
         this.init()
     }
+
     init() {
         if (this.s) {
             switch (this.s) {
@@ -53,9 +55,11 @@ class GoodsList {
             }
         }
     }
-    getData(){
+
+    getData() {
         return this.data
     }
+
     sNewest() {
         function compare(prop) {
             return function (a, b) {
@@ -64,8 +68,10 @@ class GoodsList {
                 return value2 - value1
             }
         }
+
         this.product.sort(compare('time'))
     }
+
     sPriceLH() {
         function compare(prop) {
             return function (a, b) {
@@ -74,8 +80,10 @@ class GoodsList {
                 return value1 - value2
             }
         }
+
         this.product.sort(compare('productPrice'))
     }
+
     sPriceHL() {
         function compare(prop) {
             return function (a, b) {
@@ -84,8 +92,10 @@ class GoodsList {
                 return value2 - value1
             }
         }
+
         this.product.sort(compare('productPrice'))
     }
+
     selectType(type1) {
         let arr = [];
         this.product.forEach(function (item, index) {
@@ -96,4 +106,5 @@ class GoodsList {
         return arr
     }
 }
+
 module.exports = GoodsList;

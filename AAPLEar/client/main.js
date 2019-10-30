@@ -4,7 +4,7 @@ import Index from './src/view/index.js';
 import Cart from './src/view/cart.js';
 import Detail from './src/view/detail.js';
 
-location.href = 'http://localhost:8080/#/index?page=1';
+// location.href = 'http://localhost:8080/#/index?page=1';
 
 let app = document.querySelector('#app');
 new Header(document.body);
@@ -21,11 +21,11 @@ function hashChangeHandler(e) {
     console.log(hash);
     if (hash === 'cart') {
         app.innerHTML = '';
-        new Cart();
-    } else if (hash === 'detail') {
+        new Cart(app);
+    } else if (hash.slice(0, 6) === 'detail') {
         app.innerHTML = '';
-        new Detail();
-    } else if (hash.slice(0,5) === 'index') {
+        new Detail(app);
+    } else if (hash.slice(0, 5) === 'index') {
         app.innerHTML = '';
         new Index(app);
     }
