@@ -1,0 +1,134 @@
+.cart {
+  margin: 32px;
+  background-color: #ffffff;
+  border: 1px solid #dddee1;
+  border-radius: 10px;
+
+  &-header {
+    &-title {
+      padding: 16px 32px;
+      border-bottom: 1px solid #dddee1;
+      border-radius: 10px 10px 0 0;
+      background-color: #f8f8f9;
+    }
+
+    &-main {
+      padding: 8px 32px 8px 0;
+      overflow: hidden;
+      border-bottom: 1px solid #dddee1;
+      background-color: #eeeeee;
+
+      div {
+        text-align: center;
+        float: left;
+        font-size: 14px;
+      }
+    }
+  }
+
+  &-empty {
+    text-align: center;
+    padding: 32px;
+  }
+
+  &-select {
+    width: 10%;
+  }
+
+  &-info {
+    width: 50%;
+    text-align: left;
+  }
+
+  &-price {
+    width: 10%;
+  }
+
+  &-count {
+    width: 10%;
+  }
+
+  &-cost {
+    width: 10%;
+  }
+
+  &-delete {
+    width: 10%;
+  }
+
+  &-content-main {
+    padding: 0 32px 0 0;
+    height: 60px;
+    line-height: 60px;
+    text-align: center;
+    border-bottom: 1px dashed #e9eaec;
+    overflow: hidden;
+
+    div {
+      float: left;
+    }
+
+    img {
+      width: 40px;
+      height: 40px;
+      position: relative;
+      top: 10px;
+    }
+  }
+
+  &-control {
+    &-minus,
+    &-add {
+      display: inline-block;
+      margin: 0 4px;
+      width: 24px;
+      height: 24px;
+      line-height: 22px;
+      text-align: center;
+      background-color: #f8f8f9;
+      border-radius: 50%;
+      box-shadow: 0 1px 1px rgba(0, 0, 0, .2);
+      cursor: pointer;
+    }
+
+    &-delete {
+      cursor: pointer;
+      color: #2d8cf0;
+    }
+
+    &-promotion,
+    &-order {
+      display: inline-block;
+      padding: 8px 32px;
+      border-radius: 6px;
+      background-color: #2d8cf0;
+      color: #ffffff;
+      cursor: pointer;
+    }
+
+    &-promotion {
+      padding: 2px 6px;
+      font-size: 12px;
+      border-radius: 3px;
+    }
+  }
+
+  &-promotion {
+    padding: 16px 32px;
+  }
+
+  &-footer {
+    padding: 32px;
+    text-align: right;
+
+    &-desc {
+      display: inline-block;
+      padding: 0 16px;
+
+      & span {
+        color: #f2352e;
+        font-size: 20px;
+      }
+    }
+  }
+}

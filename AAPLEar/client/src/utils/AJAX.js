@@ -3,15 +3,16 @@ async function ajax (url = '', data = {}, type = 'GET', method = ''){
     // 整理表单数据
     type = type.toUpperCase();
     let sendData;
+    let baseUrl = 'http://10.9.42.247:4000/api/v1';
+    let _data = [];
+    Object.keys(data).forEach(key => {
+        _data.push(key + '=' + data[key])
+    });
     if (type === 'GET') {
-        let _data = [];
-        Object.keys(data).forEach(key => {
-            _data.push(key + '=' + data[key])
-        });
-        let baseUrl = 'http://10.9.42.247:4000/api/v1';
         url = baseUrl + url + '?' + _data.join('&')
     } else {
-        sendData = JSON.stringify(data)
+        url = baseUrl + url;
+        sendData = _data.join('&')
     }
     // 创建ajax提交对象
 

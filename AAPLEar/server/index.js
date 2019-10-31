@@ -1,5 +1,4 @@
 let express = require('express');
-// let cors = require("cors");// 解决跨域问题.npm install cors
 let bodyParser = require('body-parser'); // json解析中间件
 
 let GoodsList = require('./goodsList');
@@ -7,13 +6,6 @@ let Detail = require('./detail');
 
 let app = express();
 let baseUrl = '/api/v1';
-
-
-// app.use(cors({
-//     origin: ['http://localhost:8080'],
-//     methods: ["GET", "POST"],
-//     alloweHeaders: ["Content-Type", "Authorization"]
-// }));
 
 // 添加json解析
 app.use(bodyParser.json());
@@ -68,9 +60,10 @@ app.get(baseUrl + '/detail', function (req, res) {
     res.end(JSON.stringify(data))
 });
 
-app.post('/cart', function (req, res) {
+app.post(baseUrl + '/cart', function (req, res) {
     let query = req.body;
-    console.log(query)
+    console.log(query);
+    console.log(query.type)
 });
 
 let server = app.listen(4000, function () {

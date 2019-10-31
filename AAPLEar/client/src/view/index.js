@@ -16,7 +16,6 @@ export default class Index {
             let itemArr = item.split('=');
             prop[itemArr[0]] = itemArr[1]
         });
-        console.log(prop);
         AJAX('/goodsList', prop).then(res => {
             this.page = res.body.results.page;
             this.item = res.body.results.items;

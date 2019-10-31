@@ -131,4 +131,19 @@
         ids:[1001],
         selected:true
    }
-
+  res:{
+      "head": {
+          "status": "200",
+          "data": e
+      },
+      "body":[
+           {
+               id: 10001, title: "AirPods ", price: 1558, image: "src/assets/img/img-01-01.jpeg",
+               count: 1, selected: true
+           },
+           {
+               id: 10002, title: "AirPods (配无线充电盒)", price: 1758, image: "src/assets/img/img-02-01.jpeg",
+               count: 2, selected: false
+           },
+      ];
+  }
