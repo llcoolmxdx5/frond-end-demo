@@ -3,6 +3,8 @@ let bodyParser = require('body-parser'); // json解析中间件
 
 let GoodsList = require('./goodsList');
 let Detail = require('./detail');
+let Cart = require('./cart');
+let shoppingList = [];
 
 let app = express();
 let baseUrl = '/api/v1';
@@ -45,7 +47,6 @@ app.get(baseUrl + '/goodsList', function (req, res) {
 app.get(baseUrl + '/detail', function (req, res) {
     let data;
     try {
-        console.log(req.query);
         let detail = new Detail(req.query.id);
         data = detail.getData();
     } catch (e) {
@@ -62,8 +63,28 @@ app.get(baseUrl + '/detail', function (req, res) {
 
 app.post(baseUrl + '/cart', function (req, res) {
     let query = req.body;
-    console.log(query);
-    console.log(query.type)
+    let cart = new Cart(query, shoppingList);
+    switch (Number(query.type)) {
+        case 1:
+            shoppingList = cart.getShoppingList();
+            break;
+        case 2 :
+            shoppingList = cart.addToShoppingList();
+            break;
+        case 3 :
+            shoppingList = cart.alterGoodsCount();
+            break;
+        case 4 :
+            shoppingList = cart.deleteGoods();
+            break;
+        case 5 :
+            shoppingList = cart.selectGoods();
+            break;
+        case 6:
+            shoppingList = cart.selectGoodsAll();
+            break;
+    }
+    res.end(JSON.stringify(cart.getRes()))
 });
 
 let server = app.listen(4000, function () {

@@ -80,31 +80,24 @@
     .add {
       margin-top: 20px;
       height: 35px;
-      form {
-        input {
-          width: 0;
-          height: 0;
-          border: 0;
-        }
-        button {
-          box-sizing: border-box;
-          display: inline-block;
-          width: 287px;
-          height: 35px;
-          padding: 3px 15px 4px 15px;
-          font-size: 17px;
-          line-height: 1.52947;
-          background-color: #0070c9;
-          background: linear-gradient(#42a1ec,#0070c9);
-          border-color: #07c;
-          border-width: 1px;
-          border-style: solid;
-          border-radius: 4px;
-          color: white;
-          cursor: pointer;
-          text-align: center;
-          white-space: nowrap;
-        }
+      button {
+        box-sizing: border-box;
+        display: inline-block;
+        width: 287px;
+        height: 35px;
+        padding: 3px 15px 4px 15px;
+        font-size: 17px;
+        line-height: 1.52947;
+        background-color: #0070c9;
+        background: linear-gradient(#42a1ec,#0070c9);
+        border-color: #07c;
+        border-width: 1px;
+        border-style: solid;
+        border-radius: 4px;
+        color: white;
+        cursor: pointer;
+        text-align: center;
+        white-space: nowrap;
       }
     }
     .date {

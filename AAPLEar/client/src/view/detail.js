@@ -50,7 +50,7 @@ export default class Detail {
         price.innerHTML = `RMB <span>${price1}</span>`;
         let staging = document.createElement('div');
         staging.className = 'staging';
-        staging.innerHTML = `24 个月免息分期, 每月仅约 RMB <span>${Math.floor(this.results.productPrice/24)}</span>`;
+        staging.innerHTML = `24 个月免息分期, 每月仅约 RMB <span>${Math.floor(this.results.productPrice / 24)}</span>`;
         let color = document.createElement('div');
         color.className = 'color';
         let colorTitle = document.createElement('div');
@@ -71,18 +71,13 @@ export default class Detail {
         color.appendChild(dl);
         let add = document.createElement('div');
         add.className = 'add';
-        let form = document.createElement('form');
-        form.action = '#';
-        form.method = 'POST';
         let button = document.createElement('button');
         button.type = 'submit';
         button.textContent = '添加到购物袋';
-        let input = document.createElement('input');
-        input.type = 'text';
-        input.value = 1;
-        form.appendChild(button);
-        form.appendChild(input);
-        add.appendChild(form);
+        button.addEventListener('click', e => {
+            this.submitHandler(e)
+        });;
+        add.appendChild(button);
         let date = document.createElement('div');
         date.className = 'date';
         let span1 = document.createElement('span');
@@ -108,11 +103,22 @@ export default class Detail {
         detail.appendChild(left);
         this.parent.appendChild(detail);
     }
-    getDate(){
+
+    submitHandler(e) {
+        let prop = {type: 0x02, id: this.results.id};
+        AJAX('/cart', prop, 'POST').then(res => {
+            let evt = new Event('cartNum changed');
+            evt.count = res.body.length;
+            document.dispatchEvent(evt);
+            location.hash = '#/cart'
+        });
+    }
+
+    getDate() {
         let now = new Date();
-        let weekArr = ['星期天','星期一','星期二','星期三','星期四','星期五','星期六'];
+        let weekArr = ['星期天', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六'];
         let nowWeek = weekArr[now.getDay()];
-        return `${nowWeek} ${now.getFullYear()}/${now.getMonth()+1}/${now.getDate()+1} - 免费`
+        return `${nowWeek} ${now.getFullYear()}/${now.getMonth() + 1}/${now.getDate() + 1} - 免费`
     }
 
 }

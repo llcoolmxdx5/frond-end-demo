@@ -114,23 +114,28 @@
         type:0x02,
         id:1001
     }
-4\修改商品数量
+3\修改商品数量
      req:{
         type:0x03,
         id:1001,
         num:1
     }
-5\删除商品
+4\删除商品
     req:{
-            type:0x04,
-            ids:[1001]
+        type:0x04,
+        id:1001
     }
-6\是否选中商品
+5\单选
   req:{
         type:0x05,
-        ids:[1001],
-        selected:true
+        id:10001,
+        select:true
    }
+6、全选
+  req:{
+      type:0x06,
+      select:true
+  }
   res:{
       "head": {
           "status": "200",

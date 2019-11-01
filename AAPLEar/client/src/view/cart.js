@@ -6,24 +6,23 @@ export default class Cart {
     constructor(parent) {
         document.title = '购物车';
         this.promotion = 0; // 优惠金额
-        this.ajax({type:0x01});
-        this.shoppingList = [
-            {
-                id: 10001, title: "AirPods ", price: 1558, image: "src/assets/img/img-01-01.jpeg",
-                count: 1, selected: true
-            },
-            {
-                id: 10002, title: "AirPods (配无线充电盒)", price: 1758, image: "src/assets/img/img-02-01.jpeg",
-                count: 2, selected: false
-            },
-        ];
-        this.assist = new Assist(this.shoppingList);
-        this.createCart();
-        parent.appendChild(this.cart)
+        this.parent = parent;
+        // this.ajax({type:0x02, id:10027}) // 增加
+        // this.ajax({type:0x03, id:10001,num:6}); // 改变数量
+        // this.ajax({type:0x04, id:10001}) // 删除
+
+        // this.ajax({type:0x05, id:10001,select:false}) // 选择
+        // this.ajax({type:0x06,select:false}) // 全选
+        this.ajax({type: 0x01})
     }
-    ajax(prop){
+
+    ajax(prop) {
         AJAX('/cart', prop, 'POST').then(res => {
-            console.log(res)
+            console.log(res);
+            this.shoppingList = res.body;
+            this.assist = new Assist(this.shoppingList);
+            this.createCart();
+            this.parent.appendChild(this.cart)
         });
     }
 
@@ -34,8 +33,10 @@ export default class Cart {
         this.cart.className = 'cart';
         this.createCartHeader();
         this.createCartContent();
-        this.createCartPromotion();
-        this.createCartFooter();
+        if (this.shoppingList.length !== 0) {
+            this.createCartPromotion();
+            this.createCartFooter();
+        }
     }
 
     createCartHeader() {
@@ -110,7 +111,7 @@ export default class Cart {
             select.className = 'cart-select';
             let ck = document.createElement('input');
             ck.type = 'checkbox';
-            ck.checked = true;
+            ck.checked = item.selected;
             ck.style.marginRight = '28px';
             select.appendChild(ck);
 
@@ -132,10 +133,16 @@ export default class Cart {
             let countMinus = document.createElement('span');
             countMinus.className = 'cart-control-minus';
             countMinus.textContent = '-';
+            countMinus.addEventListener('click', e => {
+                this.countHandler(e, '-')
+            });
             let countText = document.createTextNode(item.count);
             let countAdd = document.createElement('span');
             countAdd.className = 'cart-control-add';
             countAdd.textContent = '+';
+            countAdd.addEventListener('click', e => {
+                this.countHandler(e, '+')
+            });
             count.appendChild(countMinus);
             count.appendChild(countText);
             count.appendChild(countAdd);
@@ -149,6 +156,10 @@ export default class Cart {
             let deleteControl = document.createElement('span');
             deleteControl.className = 'cart-control-delete';
             deleteControl.textContent = '删除';
+            deleteControl.addEventListener('click', e => {
+                this.deleteHandler(e)
+            });
+
             delete1.appendChild(deleteControl);
 
             main.appendChild(select);
@@ -229,6 +240,44 @@ export default class Cart {
         }
         this.createCartFooter()
     }
+
+    countHandler(e, operate) {
+        let count;
+        let itemTitle = e.target.parentElement.parentElement.children[1].children[1].textContent;
+        if (operate === '-') {
+            count = Number(e.target.nextSibling.textContent);
+            if (count === 1) return;
+            count -= 1;
+            e.target.nextSibling.textContent = count
+        } else if (operate === '+') {
+            count = Number(e.target.previousSibling.textContent);
+            count += 1;
+            e.target.previousSibling.textContent = count
+        }
+        let id1 = this.getId(itemTitle);
+        this.ajax({type:0x03, id:id1,num:count}); // 改变数量
+    }
+
+    deleteHandler(e) {
+        let itemTitle = e.target.parentElement.parentElement.children[1].children[1].textContent;
+        let id1 = this.getId(itemTitle);
+        let evt = new Event('cartNum changed');
+        evt.count = this.shoppingList.length - 1;
+        document.dispatchEvent(evt);
+        this.ajax({type: 0x04, id: Number(id1)})
+    }
+
+    getId(itemTitle){
+        let id = 0;
+        for (let i = 0; i < this.shoppingList.length; i++) {
+            if (this.shoppingList[i]['title'] === itemTitle) {
+                id = this.shoppingList[i]['id'];
+                break
+            }
+        }
+        return id
+    }
+
     judgeCreate(elem) {
         if (elem) {
             elem.remove();
