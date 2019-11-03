@@ -1,28 +1,37 @@
 import AJAX from '../utils/AJAX.js';
 import '../assets/css/cart.scss';
-import Pagination from "../component/Pagination";
+import Address from "../component/address.js";
 
 export default class Cart {
     constructor(parent) {
         document.title = '购物车';
         this.promotion = 0; // 优惠金额
         this.parent = parent;
+        this.inputArr = []; // 所有input[type=checkbox]
         // this.ajax({type:0x02, id:10027}) // 增加
         // this.ajax({type:0x03, id:10001,num:6}); // 改变数量
         // this.ajax({type:0x04, id:10001}) // 删除
 
         // this.ajax({type:0x05, id:10001,select:false}) // 选择
         // this.ajax({type:0x06,select:false}) // 全选
-        this.ajax({type: 0x01})
+        this.ajax({type: 0x01});
     }
 
     ajax(prop) {
         AJAX('/cart', prop, 'POST').then(res => {
-            console.log(res);
+            console.log(res.body);
             this.shoppingList = res.body;
+
+            // 抛发事件，改变header栏购物车数量显示
+            let evt = new Event('cartNum changed');
+            evt.count = res.body.length;
+            document.dispatchEvent(evt);
+
             this.assist = new Assist(this.shoppingList);
             this.createCart();
-            this.parent.appendChild(this.cart)
+            this.parent.appendChild(this.cart);
+            this.inputArr = Array.from(document.querySelectorAll('input[type=checkbox]'));
+            this.createAddress();
         });
     }
 
@@ -55,7 +64,12 @@ export default class Cart {
         select.className = 'cart-select';
         let ck = document.createElement('input');
         ck.type = 'checkbox';
-        ck.checked = true;
+        ck.checked = this.shoppingList.length > 0 ? this.shoppingList.every(item => {
+            return item.selected === true
+        }) : true;
+        ck.addEventListener('click', e => {
+            this.inputHandler(e)
+        });
         let text = document.createTextNode('全选');
         select.appendChild(ck);
         select.appendChild(text);
@@ -113,6 +127,9 @@ export default class Cart {
             ck.type = 'checkbox';
             ck.checked = item.selected;
             ck.style.marginRight = '28px';
+            ck.addEventListener('click', e => {
+                this.inputHandler(e)
+            });
             select.appendChild(ck);
 
             let info = document.createElement('div');
@@ -226,6 +243,29 @@ export default class Cart {
         this.cart.appendChild(this.footer);
     }
 
+    createAddress(){
+        let divAddress = document.createElement('div');
+        divAddress.id = 'address';
+        divAddress.style.position = 'relative';
+
+        let a = document.createElement('a');
+        a.href = 'javascript:void(0)';
+        divAddress.appendChild(a);
+        let data = localStorage.address ? JSON.parse(localStorage.address) : '';
+        a.textContent = data.length > 0 ? data : '选择地址：';
+
+        a.addEventListener('click', e => { this.addressClickHandler(e) });
+
+        let div2 = document.createElement('div');
+        this.address = new Address(div2);
+
+        divAddress.appendChild(div2);
+
+        this.parent.appendChild(divAddress);
+        let address = document.querySelector('#address > div');
+        address.style.display = data.length > 0 ? 'none' : 'block';
+    }
+
     promotionHandler(e) {
         let input = e.target.previousElementSibling;
         if (input.value === '') {
@@ -239,6 +279,20 @@ export default class Cart {
             this.promotion = 500
         }
         this.createCartFooter()
+    }
+
+    inputHandler(e) {
+        if (this.inputArr.slice(1).includes(e.target)) {
+            this.inputArr[0].checked = this.inputArr.slice(1).every(item => {
+                return item.checked === true
+            });
+            let id1 = this.getId(e.target.parentElement.nextElementSibling.children[1].textContent);
+            this.ajax({type: 0x05, id: id1, select: e.target.checked})
+        } else {
+            this.ajax({type: 0x06, select: this.inputArr[0].checked})
+        }
+
+
     }
 
     countHandler(e, operate) {
@@ -255,7 +309,7 @@ export default class Cart {
             e.target.previousSibling.textContent = count
         }
         let id1 = this.getId(itemTitle);
-        this.ajax({type:0x03, id:id1,num:count}); // 改变数量
+        this.ajax({type: 0x03, id: id1, num: count}); // 改变数量
     }
 
     deleteHandler(e) {
@@ -267,7 +321,12 @@ export default class Cart {
         this.ajax({type: 0x04, id: Number(id1)})
     }
 
-    getId(itemTitle){
+    addressClickHandler(e) {
+        let address = document.querySelector('#address > div');
+        address.style.display = 'block';
+    }
+
+    getId(itemTitle) {
         let id = 0;
         for (let i = 0; i < this.shoppingList.length; i++) {
             if (this.shoppingList[i]['title'] === itemTitle) {
@@ -284,7 +343,6 @@ export default class Cart {
             elem = null;
         }
     }
-
 }
 
 class Assist {
@@ -303,10 +361,11 @@ class Assist {
     getTotalCost() {
         let totalCost = 0;
         this.shoppingList.forEach(item => {
-            totalCost += item.price * item.count;
+            if (item.selected === true) totalCost += item.price * item.count;
         });
         return totalCost
     }
+
 }
 
 
