@@ -2,3 +2,65 @@ h1 {
   font-size: 30px;
   color: blue;
 }
+
+.custom {
+  line-height: 0.43rem;
+  font-size: 0.14672rem;
+  border: solid 1px #e8e8e8;
+  padding: 0 0.08rem;
+  display: flex;
+  align-items: center;
+
+  span {
+    flex: 1;
+  }
+
+  button {
+    font-size: 0.14672rem;
+    background: #f5f5f5;
+    border-radius: 0.15rem;
+    border: none;
+    height: 0.3rem;
+    width: 0.8rem;
+    color: #00b38a;
+  }
+
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  padding: 0.13rem;
+  border-bottom: solid 1px #e8e8e8;
+
+  img {
+    width: 0.6rem;
+  }
+
+  .logo {
+    width: 0.8rem;
+  }
+
+  .desc {
+    flex: 1;
+
+    h2 {
+      font-size: 0.1672rem;
+    }
+
+    p {
+      width: 2rem;
+      font-size: 0.12576rem;
+      color: #333;
+      overflow: hidden;
+      white-space: nowrap;    
+      text-overflow: ellipsis;
+    }
+  }
+
+  .salary {
+    width: 0.6rem;
+    color: #00b38a;
+    font-size: 0.16rem;
+  }
+}

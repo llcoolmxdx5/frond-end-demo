@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "gulp",
+    "mock": "json-server ./mock/mock.js --routes ./mock/routes.json --port 9099"
   },
   "keywords": [],
   "author": "",
@@ -19,10 +21,13 @@
     "gulp-concat": "^2.6.1",
     "gulp-sass": "^4.0.2",
     "gulp-webserver": "^0.9.1",
+    "http-proxy-middleware": "^0.20.0",
     "node-sass": "^4.13.0",
     "string-loader": "^0.0.1",
     "webpack": "^4.41.2",
     "webpack-stream": "^5.2.1"
   },
-  "dependencies": {}
+  "dependencies": {
+    "json-server": "^0.15.1"
+  }
 }

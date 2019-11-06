@@ -1,4 +1,3 @@
-import User from './user.js'
 import Router from './router/Router'
 
 class Index {

@@ -1,19 +1,21 @@
 <div>
     <div class="custom">
-        <span>定制职位</span>
+        <span>10秒钟定制职位</span>
         <button>去登陆</button>
     </div>
     <div id="list-container">
+        {{each list}}
         <div class="item">
             <div class="logo">
-                <img src="" alt="">
+                <img src="https://www.lgstatic.com/{{ $value.companyLogo }}" alt="">
             </div>
             <div class="desc">
-                <h2></h2>
-                <p></p>
-                <p></p>
+                <h2>{{ $value.companyName }}</h2>
+                <p>{{ $value.positionName }} [ {{ $value.city }} ]</p>
+                <p>{{ $value.createTime }}</p>
             </div>
-            <div class="salary">5-10k</div>
+            <div class="salary">{{ $value.salary }}</div>
         </div>
+        {{/each}}
     </div>
 </div>
