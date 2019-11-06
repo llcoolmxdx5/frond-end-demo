@@ -39,11 +39,20 @@ function compileJs() {
               plugins: ['@babel/plugin-transform-runtime']
             }
           }
+        },
+        {
+          test: /\.html$/,
+          loader: 'string-loader'
         }
       ]
     }
   }))
   .pipe(dest('./dev/js/'))
+}
+
+function copyLibs() {
+  return src('./src/libs/*')
+  .pipe(dest('./dev/libs/'))
 }
 
 function startServer() {
@@ -69,10 +78,15 @@ function watchFile() {
     compileCss()
     cb()
   })
-  watch('./src/views/*.html', cb => {
+  watch('./src/views/**/*.html', cb => {
     copyHtml()
+    compileJs()
+    cb()
+  })
+  watch('./src/libs/*.*', cb => {
+    copyLibs()
     cb()
   })
 }
 
-exports.default = series(parallel(copyHtml, compileCss, compileJs), startServer, watchFile)
+exports.default = series(parallel(copyHtml, compileCss, compileJs, copyLibs), startServer, watchFile)

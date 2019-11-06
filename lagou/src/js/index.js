@@ -1,15 +1,19 @@
 import User from './user.js'
+import Router from './router/Router'
 
 class Index {
 
   constructor() {
-    console.log('index')
-    this.getName();
+    this.initEvent();
+    location.hash = '#position';
   }
 
-  async getName() {
-    let name = await User.getUsername()
-    console.log(name);
+  initEvent() {
+    $("#index_nav li").on('click', function () {
+      $(this).addClass('active').siblings().removeClass('active');
+      let hash = $(this).attr('data-hash');
+      location.hash = hash;
+    })
   }
 
 }

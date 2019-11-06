@@ -20,6 +20,7 @@
     "gulp-sass": "^4.0.2",
     "gulp-webserver": "^0.9.1",
     "node-sass": "^4.13.0",
+    "string-loader": "^0.0.1",
     "webpack": "^4.41.2",
     "webpack-stream": "^5.2.1"
   },

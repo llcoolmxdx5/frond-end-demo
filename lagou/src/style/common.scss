@@ -47,6 +47,11 @@ body {
         text-align: center;
         font-size: 16.768px;
 
+        &.active {
+          color: #00b38a;
+          background: #e7f3f0;
+        }
+
         i {
           font-family: "iconfont" !important;
           font-style: normal;

@@ -10,15 +10,16 @@
 <body>
     <div class="container">
         <header>拉勾网</header>
-        <main></main>
-        <nav>
+        <main id="main-container"></main>
+        <nav id="index_nav">
             <ul>
-                <li><i>&#xe6aa;</i>职位</li>
-                <li><i>&#xe501;</i>搜索</li>
-                <li><i>&#xe6a1;</i>我的</li>
+                <li data-hash="#position" class="active"><i>&#xe6aa;</i>职位</li>
+                <li data-hash="#search"><i>&#xe501;</i>搜索</li>
+                <li data-hash="#profile"><i>&#xe6a1;</i>我的</li>
             </ul>
         </nav>
     </div>
+    <script src="./libs/zepto.min.js"></script>
     <script type="module" src="./js/all.js"></script>
 </body>
 </html>
