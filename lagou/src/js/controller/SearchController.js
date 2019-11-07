@@ -6,8 +6,6 @@ class SearchController{
 
     }
     render(){
-        // let data = await Fetch.getSearchList();
-        // let html = template.render(Searchhtml, { list: data.result })
         $('#main-container').html('search')
     }
 }

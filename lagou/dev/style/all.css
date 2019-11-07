@@ -44,9 +44,14 @@ body {
           font-style: normal;
           margin-right: 2px; }
 
-h1 {
-  font-size: 30px;
-  color: blue; }
+#loading {
+  position: absolute;
+  z-index: 1;
+  top: 50%;
+  left: 50%;
+  margin-left: -32px;
+  margin-top: -32px;
+  display: none; }
 
 .custom {
   line-height: 0.43rem;

@@ -1,0 +1,15 @@
+<% for(var i = 0; i < list.length; i++){ %>
+<div class="item">
+    <div class="logo">
+        <img src="https://www.lgstatic.com/<%=list[i].companyLogo %>" alt="">
+    </div>
+    <div class="desc">
+        <h2><%=list[i].companyName %></h2>
+        <p><%=list[i]['positionName'] %></p>
+        <p><%=list[i]['createTime'] %></p>
+    </div>
+    <div class="salary">
+        <%=list[i]['salary'] %>
+    </div>
+</div>
+<% } %>

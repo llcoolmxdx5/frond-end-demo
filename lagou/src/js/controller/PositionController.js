@@ -1,14 +1,18 @@
-import positionhtml from '../../views/position/positionlist.html';
-import Fetch from '../model/Fetch.js';
+import positionhtml from '../../views/position/positionlist.html'
+import itemHtml from '../../views/position/positionlist-item.html'
 
-class PositionController{
-    constructor () {
+import fetch from '../model/Fetch'
 
-    }
-    async render(){
-        let data = await Fetch.getPositionList();
-        let html = template.render(positionhtml, { list: data.result })
-        $('#main-container').html(html)
-    }
+class PositionController {
+
+  async render() {
+    $("#main-container").html(positionhtml)
+    $("#loading").show();
+    let rs = await fetch.getPositionList();
+    let html = template.render(itemHtml, { list: rs.content.data.page.result })
+    $("#list-container").html(html)
+    $("#loading").hide();
+  }
 }
-export default new PositionController()
+
+export default new PositionController();

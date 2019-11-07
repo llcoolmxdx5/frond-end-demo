@@ -5,7 +5,7 @@ class Fetch {
   getPositionList() {
     return new Promise((resolve, reject) => {
       $.ajax({
-        url: '/fetch/api/positionlist',
+        url: '/fetch/listmore.json?pageNo=1&pageSize=15',
         type: 'GET',
         success(_data) {
           resolve(_data)

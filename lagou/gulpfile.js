@@ -67,14 +67,15 @@ function startServer() {
       //是否支持热更新
       livereload: true,
       port: 10086,
-      host: '127.0.0.1',
+      host: '0.0.0.0',
       //是否展示文件夹列表
       //directoryListing: true,
       //打开浏览器
       open: true,
       middleware: [
         proxy('/fetch', {
-          target: 'http://localhost:9099/',
+          // target: 'http://localhost:9099/',
+          target: 'https://m.lagou.com/',
           changeOrigin: true, // 是否支持跨域
           pathRewrite: { // 路径重写
             '^/fetch': ''
