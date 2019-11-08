@@ -5,6 +5,7 @@ const concat = require('gulp-concat');
 const webpack = require('webpack-stream');
 const path = require('path');
 const proxy = require('http-proxy-middleware');
+const del = require('del');
 
 function copyHtml() {
   return src('./src/views/*.html')
@@ -28,10 +29,13 @@ function compileJs() {
     .pipe(webpack({
       mode: 'development',
       devtool: 'inline-source-map',
-      entry: './src/js/index.js',
+      entry: {
+        index: './src/js/index.js',
+        detail: './src/js/detail.js'
+      },
       output: {
         path: path.resolve(__dirname, './dev/js/'),
-        filename: 'all.js'
+        filename: '[name].js'
       },
       module: {
         rules: [
@@ -59,6 +63,10 @@ function compileJs() {
 function copyLibs() {
   return src('./src/libs/*')
     .pipe(dest('./dev/libs/'))
+}
+
+function remove() {
+  return del(['./dev/'])
 }
 
 function startServer() {
@@ -104,7 +112,7 @@ function watchFile() {
   })
 }
 
-exports.default = series(
+exports.default = series(remove,
   parallel(copyHtml, copyImages, compileCss, compileJs, copyLibs),
   startServer,
   watchFile)

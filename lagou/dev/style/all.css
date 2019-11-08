@@ -69,7 +69,8 @@ body {
     display: flex;
     align-items: center; }
     #position-wrapper .custom span {
-      flex: 1; }
+      flex: 1;
+      color: #555; }
     #position-wrapper .custom button {
       font-size: 0.14672rem;
       background: #f5f5f5;
@@ -78,30 +79,32 @@ body {
       height: 0.3rem;
       width: 0.8rem;
       color: #00b38a; }
-  #position-wrapper .item {
-    display: flex;
-    align-items: center;
-    padding: 0.13rem;
-    border-bottom: solid 1px #e8e8e8; }
-    #position-wrapper .item img {
-      width: 0.6rem; }
-    #position-wrapper .item .logo {
-      width: 0.8rem; }
-    #position-wrapper .item .desc {
-      flex: 1; }
-      #position-wrapper .item .desc h2 {
-        font-size: 0.1672rem; }
-      #position-wrapper .item .desc p {
-        width: 2rem;
-        font-size: 0.12576rem;
-        color: #333;
-        overflow: hidden;
-        white-space: nowrap;
-        text-overflow: ellipsis; }
-    #position-wrapper .item .salary {
-      width: 0.6rem;
-      color: #00b38a;
-      font-size: 0.16rem; }
+
+.item {
+  display: flex;
+  align-items: center;
+  padding: 0.13rem;
+  border-bottom: solid 1px #e8e8e8; }
+  .item img {
+    width: 0.6rem; }
+  .item .logo {
+    width: 0.8rem; }
+  .item .desc {
+    flex: 1;
+    width: 0; }
+    .item .desc h2 {
+      font-size: 0.1672rem; }
+    .item .desc p {
+      width: 100%;
+      font-size: 0.12576rem;
+      color: #333;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis; }
+  .item .salary {
+    width: 0.6rem;
+    color: #00b38a;
+    font-size: 0.16rem; }
 
 body, h1, h2, h3, h4, h5, h6, hr, p, blockquote, dl, dt, dd, ul, ol, li, pre, form, fieldset, legend, button, input, textarea, th, td {
   margin: 0;
