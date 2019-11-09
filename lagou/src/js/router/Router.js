@@ -13,7 +13,7 @@ class Router {
             'profile': ProfileController
         }
         this.initEvent();
-        PositionController.render();
+        SearchController.render();
     }
 
     loadView(path) {

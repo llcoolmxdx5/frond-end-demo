@@ -39,10 +39,11 @@ body {
         .container nav ul li.active {
           color: #00b38a;
           background: #e7f3f0; }
-        .container nav ul li i {
-          font-family: "iconfont" !important;
-          font-style: normal;
-          margin-right: 2px; }
+
+i {
+  font-family: "iconfont" !important;
+  font-style: normal;
+  margin-right: 2px; }
 
 #loading {
   position: absolute;
@@ -112,3 +113,4 @@ body, h1, h2, h3, h4, h5, h6, hr, p, blockquote, dl, dt, dd, ul, ol, li, pre, fo
 
 a {
   text-decoration: none; }
+
