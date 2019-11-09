@@ -114,3 +114,71 @@ body, h1, h2, h3, h4, h5, h6, hr, p, blockquote, dl, dt, dd, ul, ol, li, pre, fo
 a {
   text-decoration: none; }
 
+#search {
+  margin-bottom: 45px; }
+  #search .linputer {
+    position: relative;
+    border-bottom: 1px solid #e8e8e8;
+    height: 45px; }
+    #search .linputer .lbutton {
+      float: left;
+      line-height: 45px;
+      font-size: 0.15rem;
+      text-align: center;
+      width: 0.88rem;
+      border-right: 1px solid #e8e8e8; }
+      #search .linputer .lbutton .city {
+        line-height: 45px;
+        text-align: center; }
+      #search .linputer .lbutton .cityicon {
+        border-width: 5px;
+        border-style: solid;
+        border-color: #000 transparent transparent transparent;
+        position: absolute;
+        top: 20px;
+        left: 60px; }
+    #search .linputer .rinput {
+      height: 45px;
+      margin-left: 0.89rem;
+      position: relative; }
+      #search .linputer .rinput input {
+        height: 25px;
+        line-height: 25px;
+        float: left;
+        border: none;
+        outline: none;
+        color: #333;
+        margin: 0 0 0 5%;
+        font-size: 0.15rem;
+        padding: 10px 0; }
+      #search .linputer .rinput span {
+        display: block;
+        width: 20%;
+        height: 45px;
+        line-height: 45px;
+        float: right;
+        position: relative; }
+        #search .linputer .rinput span i {
+          position: absolute;
+          left: 40%; }
+  #search .listcon .custominfo {
+    height: 35px;
+    line-height: 35px;
+    font-size: 0.14rem;
+    color: #5d897e;
+    background-color: #e7f7f3;
+    text-align: center;
+    margin-top: 16px;
+    margin-bottom: 14px; }
+  #search .city .back {
+    position: fixed;
+    top: 0px;
+    left: 10px; }
+    #search .city .back button {
+      width: 40px;
+      height: 45px;
+      font-size: 0.2rem;
+      color: white; }
+
+.none {
+  display: none; }
