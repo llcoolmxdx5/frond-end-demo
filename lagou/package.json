@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "gulp",
+    "dev": "gulp -f gulpfile.dev.js",
+    "build": "gulp -f gulpfile.prod.js",
     "mock": "json-server ./mock/mock.js --routes ./mock/routes.json --port 9099"
   },
   "keywords": [],
@@ -20,6 +21,8 @@
     "del": "^5.1.0",
     "gulp": "^4.0.2",
     "gulp-concat": "^2.6.1",
+    "gulp-rev": "^9.0.0",
+    "gulp-rev-collector": "^1.3.1",
     "gulp-sass": "^4.0.2",
     "gulp-webserver": "^0.9.1",
     "http-proxy-middleware": "^0.20.0",

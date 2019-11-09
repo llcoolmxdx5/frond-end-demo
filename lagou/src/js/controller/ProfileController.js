@@ -8,7 +8,7 @@ class ProfileController{
     render(){
         // let data = await Fetch.getprofileList();
         // let html = template.render(profilehtml, { list: data.result })
-        $('#main-container').html('profile')
+        $('#profile-slide').html('profile')
     }
 }
 export default new ProfileController()

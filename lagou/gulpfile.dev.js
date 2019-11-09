@@ -17,10 +17,18 @@ function copyImages() {
     .pipe(dest('./dev/images/'))
 }
 
-function compileCss() {
-  return src('./src/style/*.scss')
+//编译css
+function compileCSS() {
+  return src(['./src/style/*.scss', '!./src/style/detail.scss'])
     .pipe(sass().on('error', sass.logError))
     .pipe(concat('all.css'))
+    .pipe(dest('./dev/style/'))
+}
+
+function detailCompileCss() {
+  return src(['./src/style/detail.scss', './src/style/reset.scss'])
+    .pipe(sass().on('error', sass.logError))
+    .pipe(concat('detail.css'))
     .pipe(dest('./dev/style/'))
 }
 
@@ -113,6 +121,6 @@ function watchFile() {
 }
 
 exports.default = series(remove,
-  parallel(copyHtml, copyImages, compileCss, compileJs, copyLibs),
+  parallel(copyHtml, copyImages, compileCSS, detailCompileCss, compileJs, copyLibs),
   startServer,
   watchFile)

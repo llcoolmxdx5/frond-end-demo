@@ -38,8 +38,8 @@ class PositionController {
   }
 
   async render() {
-    $("#main-container").html(positionhtml)
-    let $head = $("#main-container .head");
+    $("#position-slide").html(positionhtml)
+    let $head = $("#position-slide .head");
     await this.getlist();
 
     this.scroll = new BScroll('#position-wrapper', {

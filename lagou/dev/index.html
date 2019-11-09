@@ -1,16 +1,27 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <link rel="stylesheet" href="./libs/swiper.min.css">
     <link rel="stylesheet" href="./style/all.css">
 </head>
+
 <body>
     <div class="container">
         <header>拉勾网</header>
-        <main id="main-container"></main>
+        <main id="main-container">
+            <div class="swiper-container">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide" id="position-slide">Slide 1</div>
+                    <div class="swiper-slide" id="search-slide">Slide 2</div>
+                    <div class="swiper-slide" id="profile-slide">Slide 3</div>
+                </div>
+            </div>
+        </main>
         <nav id="index_nav">
             <ul>
                 <li data-hash="position" class="active"><i>&#xe6aa;</i>职位</li>
@@ -22,8 +33,10 @@
             <img src="../images/loading.gif" alt="">
         </div>
     </div>
+    <script src="./libs/swiper.min.js"></script>
     <script src="./libs/zepto.min.js"></script>
     <script src="./libs/template-web.js"></script>
     <script type="module" src="./js/index.js"></script>
 </body>
+
 </html>

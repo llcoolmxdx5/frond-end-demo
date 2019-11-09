@@ -28,7 +28,7 @@ class SearchController {
     }
 
     async render() {
-        $("#main-container").html(SearchHtml)
+        $("#search-slide").html(SearchHtml)
         // await this.getlist()
         // $('#main-container').html('search')
     }
