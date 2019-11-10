@@ -21,16 +21,22 @@ class SearchController {
             this.total = Number(rs.content.data.page.totalCount)
             this.dataList = this.dataList.concat(rs.content.data.page.result)
             let html = template.render(itemHtml, { list: this.dataList })
-            $("#list-container").html(html)
+            $("#list-search-container").html(html)
             $("#loading").hide();
             reslove();
         })
     }
 
+    initEvent() {
+        $('#search > div.linputer > div.rinput > span').on('click', async () => {
+            $('#search > div.listcon').removeClass('none');
+            await this.getlist()
+        })
+    }
+
     async render() {
         $("#search-slide").html(SearchHtml)
-        // await this.getlist()
-        // $('#main-container').html('search')
+        this.initEvent()
     }
 }
 export default new SearchController()

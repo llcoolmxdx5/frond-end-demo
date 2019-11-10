@@ -114,6 +114,11 @@ body, h1, h2, h3, h4, h5, h6, hr, p, blockquote, dl, dt, dd, ul, ol, li, pre, fo
 a {
   text-decoration: none; }
 
+img, input {
+  border: none;
+  outline: none;
+  padding: 0; }
+
 #search {
   margin-bottom: 45px; }
   #search .linputer {
@@ -170,15 +175,6 @@ a {
     text-align: center;
     margin-top: 16px;
     margin-bottom: 14px; }
-  #search .city .back {
-    position: fixed;
-    top: 0px;
-    left: 10px; }
-    #search .city .back button {
-      width: 40px;
-      height: 45px;
-      font-size: 0.2rem;
-      color: white; }
 
 .none {
   display: none; }

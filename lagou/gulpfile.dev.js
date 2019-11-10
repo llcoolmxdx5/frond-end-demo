@@ -106,7 +106,8 @@ function watchFile() {
     cb()
   })
   watch('./src/style/*.scss', cb => {
-    compileCss()
+    // compileCss()
+    detailCompileCss()
     cb()
   })
   watch('./src/views/**/*.html', cb => {
