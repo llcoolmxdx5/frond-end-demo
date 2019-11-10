@@ -87,6 +87,10 @@ function remove() {
   return del(['./dist/'])
 }
 
+function removeRev() {
+  return del(['./rev/'])
+}
+
 function revCollector() {
   return src(['./rev/*.json', './dist/*.html'])
     .pipe(revCol())
@@ -94,4 +98,4 @@ function revCollector() {
 }
 
 exports.default = series(remove,
-  parallel(copyHtml, copyImages, compileCSS, detailCompileCss, compileJs, copyLibs), revCollector)
+  parallel(copyHtml, copyImages, compileCSS, detailCompileCss, compileJs, copyLibs), revCollector, removeRev)
