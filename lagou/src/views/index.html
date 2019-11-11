@@ -33,6 +33,17 @@
             <img src="../images/loading.gif" alt="">
         </div>
     </div>
+    <script>
+        if (/test|debug/.test(location.search)) {
+            javascript: (function () {
+                var script = document.createElement('script');
+                script.src = "//cdn.jsdelivr.net/npm/eruda"; document.body.appendChild(script);
+                script.onload = function () {
+                    eruda.init()
+                }
+            })();
+        }
+    </script>
     <script src="./libs/swiper.min.js"></script>
     <script src="./libs/zepto.min.js"></script>
     <script src="./libs/template-web.js"></script>

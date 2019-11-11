@@ -1,3 +1,5 @@
+@import "./mixin.scss";
+
 #loading {
   position: absolute;
   z-index: 1;
@@ -24,7 +26,7 @@
   .custom {
     line-height: 0.43rem;
     font-size: 0.14672rem;
-    border: solid 1px #e8e8e8;
+    @include border_1px(#e8e8e8);
     padding: 0 0.08rem;
     display: flex;
     align-items: center;
