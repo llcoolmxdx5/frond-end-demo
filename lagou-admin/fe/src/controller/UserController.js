@@ -4,12 +4,13 @@ import handlebar from 'handlebars';
 class UserController {
   constructor() {
     this.user = {
-      username: 'admin',
+      username: '',
       isLogin: false
     }
     this.showLogin = true;
     this.render()
     this._initEvent()
+    this._isLogin()
   }
   render() {
     let template = handlebar.compile(userTpl)
@@ -34,11 +35,33 @@ class UserController {
       url: this.showLogin ? '/api/user/login' : '/api/user/signin',
       data: $('#user-form').serialize(),
       type: 'post',
-      success(data) {
-        console.log(data)
+      success: (data) => {
+        if (data.code === 200) {
+          this.user.username = data.username
+          this.user.isLogin = true
+          this.render()
+        }
+        console.log(data.msg)
       },
-      error(data) {
-        console.log(data)
+      error: (data) => {
+        console.log(data.msg)
+      }
+    })
+  }
+  _isLogin() {
+    $.ajax({
+      url: '/api/user/isLogin',
+      type: 'get',
+      success: (data) => {
+        if (data.code === 200) {
+          this.user.username = data.username
+          this.user.isLogin = true
+          this.render()
+        }
+        console.log(data.msg)
+      },
+      error: (data) => {
+        console.log(data.msg)
       }
     })
   }

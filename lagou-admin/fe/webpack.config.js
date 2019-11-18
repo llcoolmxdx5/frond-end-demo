@@ -11,7 +11,16 @@ module.exports = {
   },
   devServer: {
     open: true,
-    port: 7099
+    port: 7099,
+    proxy: {
+      "/api": {
+        target: "http://localhost:3000",
+        changeOrigin: true,
+        pathRewrite: {
+          // "^/api": ""
+        }
+      }
+    }
   },
   plugins: [
     new htmlWebpackPlugin({

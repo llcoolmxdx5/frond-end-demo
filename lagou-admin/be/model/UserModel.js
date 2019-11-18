@@ -13,5 +13,8 @@ class UserModel {
     let userModel = new this.model(data);
     return await userModel.save();
   }
+  findOne(data) {
+    return this.model.findOne(data)
+  }
 }
 module.exports = new UserModel()
