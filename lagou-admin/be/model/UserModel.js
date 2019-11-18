@@ -7,7 +7,8 @@ class UserModel {
       username: { type: String, index: true }, //用户账号
       password: { type: String }, //密码
     });
-    this.model = mongoose.model('users',UserSchema);
+    mongoose.set('useCreateIndex', true);
+    this.model = mongoose.model('users', UserSchema);
   }
   async save(data) {
     let userModel = new this.model(data);

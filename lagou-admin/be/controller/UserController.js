@@ -7,12 +7,12 @@ class UserController {
   }
   async login(req, res) {
     let { username, password } = req.body
-    let result = await UserModel.findOne(username)
+    let result = await UserModel.findOne({ username })
     if (!result) {
       res.send({ code: 403, msg: '用户名不存在' })
       return
     }
-    let pwdIsTrue = this.compareSync(password, result.password)
+    let pwdIsTrue = this._compareHashPwd(password, result.password)
     if (pwdIsTrue) {
       req.session.username = username
       res.send({ code: 200, msg: '成功', username })
@@ -23,11 +23,11 @@ class UserController {
 
   async signin(req, res) {
     let { username, password } = req.body
-    if (/^\w{6,10}$/.test(username)) {
+    if (!/^\w{6,10}$/.test(username)) {
       res.send({ code: 403, msg: '用户名长度应为6-10位' })
       return
     }
-    let user = UserModel.findOne({ username })
+    let user = await UserModel.findOne({ username })
     if (user) {
       res.send({ code: 403, msg: '用户名重复' })
       return
@@ -42,7 +42,7 @@ class UserController {
   }
 
   isLogin(req, res) {
-    if(req.session && req.session.username) {
+    if (req.session && req.session.username) {
       res.send({ code: 200, msg: '成功', username: req.session.username })
     } else {
       res.send({ code: 403, msg: '用户未登录' })
@@ -56,6 +56,5 @@ class UserController {
   _compareHashPwd(pwd, hash) {
     return bcrypt.compareSync(pwd, hash)
   }
-  
 }
 module.exports = new UserController()
