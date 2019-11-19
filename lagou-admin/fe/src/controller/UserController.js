@@ -75,7 +75,7 @@ class UserController {
       type: 'get',
       success: (data) => {
         if (data.code === 200) {
-          console.log(data)
+          console.log(data.msg)
           this.user.isLogin = false
           this.render()
           router.go('/')

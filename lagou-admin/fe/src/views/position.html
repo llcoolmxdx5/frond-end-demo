@@ -28,22 +28,19 @@
                 <th>职位名称</th>
                 <th style="width: 40px">薪水</th>
                 <th style="width: 100px">时间</th>
+                <th>操作</th>
               </tr>
+              {{#each data}}
               <tr>
-                <td>1.</td>
-                <td>Update software</td>
-                <td>
-                  <div class="progress progress-xs">
-      
-                  </div>
-                </td>
-                <td><span class="badge bg-red"></span></td>
-      
-                <td><span class="badge bg-red"></span></td>
-                <td><span class="badge bg-red"></span></td>
-      
+                <td><img style="width:60px;" src="http://localhost:3000/upload/{{companyLogo}}" alt="" srcset=""></td>
+                <td>{{companyName}}</td>
+                <td>{{city}}</td>
+                <td>{{positionName}}</td>
+                <td>{{salary}}</td>
+                <td>{{createTime}}</td>
+                <td><a href="javascript:void(0)">操作</a></td>
               </tr>
-      
+              {{/each}}
             </tbody>
           </table>
         </div>

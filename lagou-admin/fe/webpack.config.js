@@ -5,6 +5,7 @@ const copyPlugin = require('copy-webpack-plugin');
 module.exports = {
   mode: "development",
   entry: './src/index.js',
+  devtool: 'inline-source-map',
   output: {
     filename: 'index.[hash].js',
     path: path.resolve(__dirname, './dev')
@@ -28,7 +29,8 @@ module.exports = {
       template: './src/index.html'
     }),
     new copyPlugin([{
-      from: './src/static/', to: './static/'
+      from: './src/static/',
+      to: './static/'
     }])
   ],
   module: {

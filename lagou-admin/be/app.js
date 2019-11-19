@@ -7,6 +7,7 @@ var cookieSession = require('cookie-session'); // yarn add cookie-session
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
+var posRouter = require('./routes/position');
 
 var app = express();
 
@@ -31,6 +32,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/api/user', usersRouter);
+app.use('/api/position', posRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
