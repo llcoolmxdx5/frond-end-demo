@@ -48,6 +48,11 @@ class UserController {
       res.send({ code: 403, msg: '用户未登录' })
     }
   }
+  logOut(req, res) {
+    req.session.username = null
+    res.send({ code: 200, msg: '用户已注销' })
+    
+  }
 
   _createHashPwd(pwd) {
     return bcrypt.hashSync(pwd, 10)

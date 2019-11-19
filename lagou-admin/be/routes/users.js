@@ -8,4 +8,6 @@ router.post('/signin', UserControler.signin.bind(UserControler));
 
 router.get('/isLogin', UserControler.isLogin.bind(UserControler))
 
+router.get('/logout', UserControler.logOut.bind(UserControler))
+
 module.exports = router;

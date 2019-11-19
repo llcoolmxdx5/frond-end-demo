@@ -1,0 +1,66 @@
+<div class="box box-info">
+        <!-- /.box-header -->
+        <!-- form start -->
+      
+        <!-- city: "广州"
+        companyLogo: "image1/M00/0D/94/CgYXBlT4GNWAHKzlAAAqz31ocXY814.png"
+        companyName: "ZAKER"
+        createTime: "今天 10:11"
+        positionName: "前端开发工程师"
+        salary: "10k-15k" -->
+      
+        <form class="form-horizontal" id="position-add-form" method="POST" enctype="multipart/form-data"
+          action="/api/position/add">
+          <div class="box-body">
+            <div class="form-group">
+              <label for="inputEmail3" class="col-sm-2 control-label">公司logo</label>
+      
+              <div class="col-sm-10">
+                <input type="file" name="companyLogo" class="form-control" placeholder="请选择要上传的文件">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="inputPassword3" class="col-sm-2 control-label">公司名称</label>
+      
+              <div class="col-sm-10">
+                <input type="text" autocomplete="off" name="companyName" class="form-control" placeholder="请输入公司名称">
+              </div>
+            </div>
+      
+            <div class="form-group">
+              <label for="inputPassword3" class="col-sm-2 control-label">城市</label>
+      
+              <div class="col-sm-10">
+                <input type="text" autocomplete="off" name="city" class="form-control" placeholder="请输入城市名称">
+              </div>
+            </div>
+      
+            <div class="form-group">
+              <label for="inputPassword3" class="col-sm-2 control-label">职位名称</label>
+      
+              <div class="col-sm-10">
+                <input type="text" autocomplete="off" name="positionName" class="form-control" placeholder="请输入职位名称">
+              </div>
+            </div>
+      
+      
+      
+            <div class="form-group">
+              <label for="inputPassword3" class="col-sm-2 control-label">薪水</label>
+      
+              <div class="col-sm-10">
+                <input type="text" autocomplete="off" name="salary" class="form-control" placeholder="请输入薪水">
+              </div>
+            </div>
+      
+      
+          </div>
+      </div>
+      <!-- /.box-body -->
+      <div class="box-footer">
+        <button type="submit" id="btn-back" class="btn btn-default">返回</button>
+        <button type="submit" id="btn-submit" class="btn btn-info pull-right">提交</button>
+      </div>
+      <!-- /.box-footer -->
+      </form>
+      </div>

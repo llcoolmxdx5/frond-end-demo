@@ -1,5 +1,6 @@
 import userTpl from '../views/user.html';
 import handlebar from 'handlebars';
+import router from '../router/Router';
 
 class UserController {
   constructor() {
@@ -9,13 +10,13 @@ class UserController {
     }
     this.showLogin = true;
     this.render()
-    this._initEvent()
     this._isLogin()
   }
   render() {
     let template = handlebar.compile(userTpl)
     let html = template(this.user)
     $('#user-container').html(html)
+    this._initEvent()
   }
   _initEvent() {
     $('#login').on('click', (e) => {
@@ -28,6 +29,9 @@ class UserController {
     })
     $('#btn-submit').on('click', (e) => {
       this._submit()
+    })
+    $('#user-container').on('click', '#btn-quit', e => {
+      this._logout()
     })
   }
   _submit() {
@@ -54,14 +58,31 @@ class UserController {
       type: 'get',
       success: (data) => {
         if (data.code === 200) {
+          console.log(data.msg)
           this.user.username = data.username
           this.user.isLogin = true
           this.render()
         }
-        console.log(data.msg)
       },
       error: (data) => {
         console.log(data.msg)
+      }
+    })
+  }
+  _logout() {
+    $.ajax({
+      url: '/api/user/logout',
+      type: 'get',
+      success: (data) => {
+        if (data.code === 200) {
+          console.log(data)
+          this.user.isLogin = false
+          this.render()
+          router.go('/')
+        }
+      },
+      error: (data) => {
+        console.log(data)
       }
     })
   }
