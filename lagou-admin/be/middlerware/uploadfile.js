@@ -19,6 +19,9 @@ function uploadFile(req, res, next) {
   upload(req, res, err => {
     if (err) {
       console.log(err)
+    } else if (!req.file) {
+      delete req.body['companyLogo'];
+      next();
     } else {
       req.body.companyLogo = filename
       next()

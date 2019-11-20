@@ -11,4 +11,8 @@ router.get('/list', PositionControler.list.bind(PositionControler))
 
 router.delete('/del', PositionControler.del.bind(PositionControler))
 
+router.get('/findone', PositionControler.findOne.bind(PositionControler))
+
+router.post('/updata', uploadFile, PositionControler.update.bind(PositionControler))
+
 module.exports = router;

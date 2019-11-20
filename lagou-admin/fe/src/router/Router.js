@@ -11,9 +11,11 @@ router.route('/index', (req, res, next) => {
   res.render('index page')
 })
 
+router.route('/position/index', PositionController.render.bind(PositionController))
+
 router.route('/position/add', PositionController.addRender.bind(PositionController))
 
-router.route('/position/index', PositionController.render.bind(PositionController))
+router.route('/position/updata/:id', PositionController.updataRender.bind(PositionController))
 
 router.route('*', (req, res, next) => {
   res.redirect('/index')

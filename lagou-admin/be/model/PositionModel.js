@@ -20,11 +20,12 @@ class PositionModel {
   del(id) {
     return this.model.deleteOne({ _id: id })
   }
-  updata() {
-
+  update(id, data) {
+    return this.model.updateOne({ _id: id }, { $set: data });
   }
   query(data) {
     let { key, pageSize, pageNo } = data
+    pageNo -= 1
     let reg = new RegExp(key, 'i')
     return this.model.find({ $or: [{ companyName: reg }, { positionName: reg }] }).limit(pageSize * 1).skip(pageNo * pageSize)
   }
@@ -32,6 +33,9 @@ class PositionModel {
     let { keyword } = data
     let reg = new RegExp(keyword, 'i')
     return this.model.find({ $or: [{ companyName: reg }, { positionName: reg }] }).count()
+  }
+  findOne(id) {
+    return this.model.findOne({_id:id})
   }
 }
 module.exports = new PositionModel()
