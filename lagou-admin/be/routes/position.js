@@ -9,4 +9,6 @@ router.post('/add', uploadFile, PositionControler.add.bind(PositionControler))
 
 router.get('/list', PositionControler.list.bind(PositionControler))
 
+router.delete('/del', PositionControler.del.bind(PositionControler))
+
 module.exports = router;

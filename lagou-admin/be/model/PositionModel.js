@@ -17,17 +17,21 @@ class PositionModel {
     let positionModel = new this.model(data);
     return await positionModel.save();
   }
-  del() {
-
+  del(id) {
+    return this.model.deleteOne({ _id: id })
   }
   updata() {
 
   }
-  query(condition) {
-    return this.model.find(condition)
+  query(data) {
+    let { key, pageSize, pageNo } = data
+    let reg = new RegExp(key, 'i')
+    return this.model.find({ $or: [{ companyName: reg }, { positionName: reg }] }).limit(pageSize * 1).skip(pageNo * pageSize)
   }
-  findOne(data) {
-    return this.model.findOne(data)
+  count(data) {
+    let { keyword } = data
+    let reg = new RegExp(keyword, 'i')
+    return this.model.find({ $or: [{ companyName: reg }, { positionName: reg }] }).count()
   }
 }
 module.exports = new PositionModel()

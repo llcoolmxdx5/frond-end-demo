@@ -14,8 +14,17 @@ class PositionCtroller {
     }
   }
   async list(req, res) {
-    let data = await PositionModel.query({})
-    res.send({ code: 200, msg: '职位列表查询成功', data })
+    let data = await PositionModel.query(req.query)
+    let total = await PositionModel.count(req.query)
+    res.send({ code: 200, msg: '职位列表查询成功', data, total })
+  }
+  async del(req, res) {
+    let rs = await PositionModel.del(req.query.id);
+    if (rs.n && rs.deletedCount) {
+      res.send({ code: 200, msg: '删除成功' });
+    } else {
+      res.send({ code: 403, msg: '删除失败' });
+    }
   }
 }
 module.exports = new PositionCtroller()
