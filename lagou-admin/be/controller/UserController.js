@@ -1,9 +1,17 @@
 const UserModel = require('../model/UserModel')
 const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken');
+const path = require('path');
 
 class UserController {
   constructor() {
 
+  }
+  _createJWT(username) {
+    // return jwt.sign(username, 'lagou') // 对称加密
+    let privateKey = fs.readFileSync(path.resolve(__dirname, '../key/rsa_private_key.pem'));
+    let token = jwt.sign(username, privateKey, { algorithm: 'RS256' });
+    return token
   }
   async login(req, res) {
     let { username, password } = req.body
@@ -15,7 +23,8 @@ class UserController {
     let pwdIsTrue = this._compareHashPwd(password, result.password)
     if (pwdIsTrue) {
       req.session.username = username
-      res.send({ code: 200, msg: '成功', username })
+      res.set('X-ACCESS-TOKEN', this._createJWT(username))
+      res.send({ code: 200, msg: '登陆成功', username })
     } else {
       res.send({ code: 200, msg: '密码错误', username })
     }
@@ -51,7 +60,7 @@ class UserController {
   logOut(req, res) {
     req.session.username = null
     res.send({ code: 200, msg: '用户已注销' })
-    
+
   }
 
   _createHashPwd(pwd) {

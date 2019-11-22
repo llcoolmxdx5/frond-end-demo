@@ -41,6 +41,8 @@ class UserController {
       type: 'post',
       success: (data) => {
         if (data.code === 200) {
+          let token = xhr.getResponseHeader("X-ACCESS-TOKEN");
+          localStorage.setItem('token', token);
           this.user.username = data.username
           this.user.isLogin = true
           this.render()

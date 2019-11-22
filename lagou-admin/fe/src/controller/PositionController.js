@@ -7,7 +7,6 @@ import handlebar from 'handlebars';
 
 class PositionController {
   constructor() {
-    this.list = []
     this.keyword = ''
     this.pageNo = 1 //第几页数据
     this.pageSize = 5 // 每页展示数据的条数
@@ -18,7 +17,7 @@ class PositionController {
     if (req.query) {
       this.pageSize = req.query.pageSize
       this.pageNo = req.query.pageNo
-      this.keyword = req.query.key
+      this.keyword = req.query.key || ''
     }
     let data = await this._queryList()
     this._renderList(data)
@@ -96,6 +95,11 @@ class PositionController {
         }
       })
     })
+    window.addEventListener('error', function (event) {
+      if (event.target.tagName.toLowerCase() === "img") {
+        event.target.src = "/static/404.jpg"
+      }
+    }, true)
   }
   _renderList(data) {
     let num = () => { // 11 => [1,2,3]
@@ -169,6 +173,7 @@ class PositionController {
       })
     })
   }
+
 }
 const self = new PositionController()
 export default self
