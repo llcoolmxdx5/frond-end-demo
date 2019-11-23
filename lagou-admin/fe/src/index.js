@@ -7,6 +7,7 @@ class Index {
   constructor() {
     this.initEvent()
     this.init()
+    this.socket()
   }
 
   init() {
@@ -24,6 +25,12 @@ class Index {
           router.go('/index')
         }
       }
+    })
+  }
+  socket() {
+    var socket = io.connect('http://localhost:3000');
+    socket.on('message', function (msg) {
+      console.log(msg);
     })
   }
 }

@@ -8,6 +8,7 @@ class PositionCtroller {
     req.body.createTime = new Date().toLocaleDateString();
     let result = await PositionModel.save(req.body)
     if (result) {
+      this.boradcast('添加了新的职位信息了')
       res.send({ code: 200, msg: '添加成功' })
     } else {
       res.send({ code: 403, msg: '添加失败' })
@@ -40,6 +41,11 @@ class PositionCtroller {
       res.send({ code: 200, msg: "更新职位信息成功" })
     } else {
       res.send({ code: 403, msg: "更新职位信息失败" })
+    }
+  }
+  boradcast(msg) {
+    for (let o in clientlist) {
+      clientlist[o].emit('message', msg);
     }
   }
 }
