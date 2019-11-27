@@ -1,4 +1,5 @@
 <html>
+
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
@@ -8,6 +9,7 @@
   <link rel="stylesheet" href="./static/css/style.css" />
   <link rel="stylesheet" href="./static/css/transitions.css">
 </head>
+
 <body>
   <!-- Include the library in the page -->
   <script src="./static/js/vue.js"></script>
@@ -17,6 +19,12 @@
   <!-- Game app -->
   <div id="app"></div>
 
+  <script type="text/x-template" id="banner">
+    <svg viewBox="0 0 20 260">
+      <path :d="`m 0,0 20,0 0,${height} -10,-10 -10,10 z`" :style="`fill:${color};stroke:none;`" />
+    </svg>
+  </script>
+
   <!-- Scripts -->
   <script src="./utils.js"></script>
   <script src="./cards.js"></script>
@@ -25,4 +33,5 @@
   <script src="components/world.js"></script>
   <script src="main.js"></script>
 </body>
+
 </html>

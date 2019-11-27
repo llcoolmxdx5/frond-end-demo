@@ -45,5 +45,11 @@ var state = {
   },
   get currentOpponent() {
     return state.players[state.currentOpponentId]
-  }
+  },
+  get currentHand() {
+    return state.currentPlayer.hand
+  },
+  drawPile: pile, // 玩家可以抽取的牌堆
+  discardPile: {}, // 弃牌堆
+  canPlay: false // 防止玩家在回合中重复出牌
 }
