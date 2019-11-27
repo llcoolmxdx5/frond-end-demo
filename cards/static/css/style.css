@@ -453,8 +453,7 @@ body {
 .player-result {
   margin: 42px 0;
   padding: 32px;
-  background: rgba(255, 255, 255,
-      .75)
+  background: rgba(255, 255, 255, .75)
 }
 
 .player-result.victorious span {
