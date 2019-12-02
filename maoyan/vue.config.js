@@ -1,6 +1,18 @@
 const path = require("path");
 
 module.exports = {
+  devServer: {
+    port: 9090,
+    open: true,
+    proxy: {
+      "/api": {
+        target: "http://m.maoyan.com/",
+        pathRewrite: {
+          "^/api": ""
+        }
+      }
+    }
+  },
   css: {
     loaderOptions: {
       postcss: {

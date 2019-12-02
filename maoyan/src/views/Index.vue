@@ -71,6 +71,7 @@ export default {
   }
   .main {
     flex: 1;
+    height: 100%;
     @include border-1px(#d8d8d8);
   }
   .footer {

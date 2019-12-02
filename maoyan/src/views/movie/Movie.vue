@@ -20,6 +20,8 @@ export default {
   flex-direction: column;
   .main {
     flex: 1;
+    height: 568.5px;
+    overflow: auto;
   }
 }
 </style>
