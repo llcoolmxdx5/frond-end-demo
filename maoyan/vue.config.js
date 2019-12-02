@@ -1,3 +1,5 @@
+const path = require("path");
+
 module.exports = {
   css: {
     loaderOptions: {
@@ -19,5 +21,11 @@ module.exports = {
         ]
       }
     }
+  },
+  chainWebpack: config => {
+    config.resolve.alias
+      .set("assets", path.resolve(__dirname, "./src/assets/"))
+      .set("style", path.resolve(__dirname, "./src/assets/style/"))
+      .set("public", path.resolve(__dirname, "./public/"));
   }
 };

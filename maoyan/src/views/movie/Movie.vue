@@ -1,15 +1,25 @@
 <template>
-  <div>
-    <router-link to="/city">城市</router-link>
-    <router-link to="/index/movie/hotshowing">正在热映</router-link>
-    <router-link to="/index/movie/comingsoon">即将上映</router-link>
-    <router-link to="/search">搜索</router-link>
-    <router-view></router-view>
+  <div class="movie-container">
+    <Header></Header>
+    <router-view class="main"></router-view>
   </div>
 </template>
 
 <script>
+import Header from "./components/Header";
 export default {
-  name: "Movie"
+  name: "Movie",
+  components: { Header }
 };
 </script>
+
+<style lang="scss" scoped>
+@import "style/mixin.scss";
+.movie-container {
+  display: flex;
+  flex-direction: column;
+  .main {
+    flex: 1;
+  }
+}
+</style>
