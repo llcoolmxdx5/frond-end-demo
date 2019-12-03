@@ -12,12 +12,12 @@ export const moreComingList = params => {
 
 //ajax/mostExpected?ci=50&limit=10&offset=0&token=
 
-export const getMostExpectlist = params => {
+export const mostExpected = params => {
   let url = "/api/ajax/mostExpected";
   return get({ url, params });
 };
 
-export const getComingList = params => {
+export const comingList = params => {
   let url = "/api/ajax/comingList";
   return get({ url, params });
 };

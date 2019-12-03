@@ -1,7 +1,7 @@
 <template>
   <div class="item-container">
     <div class="photo">
-      <img :src="item.img | replaceUrl" alt width="64" height="90" />
+      <img :src="item.img | replaceUrl('128.180')" alt width="64" height="90" />
     </div>
     <div class="content">
       <div class="title">
@@ -129,11 +129,6 @@ export default {
   }
   .btn1 {
     background-color: #3c9fe6;
-  }
-  .line-elipse {
-    text-overflow: ellipsis;
-    overflow: hidden;
-    white-space: nowrap;
   }
 }
 </style>

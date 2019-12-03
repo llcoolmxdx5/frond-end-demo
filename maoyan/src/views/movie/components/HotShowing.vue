@@ -7,10 +7,12 @@
 </template>
 
 <script>
-import { movieOnInfoList, moreComingList } from "@/api/movie";
-import MovieItem from "./MovieItem";
 import BScroll from "@better-scroll/core";
 import Pullup from "@better-scroll/pull-up";
+import { Indicator } from "mint-ui";
+import "mint-ui/lib/style.min.css";
+import { movieOnInfoList, moreComingList } from "@/api/movie";
+import MovieItem from "./MovieItem";
 
 BScroll.use(Pullup);
 export default {
@@ -38,8 +40,17 @@ export default {
       this.scroll.on("pullingUp", () => {
         this.moreComingList({
           token: "",
-          movieIds: this.dataSet.movieIds.slice(this.startIndex, this.startIndex+this.pageSize).join(",")
+          movieIds: this.dataSet.movieIds
+            .slice(this.startIndex, this.startIndex + this.pageSize)
+            .join(",")
         });
+      });
+      this.scroll.on("scroll", position => {
+        if (position.y < -63) {
+          this.$store.commit("UPDATE_DOWNLOAD_STATUS", false);
+        } else {
+          this.$store.commit("UPDATE_DOWNLOAD_STATUS", true);
+        }
       });
     },
     async moreComingList(params) {
@@ -48,10 +59,12 @@ export default {
         this.scroll.refresh();
         return;
       }
+      Indicator.open();
       let result = await moreComingList(params);
       this.dataSet.movieList.push(...result.data.coming);
       this.scroll.finishPullUp();
       this.scroll.refresh();
+      Indicator.close();
       this.startIndex += this.pageSize;
     }
   },

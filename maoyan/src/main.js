@@ -7,8 +7,8 @@ import "style/common.scss";
 
 Vue.config.productionTip = false;
 
-Vue.filter("replaceUrl", val => {
-  return val.replace("w.h", "128.180");
+Vue.filter("replaceUrl", (val, wh) => {
+  return val.replace("w.h", wh);
 });
 
 new Vue({

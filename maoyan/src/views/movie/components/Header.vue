@@ -27,6 +27,7 @@ export default {
   font-size: 15px;
   color: #666;
   font-family: PingFangSC-Regular, Hiragino Sans GB, sans-serif;
+  background-color: #fff;
   @include border-1px(#d8d8d8);
   .city {
     width: 75px;

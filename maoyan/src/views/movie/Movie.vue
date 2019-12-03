@@ -1,5 +1,6 @@
 <template>
   <div class="movie-container">
+    <DownloadApp />
     <Header></Header>
     <router-view class="main"></router-view>
   </div>
@@ -7,9 +8,10 @@
 
 <script>
 import Header from "./components/Header";
+import DownloadApp from "@/components/DownloadApp";
 export default {
   name: "Movie",
-  components: { Header }
+  components: { Header, DownloadApp }
 };
 </script>
 
