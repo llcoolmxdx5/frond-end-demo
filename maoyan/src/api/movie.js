@@ -5,7 +5,7 @@ export const movieOnInfoList = params => {
   return get({ url, params });
 };
 
-export const getMoreMovieList = params => {
+export const moreComingList = params => {
   let url = "/api/ajax/moreComingList";
   return get({ url, params });
 };

@@ -1,18 +1,26 @@
 <template>
   <div class="item-container">
     <div class="photo">
-      <img :src="item.img | replaceUrl" alt width="64" />
+      <img :src="item.img | replaceUrl" alt width="64" height="90" />
     </div>
     <div class="content">
       <div class="title">
         <h1 class="line-elipse">{{item.nm}}</h1>
-        <span :class="item.version"></span>
+        <span :class="item.version" class="version"></span>
+        <span class="preShow" v-if="item.preShow"></span>
       </div>
-      <div class="score">
+      <div class="score" v-if="item.globalReleased  && item.sc">
         <span>观众评&nbsp;</span>
         <span class="grade">{{ item.sc }}</span>
       </div>
-      <p class="line-elipse">主演: {{ item.star }}</p>
+      <div class="score" v-else-if="item.globalReleased && !item.sc">
+        <span>暂无评分</span>
+      </div>
+      <div class="score" v-else>
+        <span class="grade">{{ item.wish }}</span>
+        <span>&nbsp;人想看</span>
+      </div>
+      <p class="line-elipse" v-if="item.star">主演: {{ item.star }}</p>
       <p>{{ item.showInfo }}</p>
     </div>
     <div :class="item.globalReleased ? 'btn' : 'btn1'">
@@ -56,8 +64,8 @@ export default {
         padding-right: 5px;
         flex-shrink: 1;
       }
-      .imax {
-        flex: 0 0 auto;
+      .version,
+      .preShow {
         background-size: contain;
         background-repeat: no-repeat;
         height: 14px;
@@ -67,13 +75,20 @@ export default {
         flex: 0 0 auto;
         margin-right: 3px;
       }
-      .v3d {
+      .imax.v3d {
         width: 43px;
         background-image: url("../../../assets/img/v3dimax.png");
       }
-      .v2d {
+      .imax.v2d {
         width: 43px;
         background-image: url("../../../assets/img/v2dimax.png");
+      }
+      .v3d {
+        background-image: url("../../../assets/img/3d.png");
+      }
+      .preShow {
+        width: 23px;
+        background-image: url("../../../assets/img/pre-show.png");
       }
     }
     span {
