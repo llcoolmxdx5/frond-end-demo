@@ -2,7 +2,7 @@
   <div class="expected-item">
     <div class="bg-img">
       <img :src="item.img | replaceUrl('170.230')" alt width="85" height="115" />
-      <span class="wish-bg"></span>
+      <!-- <span class="wish-bg"></span> -->
       <span class="wish">
         <span class="wish-num">{{ item.wish }}</span>人想看
       </span>

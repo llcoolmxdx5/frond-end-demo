@@ -5,7 +5,7 @@
     </div>
     <div class="content">
       <div class="title">
-        <h1 class="line-elipse">{{item.nm}}</h1>
+        <h1 class="line-ellipsis">{{item.nm}}</h1>
         <span :class="item.version" class="version"></span>
         <span class="preShow" v-if="item.preShow"></span>
       </div>
@@ -20,7 +20,7 @@
         <span class="grade">{{ item.wish }}</span>
         <span>&nbsp;人想看</span>
       </div>
-      <p class="line-elipse" v-if="item.star">主演: {{ item.star }}</p>
+      <p class="line-ellipsis" v-if="item.star">主演: {{ item.star }}</p>
       <p>{{ item.showInfo }}</p>
     </div>
     <div :class="item.globalReleased ? 'btn' : 'btn1'">

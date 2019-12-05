@@ -13,7 +13,9 @@ export const moreComingList = params => {
 //ajax/mostExpected?ci=50&limit=10&offset=0&token=
 
 export const mostExpected = params => {
-  let url = "/api/ajax/mostExpected";
+  // let url = "/api/ajax/mostExpected";
+  let url = "/data.json";
+  if (params.offset > 0) url = "/data1.json";
   return get({ url, params });
 };
 

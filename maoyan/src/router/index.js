@@ -9,12 +9,19 @@ import ComingSoon from "../views/movie/components/ComingSoon";
 import Theater from "../views/theater/Theater";
 import Profile from "../views/profile/Profile";
 
+import Detail from "../views/detail/Detail.vue";
+
 Vue.use(VueRouter);
 
 const routes = [
   {
     path: "/",
     redirect: "/index/movie/hotshowing"
+  },
+  {
+    path: "/detail",
+    name: "detail",
+    component: Detail
   },
   {
     path: "/city",

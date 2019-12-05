@@ -1,8 +1,6 @@
 <template>
   <div class="index-container">
-    <div class="header">
-      <h1>猫眼电影</h1>
-    </div>
+    <HeaderBar></HeaderBar>
     <router-view class="main"></router-view>
     <ul class="footer">
       <router-link to="/index/movie" active-class="active" tag="li">
@@ -46,8 +44,10 @@
 </template>
 
 <script>
+import HeaderBar from "@/components/HeaderBar.vue";
 export default {
-  name: "Index"
+  name: "Index",
+  components: { HeaderBar }
 };
 </script>
 
