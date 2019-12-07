@@ -1,5 +1,5 @@
 <template>
-  <div class="item-container">
+  <div class="item-container" @click="handleClick">
     <div class="photo">
       <img :src="item.img | replaceUrl('128.180')" alt width="64" height="90" />
     </div>
@@ -31,7 +31,12 @@
 <script>
 export default {
   name: "MovieItem",
-  props: ["item"]
+  props: ["item"],
+  methods: {
+    handleClick() {
+      this.$router.push({ name: "detail", params: this.item });
+    }
+  }
 };
 </script>
 
