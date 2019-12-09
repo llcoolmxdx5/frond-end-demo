@@ -7,11 +7,11 @@ import ElementUI from "element-ui";
 import "./assets/style/common.scss";
 import "./assets/style/reset.scss";
 import axios from "axios";
+import "./mock/index";
 
 Vue.prototype.$http = axios;
 Vue.use(ElementUI);
 Vue.config.productionTip = false;
-
 
 new Vue({
   router,

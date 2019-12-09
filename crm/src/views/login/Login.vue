@@ -6,13 +6,13 @@
         <el-input v-model="user.username" placeholder="请输入用户名"></el-input>
       </el-form-item>
       <el-form-item prop="password">
-        <el-input v-model="user.password" placeholder="请输入密码"></el-input>
+        <el-input v-model="user.password" placeholder="请输入密码" type="password"></el-input>
       </el-form-item>
-      <el-form-item class="checked">
+      <el-form-item>
         <el-checkbox v-model="user.checked">记住密码</el-checkbox>
       </el-form-item>
       <el-form-item>
-        <el-button type="primary" @click="handleSubmit">登陆</el-button>
+        <el-button type="primary" @click="handleSubmit" :loading="isLoading">登陆</el-button>
       </el-form-item>
     </el-form>
   </div>
@@ -22,6 +22,7 @@ export default {
   name: "Login",
   data() {
     return {
+      isLoading: false,
       user: {
         username: "",
         password: "",
@@ -39,7 +40,7 @@ export default {
           {
             required: true,
             message: "密码不能为空",
-            trigger: "blur",
+            trigger: "blur"
           },
           {
             trigger: "blur",
@@ -53,18 +54,45 @@ export default {
   },
   methods: {
     handleSubmit() {
-      this.$refs.form.validate(valid => {
+      this.$refs.form.validate(async valid => {
         if (valid) {
-          console.log(this.user);
-          this.$http.post("/api/user/login", {
+          this.isLoading = true;
+          let result = await this.$http.post("/api/user/login", {
             username: this.user.username,
             password: this.user.password
           });
+          if (result.data.code === 0) {
+            this.$message({
+              message: result.data.msg,
+              type: "warning"
+            });
+          } else if (result.data.code === 200) {
+            sessionStorage.setItem("username", this.user.username);
+            if (this.user.checked) {
+              localStorage.setItem("checked", true);
+              localStorage.setItem("username", this.user.username);
+              localStorage.setItem("password", this.user.password);
+            } else {
+              localStorage.removeItem("checked");
+              localStorage.removeItem("username");
+              localStorage.removeItem("password");
+            }
+            this.$router.push("/home");
+          }
+          this.isLoading = false;
         } else {
           console.log("error submit!!");
           return false;
         }
       });
+    }
+  },
+  mounted() {
+    let checked = localStorage.getItem("checked");
+    if (checked) {
+      this.user.checked = true;
+      this.user.username = localStorage.getItem("username");
+      this.user.password = localStorage.getItem("password");
     }
   }
 };
@@ -87,9 +115,6 @@ export default {
       line-height: 50px;
       font-size: 26px;
       margin-bottom: 30px;
-    }
-    .checked {
-      margin-left: 0;
     }
     button {
       width: 100%;

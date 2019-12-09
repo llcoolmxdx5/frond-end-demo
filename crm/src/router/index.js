@@ -13,16 +13,18 @@ const routes = [
     redirect: "/login"
   },
   {
-    path: "/",
+    path: "/home",
     name: "home",
     component: Home,
     children: [
       {
         path: "user",
+        name: "user",
         component: User
       },
       {
         path: "roles",
+        name: "roles",
         component: Roles
       }
     ]
@@ -41,6 +43,23 @@ const routes = [
 
 const router = new VueRouter({
   routes
+});
+
+router.beforeEach((to, _from, next) => {
+  // TODO 调后端接口，token
+  if (to.path === "/login") {
+    if (sessionStorage.getItem("username")) {
+      router.push("/home");
+    } else {
+      next();
+    }
+    return;
+  }
+  if (sessionStorage.getItem("username")) {
+    next();
+  } else {
+    router.push("/login");
+  }
 });
 
 export default router;
