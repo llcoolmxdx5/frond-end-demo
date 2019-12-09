@@ -1,0 +1,13 @@
+html,
+body {
+  height: 100%;
+}
+
+
+
+
+.line-ellipsis {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
