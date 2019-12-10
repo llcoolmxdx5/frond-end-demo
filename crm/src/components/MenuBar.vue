@@ -24,11 +24,9 @@ export default {
   },
   methods: {
     clickHandler(obj) {
+      console.log(obj)
       this.$router.push(obj.path)
     }
-  },
-  mounted() {
-    console.log(this.$router);
   }
 };
 </script>

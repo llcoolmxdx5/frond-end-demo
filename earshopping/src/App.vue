@@ -1,9 +1,7 @@
 <template>
   <div>
     <div class="header">
-      <router-link
-        to="/list"
-        class="header-title">电商网站示例</router-link>
+      <router-link to="/list" class="header-title">电商网站示例</router-link>
       <div class="header-menu">
         <router-link to="/cart" class="header-menu-cart">
           购物车
@@ -18,9 +16,9 @@
 <script>
 export default {
   computed: {
-    cartList () {
-      return this.$store.state.cartList
+    cartList() {
+      return this.$store.state.cartList;
     }
   }
-}
+};
 </script>

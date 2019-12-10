@@ -2,50 +2,47 @@
   <div v-if="product">
     <div class="product">
       <div class="product-img">
-        <img :src="product.image">
+        <img :src="product.image" />
       </div>
       <div class="product-info">
         <h1 class="product-name">{{ product.name }}</h1>
         <div class="product-cost">￥ {{ product.cost }}</div>
-        <div class="product-add-cart"
-            @click="handleAddToCart">加入购物车</div>
+        <div class="product-add-cart" @click="handleAddToCart">加入购物车</div>
       </div>
     </div>
     <div class="product-desc">
       <h2>产品介绍</h2>
-      <img v-for="n in 10"
-        :key="n"
-        :src="`http://ordfm6aah.bkt.clouddn.com/shop/${n}.jpeg`">
+      <img v-for="n in 10" :key="n" :src="`http://ordfm6aah.bkt.clouddn.com/shop/${n}.jpeg`" />
     </div>
   </div>
 </template>
 
 <script>
-import productData from '../product.js'
+import productData from "../product.js";
 export default {
-  data () {
+  data() {
     return {
       // 获取路由中的参数
       id: parseInt(this.$route.params.id),
       product: null
-    }
+    };
   },
   methods: {
-    getProduct () {
+    getProduct() {
       // 真实环境通过ajax获取,这里用异步模拟
       setTimeout(() => {
-        this.product = productData.find(item => item.id === this.id)
-      }, 500)
+        this.product = productData.find(item => item.id === this.id);
+      }, 500);
     },
-    handleAddToCart () {
-      this.$store.commit('addCart', this.id)
+    handleAddToCart() {
+      this.$store.commit("addCart", this.id);
     }
   },
-  mounted () {
+  mounted() {
     // 初始化时请求数据
-    this.getProduct()
+    this.getProduct();
   }
-}
+};
 </script>
 
 <style lang="less" scoped>

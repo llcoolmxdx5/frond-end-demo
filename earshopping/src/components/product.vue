@@ -1,16 +1,11 @@
 <template>
   <div class="product">
-    <router-link
-      :to="'/product/' + info.id"
-      class="product-main">
-      <img :src="info.image">
+    <router-link :to="'/product/' + info.id" class="product-main">
+      <img :src="info.image" />
       <h4>{{ info.name }}</h4>
-      <div
-        class="product-color"
-        :style="{ background: colors[info.color] }"></div>
+      <div class="product-color" :style="{ background: colors[info.color] }"></div>
       <div class="product-cost">¥ {{ info.cost }}</div>
-      <div class="product-add-cart"
-        @click.prevent="handleCart">加入购物车</div>
+      <div class="product-add-cart" @click.prevent="handleCart">加入购物车</div>
     </router-link>
   </div>
 </template>
@@ -20,30 +15,30 @@ export default {
   props: {
     info: Object
   },
-  data () {
+  data() {
     return {
       colors: {
-        '白色': '#ffffff',
-        '金色': '#dac272',
-        '蓝色': '#233472',
-        '红色': '#f2352e'
+        白色: "#ffffff",
+        金色: "#dac272",
+        蓝色: "#233472",
+        红色: "#f2352e"
       }
-    }
+    };
   },
   methods: {
-    handleCart () {
-      this.$store.commit('addCart', this.info.id)
+    handleCart() {
+      this.$store.commit("addCart", this.info.id);
     }
   }
-}
+};
 </script>
 
 <style lang="less" scoped>
 @prefix-cls: "product";
-.@{prefix-cls}{
+.@{prefix-cls} {
   width: 25%;
   float: left;
-  &-main{
+  &-main {
     display: block;
     margin: 16px;
     padding: 16px;
@@ -53,20 +48,20 @@ export default {
     background-color: #ffffff;
     text-align: center;
     position: relative;
-    & img{
+    & img {
       width: 100%;
     }
   }
-  & h4{
+  & h4 {
     color: #222222;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
   }
-  &:hover h4{
+  &:hover h4 {
     color: #0070c9;
   }
-  &-color{
+  &-color {
     display: block;
     width: 16px;
     height: 16px;
@@ -74,11 +69,11 @@ export default {
     border-radius: 50%;
     margin: 6px auto;
   }
-  &-cost{
+  &-cost {
     color: #de4037;
     margin-top: 6px;
   }
-  &-add-cart{
+  &-add-cart {
     display: none;
     padding: 4px 8px;
     background-color: #2d8cf0;
@@ -90,7 +85,7 @@ export default {
     top: 5px;
     right: 5px;
   }
-  &:hover .@{prefix-cls}{
+  &:hover .@{prefix-cls} {
     display: inline-block;
   }
 }

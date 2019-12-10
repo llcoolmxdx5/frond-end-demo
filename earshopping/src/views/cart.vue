@@ -13,20 +13,16 @@
     <div class="cart-content">
       <div class="cart-content-main" v-for="(item, index) in cartList" :key="index">
         <div class="cart-info">
-          <img :src="productDictList[item.id].image">
+          <img :src="productDictList[item.id].image" />
           <span>{{ productDictList[item.id].name }}</span>
         </div>
-        <div class="cart-price">
-          ¥ {{ productDictList[item.id].cost }}
-        </div>
+        <div class="cart-price">¥ {{ productDictList[item.id].cost }}</div>
         <div class="cart-count">
           <span class="cart-control-minus" @click="handleCount(index, -1)">-</span>
           {{ item.count }}
           <span class="cart-control-add" @click="handleCount(index, 1)">+</span>
         </div>
-        <div class="cart-cost">
-          ¥ {{ productDictList[item.id].cost * item.count }}
-        </div>
+        <div class="cart-cost">¥ {{ productDictList[item.id].cost * item.count }}</div>
         <div class="cart-delete">
           <span class="cart-control-delete" @click="handleDelete(index)">删除</span>
         </div>
@@ -35,18 +31,21 @@
     </div>
     <div class="promotion" v-show="cartList.length">
       <span>使用优惠码：</span>
-      <input type="text" v-model="promotionCode">
+      <input type="text" v-model="promotionCode" />
       <span class="cart-control-promotion" @click="handleCheckCode">验证</span>
     </div>
     <div class="cart-footer" v-show="cartList.length">
       <div class="cart-footer-desc">
-        共计 <span>{{ countAll }}</span> 件商品
+        共计
+        <span>{{ countAll }}</span> 件商品
       </div>
       <div class="cart-footer-desc">
-        应付总额 <span>¥ {{ costAll - promotion }}</span>
-        <br>
+        应付总额
+        <span>¥ {{ costAll - promotion }}</span>
+        <br />
         <template v-if="promotion">
-          （优惠<span>¥ {{ promotion }}</span>）
+          （优惠
+          <span>¥ {{ promotion }}</span>）
         </template>
       </div>
       <div class="cart-footer-desc">
@@ -57,72 +56,72 @@
 </template>
 
 <script>
-import productData from '../product.js'
+import productData from "../product.js";
 export default {
-  data () {
+  data() {
     return {
       productList: productData,
-      promotionCode: '',
+      promotionCode: "",
       promotion: 0
-    }
+    };
   },
   computed: {
-    cartList () {
-      return this.$store.state.cartList
+    cartList() {
+      return this.$store.state.cartList;
     },
-    productDictList () {
-      const dict = {}
+    productDictList() {
+      const dict = {};
       this.productList.forEach(item => {
-        dict[item.id] = item
-      })
-      return dict
+        dict[item.id] = item;
+      });
+      return dict;
     },
-    countAll () {
-      let count = 0
+    countAll() {
+      let count = 0;
       this.cartList.forEach(item => {
-        count += item.count
-      })
-      return count
+        count += item.count;
+      });
+      return count;
     },
-    costAll () {
-      let cost = 0
+    costAll() {
+      let cost = 0;
       this.cartList.forEach(item => {
-        cost += this.productDictList[item.id].cost * item.count
-      })
-      return cost
+        cost += this.productDictList[item.id].cost * item.count;
+      });
+      return cost;
     }
   },
   methods: {
-    handleCount (index, count) {
-      if (count < 0 && this.cartList[index].count === 1) return
-      this.$store.commit('editCartCount', {
+    handleCount(index, count) {
+      if (count < 0 && this.cartList[index].count === 1) return;
+      this.$store.commit("editCartCount", {
         id: this.cartList[index].id,
         count: count
-      })
+      });
     },
-    handleDelete (index) {
-      this.$store.commit('deleteCart', this.cartList[index].id)
+    handleDelete(index) {
+      this.$store.commit("deleteCart", this.cartList[index].id);
     },
     // 验证优惠码，我们用vue.js代表正确的优惠码
-    handleCheckCode () {
-      if (this.promotionCode === '') {
-        window.alert('请输入优惠码')
-        return
+    handleCheckCode() {
+      if (this.promotionCode === "") {
+        window.alert("请输入优惠码");
+        return;
       }
-      if (this.promotionCode !== 'vue.js') {
-        window.alert('优惠码验证失败')
+      if (this.promotionCode !== "vue.js") {
+        window.alert("优惠码验证失败");
       } else {
-        this.promotion = 500
+        this.promotion = 500;
       }
     },
     // 通知vuex，完成下单
-    handleOrder () {
-      this.$store.dispatch('buy').then(() => {
-        window.alert('购买成功')
-      })
+    handleOrder() {
+      this.$store.dispatch("buy").then(() => {
+        window.alert("购买成功");
+      });
     }
   }
-}
+};
 </script>
 
 <style lang="less" scoped>
@@ -131,7 +130,7 @@ export default {
   background-color: #ffffff;
   border: 1px solid #dddee1;
   border-radius: 10px;
-  &-header{
+  &-header {
     &-title {
       padding: 16px 32px;
       border-bottom: 1px solid #dddee1;
@@ -187,7 +186,7 @@ export default {
       top: 10px;
     }
   }
-  &-control{
+  &-control {
     &-minus,
     &-add {
       display: inline-block;
@@ -198,7 +197,7 @@ export default {
       text-align: center;
       background-color: #f8f8f9;
       border-radius: 50%;
-      box-shadow: 0 1px 1px rgba(0, 0, 0, .2);
+      box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
       cursor: pointer;
     }
     &-delete {

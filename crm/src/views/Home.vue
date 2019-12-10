@@ -21,6 +21,12 @@
         <MenuBar />
       </el-aside>
       <el-main>
+        <el-breadcrumb separator-class="el-icon-arrow-right" style="height: 20px;">
+          <el-breadcrumb-item>首页</el-breadcrumb-item>
+          <el-breadcrumb-item v-for="item of this.$route.matched" :key="item.meta.id">
+            <a :href="'#'+item.path" style="font-weight:400;">{{ item.meta.name }}</a>
+          </el-breadcrumb-item>
+        </el-breadcrumb>
         <router-view></router-view>
       </el-main>
     </el-container>
@@ -57,6 +63,7 @@ export default {
   },
   mounted() {
     this.username = sessionStorage.getItem("username");
+    console.log(this.$route);
   }
 };
 </script>
@@ -81,6 +88,6 @@ export default {
   background-color: #e9eef3;
   color: #333;
   text-align: center;
-  line-height: 160px;
 }
+
 </style>
