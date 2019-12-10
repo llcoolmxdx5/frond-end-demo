@@ -23,3 +23,10 @@ Mock.mock("/api/user/login", "post", options => {
     });
   }
 });
+
+Mock.mock("/api/user/logout", "get", () => {
+  return Mock.mock({
+    code: 200,
+    msg: "退出登录成功"
+  });
+});

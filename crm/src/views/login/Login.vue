@@ -6,12 +6,14 @@
         <el-input v-model="user.username" placeholder="请输入用户名"></el-input>
       </el-form-item>
       <el-form-item prop="password">
+        <!-- eslint-disable-next-line -->
         <el-input v-model="user.password" placeholder="请输入密码" type="password"></el-input>
       </el-form-item>
       <el-form-item>
         <el-checkbox v-model="user.checked">记住密码</el-checkbox>
       </el-form-item>
       <el-form-item>
+        <!-- eslint-disable-next-line -->
         <el-button type="primary" @click="handleSubmit" :loading="isLoading">登陆</el-button>
       </el-form-item>
     </el-form>
