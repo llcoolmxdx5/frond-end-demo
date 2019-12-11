@@ -1,13 +1,17 @@
 <template>
-  <el-menu default-active="1-1" :default-openeds="['1','2']" class="el-menu-vertical-demo">
-    <el-submenu :index="item.meta.id" v-for="(item, index) of getList" :key="index">
+  <el-menu :default-openeds="['1','2']" class="el-menu-vertical-demo">
+    <el-submenu
+      :index="item.meta.id"
+      v-for="(item, index) of getNav(this.$router.options.routes)"
+      :key="index"
+    >
       <template slot="title">
         <i :class="item.meta.class"></i>
         <span>{{ item.meta.name }}</span>
       </template>
       <el-menu-item
         :index="sub.meta.id"
-        v-for="sub of item.children"
+        v-for="sub in getNav(item.children)"
         :key="sub.meta.id"
         @click="clickHandler(sub)"
       >{{ sub.meta.name }}</el-menu-item>
@@ -17,15 +21,15 @@
 <script>
 export default {
   name: "MenuBar",
-  computed: {
-    getList() {
-      return this.$router.options.routes.filter(item => item.meta);
-    }
-  },
+  computed: {},
   methods: {
     clickHandler(obj) {
-      console.log(obj)
-      this.$router.push(obj.path)
+      this.$router.push(obj.path);
+    },
+    getNav(list) {
+      return list.filter(item => {
+        return item.meta && item.meta.name;
+      });
     }
   }
 };

@@ -21,10 +21,14 @@
         <MenuBar />
       </el-aside>
       <el-main>
-        <el-breadcrumb separator-class="el-icon-arrow-right" style="height: 20px;">
+        <el-breadcrumb
+          v-show="$store.state.isshowBread"
+          separator-class="el-icon-arrow-right"
+          style="height: 20px;"
+        >
           <el-breadcrumb-item>首页</el-breadcrumb-item>
           <el-breadcrumb-item v-for="item of this.$route.matched" :key="item.meta.id">
-            <a :href="'#'+item.path" style="font-weight:400;">{{ item.meta.name }}</a>
+            <a :href="item.path" style="font-weight:400;">{{ item.meta.name }}</a>
           </el-breadcrumb-item>
         </el-breadcrumb>
         <router-view></router-view>
@@ -89,5 +93,4 @@ export default {
   color: #333;
   text-align: center;
 }
-
 </style>

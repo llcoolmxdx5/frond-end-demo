@@ -5,6 +5,8 @@ import User from "../views/user/User";
 import Roles from "../views/user/Roles";
 import Login from "../views/login/Login";
 import Statics from "../views/statics/Statics";
+
+import store from "../store/index";
 Vue.use(VueRouter);
 
 const routes = [
@@ -16,12 +18,18 @@ const routes = [
     path: "/home",
     name: "home",
     component: Home,
+    redirect: "/home/statics",
     meta: {
       id: "1",
       name: "应用管理",
       class: "el-icon-user-solid"
     },
     children: [
+      {
+        path: "/home/statics",
+        name: "statics",
+        component: Statics
+      },
       {
         path: "user",
         name: "user",
@@ -78,11 +86,6 @@ const routes = [
     path: "/login",
     name: "login",
     component: Login
-  },
-  {
-    path: "/statics",
-    name: "statics",
-    component: Statics
   }
 ];
 
@@ -92,6 +95,11 @@ const router = new VueRouter({
 
 router.beforeEach((to, _from, next) => {
   // TODO 调后端接口，token
+  if (to.path === "/home/statics") {
+    store.commit("UPDATE_BREAE", false);
+  } else {
+    store.commit("UPDATE_BREAE", true);
+  }
   if (to.path === "/login") {
     if (sessionStorage.getItem("username")) {
       router.push("/home");

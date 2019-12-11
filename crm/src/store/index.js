@@ -4,8 +4,14 @@ import Vuex from "vuex";
 Vue.use(Vuex);
 
 export default new Vuex.Store({
-  state: {},
-  mutations: {},
+  state: {
+    isshowBread: true
+  },
+  mutations: {
+    UPDATE_BREAE(state, val) {
+      state.isshowBread = val;
+    }
+  },
   actions: {},
   modules: {}
 });

@@ -1,12 +1,14 @@
 <template>
   <div>
+    <UserAdd v-if="showadd" @close="handleAddClose"></UserAdd>
+    <UserEdit v-if="showEdit" :item="currentUser" @close="handleEditClose" />
     <el-row class="toolbar">
       <el-col class="textInput">
         <el-input placeholder="姓名" v-model="name"></el-input>
       </el-col>
       <el-col class="btnBox">
         <el-button type="primary" @click="handleQuery">查询</el-button>
-        <el-button type="primary">新增</el-button>
+        <el-button type="primary" @click="handleAdd">新增</el-button>
       </el-col>
     </el-row>
     <el-table
@@ -17,7 +19,7 @@
       :default-sort="{ prop: 'date', order: 'descending' }"
     >
       <el-table-column type="selection" width="55"></el-table-column>
-      <el-table-column label="#" width="55"></el-table-column>
+      <el-table-column label="#" width="55" type="index" :index="indexMethod"></el-table-column>
       <el-table-column prop="name" label="姓名" sortable width="110"></el-table-column>
       <el-table-column label="性别" prop="sex" sortable width="120">
         <template slot-scope="scope">
@@ -29,26 +31,40 @@
       <el-table-column label="地址" prop="address" width="600"></el-table-column>
       <el-table-column label="操作">
         <template slot-scope="scope">
-          <el-button>编辑</el-button>
+          <el-button @click="handleEdit(scope.row)">编辑</el-button>
           <el-button type="danger" @click="handleDel(scope.row.id)">删除</el-button>
         </template>
       </el-table-column>
     </el-table>
-    <el-pagination
-      background
-      :page-size="pagesize"
-      :page-count="pagenos"
-      layout="prev, pager, next"
-      @current-change="currentChange"
-      :total="total"
-    ></el-pagination>
+    <el-row class="footer">
+      <el-col :span="4">
+        <el-button type="danger" @click="handleBatchDel">批量删除</el-button>
+      </el-col>
+      <el-col :span="20">
+        <el-pagination
+          background
+          :page-size="pagesize"
+          :page-count="pagenos"
+          layout="prev, pager, next"
+          @current-change="currentChange"
+          :total="total"
+        ></el-pagination>
+      </el-col>
+    </el-row>
   </div>
 </template>
 <script>
+import UserAdd from "./UserAdd";
+import UserEdit from "./UserEdit";
 export default {
   name: "User",
+  components: { UserAdd, UserEdit },
   data() {
     return {
+      showadd: false,
+      showEdit: false,
+      selectedList: [],
+      currentUser: {},
       pagesize: 15,
       pageno: 1,
       name: "",
@@ -109,9 +125,73 @@ export default {
           });
         });
     },
+    indexMethod(index) {
+      return index + 1 + this.pagesize * (this.pageno - 1);
+    },
+    handleEdit(user) {
+      this.showEdit = true;
+      this.currentUser = user;
+    },
     currentChange(size) {
       this.pageno = size;
       this.querylist();
+    },
+    handleAdd() {
+      this.showadd = true;
+    },
+    handleAddClose(message) {
+      console.log("close dialog");
+      if ("success" === message) {
+        this.$message({
+          type: "success",
+          message: "添加数据成功"
+        });
+        this.querylist();
+      }
+      this.showadd = false;
+    },
+    handleEditClose(message) {
+      if ("success" === message) {
+        this.$message({
+          type: "success",
+          message: "添加更新成功"
+        });
+        this.querylist();
+      }
+      this.showEdit = false;
+    },
+    async handleBatchDel() {
+      this.$confirm("此操作将永久删除该文件, 是否继续?", "提示", {
+        confirmButtonText: "确定",
+        cancelButtonText: "取消",
+        type: "warning"
+      })
+        .then(async () => {
+          var rs = await this.$http.post(
+            "/api/user/batchdel",
+            this.selectedList
+          );
+          if (rs.data.code === 1) {
+            this.$message({
+              type: "success",
+              message: rs.data.message
+            });
+            this.querylist();
+          }
+        })
+        .catch(() => {
+          this.$message({
+            type: "info",
+            message: "已取消删除"
+          });
+        });
+    },
+    handleSelect(val) {
+      console.log(val);
+      this.selectedList = [];
+      val.forEach(item => {
+        this.selectedList.push(item.id);
+      });
     }
   },
   created() {
@@ -129,10 +209,14 @@ export default {
     width: 180px;
   }
 }
-.el-pagination {
-  text-align: right;
+.footer {
+  background: white;
   padding-top: 10px;
   padding-bottom: 10px;
-  background: white;
+  text-align: left;
+  padding-left: 15px;
+}
+.el-pagination {
+  text-align: right;
 }
 </style>
