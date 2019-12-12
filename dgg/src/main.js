@@ -4,6 +4,9 @@ import router from "./router";
 import store from "./store";
 import "./assets/css/icon.css";
 import "./assets/lib/flexible";
+import VueLazyload from "vue-lazyload";
+
+Vue.use(VueLazyload);
 
 Vue.config.productionTip = false;
 

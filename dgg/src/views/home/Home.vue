@@ -2,23 +2,83 @@
   <div class="index-page">
     <div class="banner">
       <div class="location-search" style="background: rgba(255, 255, 255, 0);">
-        <span class="current-city">
+        <router-link to="/citychoice" class="current-city" tag="span">
           <span class="one-line">成都</span>
           <i></i>
-        </span>
+        </router-link>
         <router-link to="/search" tag="span" class="search">搜索顶呱呱产品</router-link>
       </div>
     </div>
-    <div class="onlien-query-wrap"></div>
-    <div class="kind-wrap"></div>
-    <div class="index-hot"></div>
-    <div class="active-wrap"></div>
-    <div class="recm-product-wrap"></div>
+    <div class="onlien-query-wrap">
+      <a href="tel:4000962540">
+        <img src="@/assets/img/tel_advisory.png" alt />
+        <strong>电话咨询</strong>
+        <p>4000-962540</p>
+      </a>
+      <a href="javascript:void(0)">
+        <img src="@/assets/img/online_advisory.png" alt />
+        <strong>在线咨询</strong>
+        <p>专业顾问服务</p>
+      </a>
+    </div>
+    <div class="kind-wrap">
+      <a :href="item.naviUrl" v-for="item in homePageList.navigationList" :key="item.id">
+        <img :src="item.naviImageUrl" alt />
+        <p>{{ item.naviName }}</p>
+      </a>
+    </div>
+    <div class="index-hot">
+      <img src="@/assets/img/dgg_hot.png" alt />
+    </div>
+    <div class="active-wrap">
+      <h3 class="home-title">优惠活动</h3>
+      <div class="active-contont">
+        <a href="http://m.dgg.cn/goods/1910152442"></a>
+        <a href="http://m.dgg.cn/goods/1910153465"></a>
+        <a href="http://m.dgg.cn/goods/1910155954"></a>
+        <a href="https://m.dgg.cn/goods/1910152998"></a>
+      </div>
+    </div>
+    <div class="recm-product-wrap">
+      <h3 class="home-title">推荐服务/商品</h3>
+      <div ref="scroll">
+        <Commodity v-for="item in this.dataList.data" :key="item.comCode" :item="item" />
+      </div>
+    </div>
+    <div class="no-more-data" v-if="noMoreData">没有更多数据了</div>
   </div>
 </template>
 <script>
+import Commodity from "./Commodity";
+import {
+  getCommodity,
+  getHomePageList,
+  queryMaterialByLocation
+} from "@/api/item";
 export default {
-  name: "Home"
+  name: "Home",
+  components: { Commodity },
+  data() {
+    return {
+      dataList: [],
+      homePageList: [],
+      material: [],
+      noMoreData: false,
+      page: 1
+    };
+  },
+  async created() {
+    let _material = await queryMaterialByLocation();
+    this.material = _material.data.data;
+    let _homePageList = await getHomePageList();
+    this.homePageList = _homePageList.data.data;
+    let data = await getCommodity({
+      page: this.page,
+      limit: 10,
+      comShowClient: "COUPON_PLAT_1"
+    });
+    this.dataList = data.data.data;
+  }
 };
 </script>
 <style lang="scss" scoped>
@@ -259,8 +319,7 @@ export default {
       position: absolute;
       width: 43%;
       height: 4.16rem;
-      background: url(https://dgg-xiaodingyun.oss-cn-beijing.aliyuncs.com/xdy-xcx/index/home_yu1.png)
-        no-repeat;
+      background: url("../../assets/img/active_1.png") no-repeat;
       background-size: 100% 100%;
       border-radius: 0.08rem;
       left: 0;
@@ -275,8 +334,7 @@ export default {
       position: absolute;
       width: 54%;
       height: 1.8rem;
-      background: url(https://dgg-xiaodingyun.oss-cn-beijing.aliyuncs.com/xdy-xcx/index/home_yu2.png)
-        no-repeat;
+      background: url("../../assets/img/active_2.png") no-repeat;
       background-size: 100% 100%;
       right: 0;
       top: 0;
@@ -291,8 +349,7 @@ export default {
       position: absolute;
       width: 26.3%;
       height: 2.2rem;
-      background: url(https://dgg-xiaodingyun.oss-cn-beijing.aliyuncs.com/xdy-xcx/index/home_yu3.png)
-        no-repeat;
+      background: url("../../assets/img/active_3.png") no-repeat;
       background-size: 100% 100%;
       border-radius: 0.08rem;
       right: 28%;
@@ -307,8 +364,7 @@ export default {
       position: absolute;
       width: 26.3%;
       height: 2.2rem;
-      background: url(https://dgg-xiaodingyun.oss-cn-beijing.aliyuncs.com/xdy-xcx/index/home_yu4.png)
-        no-repeat;
+      background: url("../../assets/img/active_4.png") no-repeat;
       background-size: 100% 100%;
       border-radius: 0.08rem;
       right: 0;
@@ -330,5 +386,12 @@ export default {
     flex-wrap: wrap;
     justify-content: space-around;
   }
+}
+.no-more-data {
+  text-align: center;
+  font-size: 0.24rem;
+  color: #999;
+  line-height: 0.4rem;
+  padding-bottom: 0.4rem;
 }
 </style>
