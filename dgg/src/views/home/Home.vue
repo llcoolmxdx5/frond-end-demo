@@ -1,6 +1,20 @@
 <template>
-  <div class="index-page">
+  <div class="index-page" ref="scroll">
     <div class="banner">
+      <div class="banner-swiper">
+        <div class="md-swiper">
+          <div class="md-swiper-box">
+            <div
+              class="md-swiper-container"
+              style="transform: translate3d(0px, 0px, 0px) scale(1);"
+            >
+              <div class="md-swiper-item" style="width: 375px; height: auto;">
+                <img src="http://img10.dgg.cn/upload/yOIW5u0b757ewwGywvVYX3aydaQs4GeSIEe1zbmk.jpeg" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
       <div class="location-search" style="background: rgba(255, 255, 255, 0);">
         <router-link to="/citychoice" class="current-city" tag="span">
           <span class="one-line">成都</span>
@@ -29,6 +43,24 @@
     </div>
     <div class="index-hot">
       <img src="@/assets/img/dgg_hot.png" alt />
+      <div class="md-swiper index-hot-swiper md-swiper-vertical">
+        <div class="md-swiper-box">
+          <div
+            class="md-swiper-container"
+            :style="'transform: translate3d(0px, ' + hotY + 'px, 0px) scale(1);'"
+          >
+            <div
+              class="md-swiper-item"
+              style="width: auto; height: 44px;"
+              v-for="item of homePageList.articlePortalList.records"
+              :key="item.id"
+            >
+              <p class="index-hot-text">{{ item.articleTitle }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <i class="dgg-icon dgg-icon-arrow" style="font-size:0.34rem;color:#878787;"></i>
     </div>
     <div class="active-wrap">
       <h3 class="home-title">优惠活动</h3>
@@ -41,7 +73,7 @@
     </div>
     <div class="recm-product-wrap">
       <h3 class="home-title">推荐服务/商品</h3>
-      <div ref="scroll">
+      <div id="scroll">
         <Commodity v-for="item in this.dataList.data" :key="item.comCode" :item="item" />
       </div>
     </div>
@@ -64,8 +96,17 @@ export default {
       homePageList: [],
       material: [],
       noMoreData: false,
-      page: 1
+      page: 1,
+      hotY: 0
     };
+  },
+  methods: {
+    hotTransform() {
+      setInterval(() => {
+        this.hotY -= 44;
+        if (this.hotY < -(44 * this.homePageList.articlePortalList.records.length)) this.hotY = -44;
+      }, 3000);
+    }
   },
   async created() {
     let _material = await queryMaterialByLocation();
@@ -78,6 +119,7 @@ export default {
       comShowClient: "COUPON_PLAT_1"
     });
     this.dataList = data.data.data;
+    this.hotTransform();
   }
 };
 </script>
@@ -90,6 +132,11 @@ export default {
   width: 100%;
   height: 3.68rem;
   overflow: hidden;
+  .banner-swiper,
+  .banner-swiper img {
+    width: 100%;
+    height: 3.68rem;
+  }
   .location-search {
     position: fixed;
     top: 0;
@@ -267,6 +314,108 @@ export default {
     line-height: 0.88rem;
   }
 }
+.md-swiper-box {
+  overflow: hidden;
+  will-change: tranform;
+}
+
+.md-swiper,
+.md-swiper-box {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.md-swiper-box.disabled,
+.md-swiper.disabled {
+  visibility: hidden;
+}
+
+.md-swiper-box.md-swiper-fade .md-swiper-item,
+.md-swiper.md-swiper-fade .md-swiper-item {
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  left: 0;
+}
+
+.md-swiper-box.md-swiper-vertical .md-swiper-container,
+.md-swiper.md-swiper-vertical .md-swiper-container {
+  width: 100%;
+  height: auto;
+  -webkit-box-orient: vertical;
+  box-orient: vertical;
+  -webkit-flex-direction: column;
+  flex-direction: column;
+}
+
+.md-swiper-box.md-swiper-vertical .md-swiper-indicators,
+.md-swiper.md-swiper-vertical .md-swiper-indicators {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  flex-direction: column;
+  right: 0.2rem;
+  left: auto;
+  bottom: auto;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+.md-swiper-box.md-swiper-vertical .md-swiper-indicators.disabled,
+.md-swiper.md-swiper-vertical .md-swiper-indicators.disabled {
+  visibility: hidden;
+}
+
+.md-swiper-box.md-swiper-vertical .md-swiper-indicators .md-swiper-indicator,
+.md-swiper.md-swiper-vertical .md-swiper-indicators .md-swiper-indicator {
+  width: 0.04rem;
+  height: 0.16rem;
+  margin: 0.025rem 0;
+}
+
+.md-swiper-container {
+  height: 100%;
+  width: auto;
+  position: relative;
+  box-sizing: initial;
+}
+
+.md-swiper-container,
+.md-swiper-indicators {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+}
+
+.md-swiper-indicators {
+  position: absolute;
+  bottom: 0.2rem;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-50%);
+}
+
+.md-swiper-indicator {
+  width: 0.16rem;
+  height: 0.04rem;
+  display: inline-block;
+  background: #ddd;
+  margin: 0 0.03rem;
+}
+
+.md-swiper-indicator.md-swiper-indicator-active {
+  background: #2f86f6;
+}
+
+.md-swiper-item {
+  position: relative;
+  width: 100%;
+  -webkit-flex-shrink: 0;
+  flex-shrink: 0;
+}
+
 .home-title {
   font-size: 0.32rem;
   font-family: PingFangSC-Semibold, PingFang SC;

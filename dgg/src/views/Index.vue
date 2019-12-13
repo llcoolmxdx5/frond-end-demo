@@ -1,9 +1,9 @@
 <template>
   <section class="dgg-flexview">
     <section class="dgg-scrollview-tabbar">
-      <router-view name="home"></router-view> <!--  默认显示这个组件Home  -->
+      <!-- <router-view name="home"></router-view> -->
+      <!-- 默认显示这个组件Home -->
       <router-view></router-view>
-      <Home />
     </section>
     <footer class="dgg-tabbar">
       <router-link to="/" active-class="dgg-tabbar-active" class="dgg-tabbar-item" tag="div" exact>
@@ -43,10 +43,10 @@
   </section>
 </template>
 <script>
-import Home from "./home/Home";
+// import Home from "./home/Home";
 export default {
   name: "Index",
-  components: { Home },
+  // components: { Home },
   data() {
     return {
       isActive: "",
