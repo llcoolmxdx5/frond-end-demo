@@ -73,7 +73,6 @@ export default {
   },
   mounted() {
     this.clickHandler(this.$route.name);
-    console.log(this.$route.name)
   }
 };
 </script>
