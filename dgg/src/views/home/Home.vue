@@ -1,5 +1,5 @@
 <template>
-  <div class="index-page" ref="scroll">
+  <div class="index-page" id="index-page">
     <div class="banner">
       <div class="banner-swiper">
         <div class="md-swiper">
@@ -73,7 +73,7 @@
     </div>
     <div class="recm-product-wrap">
       <h3 class="home-title">推荐服务/商品</h3>
-      <div id="scroll">
+      <div id="scroll" ref="scroll">
         <Commodity v-for="item in this.dataList.data" :key="item.comCode" :item="item" />
       </div>
     </div>
@@ -93,7 +93,9 @@ export default {
   data() {
     return {
       dataList: [],
-      homePageList: [],
+      homePageList: {
+        articlePortalList:{}
+      },
       material: [],
       noMoreData: false,
       page: 1,
@@ -102,10 +104,42 @@ export default {
   },
   methods: {
     hotTransform() {
+      let time = 0;
       setInterval(() => {
-        this.hotY -= 44;
-        if (this.hotY < -(44 * this.homePageList.articlePortalList.records.length)) this.hotY = -44;
-      }, 3000);
+        time += 1;
+        if (time === 11) {
+          this.hotY -= 44;
+          time = 0;
+        }
+        if (this.homePageList.articlePortalList &&
+          this.hotY < -(44 * (this.homePageList.articlePortalList.records.length - 1))
+        ) {
+          this.hotY = 0;
+        }
+        this.scrollHandler();
+      }, 300);
+    },
+    async scrollHandler() {
+      if (this.noMoreData) return;
+      let div1 = document.querySelector("#scroll");
+      let div = document.querySelector("#scroll").children[1];
+      let itemBottom = Number(
+        window.getComputedStyle(div, null).marginBottom.slice(0, -2)
+      );
+      let parentHeight = document.querySelector("#index-page").parentElement
+        .clientHeight;
+      if (
+        parentHeight - itemBottom ===
+        div1.getBoundingClientRect().bottom
+      ) {
+        let data = await getCommodity({
+          page: this.page,
+          limit: 10,
+          comShowClient: "COUPON_PLAT_1"
+        });
+        this.dataList.data.push(...data.data.data.data);
+        this.noMoreData = true;
+      }
     }
   },
   async created() {
@@ -119,7 +153,10 @@ export default {
       comShowClient: "COUPON_PLAT_1"
     });
     this.dataList = data.data.data;
-    this.hotTransform();
+    this.page += 1;
+    this.$nextTick(() => {
+      this.hotTransform();
+    });
   }
 };
 </script>

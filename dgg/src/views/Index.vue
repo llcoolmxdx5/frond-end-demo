@@ -1,8 +1,6 @@
 <template>
   <section class="dgg-flexview">
     <section class="dgg-scrollview-tabbar">
-      <!-- <router-view name="home"></router-view> -->
-      <!-- 默认显示这个组件Home -->
       <router-view></router-view>
     </section>
     <footer class="dgg-tabbar">
@@ -43,10 +41,8 @@
   </section>
 </template>
 <script>
-// import Home from "./home/Home";
 export default {
   name: "Index",
-  // components: { Home },
   data() {
     return {
       isActive: "",
@@ -77,6 +73,7 @@ export default {
   },
   mounted() {
     this.clickHandler(this.$route.name);
+    console.log(this.$route.name)
   }
 };
 </script>
