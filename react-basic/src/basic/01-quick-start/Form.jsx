@@ -10,9 +10,20 @@ export default class Form extends Component {
   render() {
     return (
       <>
-        <input></input>
-        <button></button>
+        <input type="text" value={this.state.value} onChange={this.handleChange.bind(this)}></input>
+        <button onClick={this.handleClick.bind(this)}>add</button>
       </>
     )
+  }
+  handleChange(e) {
+    this.setState({
+      value: e.target.value
+    })
+  }
+  handleClick() {
+    this.props.handleAdd(this.state.value)
+    this.setState({
+      value: ''
+    })
   }
 }

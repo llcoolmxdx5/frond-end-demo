@@ -4,9 +4,13 @@ import Item from './Item'
 export default class List extends Component {
   render() {
     return (
-      <div>
-        list
-      </div>
+      <ul>
+        {
+          this.props.list.map((item, index)=> {
+            return <Item key={index} value={item}></Item>
+          })
+        }
+      </ul>
     )
   }
 }

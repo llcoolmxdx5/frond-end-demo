@@ -12,9 +12,13 @@ export default class Todolist extends Component {
   render() {
     return (
       <>
-        <List></List>
-        <Form></Form>
+        <Form handleAdd={this.handleAdd.bind(this)}></Form>
+        <List list={this.state.list}></List>
       </>
     )
+  }
+  handleAdd(value) {
+    this.state.list.push(value)
+    this.setState({})
   }
 }
