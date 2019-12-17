@@ -5,6 +5,7 @@ export default class Hotshowing extends Component {
     return (
       <div>
         {this.props.title}
+        {this.props.count}
       </div>
     )
   }
