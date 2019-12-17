@@ -13,6 +13,7 @@ export default class Event extends Component {
       <div>
         <a href="https://www.baidu.com" onClick={this.go}>go</a> <hr />
         <input type="text" defaultValue="Bob" ref={this.username}></input> <hr />
+        <input type="text" defaultValue="Alan" ref='username'></input> <hr />
         {this.state.count}
         {/* <button onClick={this.handleClick}>+</button> */} {/* 1 */}
         {/* <button onClick={this.handleClick('abc')}>+</button> */} {/* 2 */}
@@ -28,6 +29,7 @@ export default class Event extends Component {
 
   componentDidMount() {
     console.log(this.username.current.value)
+    console.log(this.refs.username.value)
   }
 
   // 1
