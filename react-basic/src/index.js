@@ -9,7 +9,9 @@ import ReactDOM from 'react-dom';
 // import App from './basic/07-state/Movie'
 // import App from './basic/08-event/Event'
 // import App from './basic/09-condition-render/If'
-import App from './basic/10-form/Uncontroll'
+// import App from './basic/10-form/Uncontroll'
+// import App from './basic/11-lifecycle/LifeCycle'
+import App from './basic/12-context/Index'
 
 // ReactDOM.render(<App />, document.getElementById('root'));
 
