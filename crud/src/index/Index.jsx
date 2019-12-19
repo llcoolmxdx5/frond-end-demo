@@ -7,7 +7,7 @@ export default class Index extends Component {
   render() {
     return (
       <PosProvider>
-      <Modal></Modal>
+        <Modal></Modal>
         <div className='container'>
           <List />
         </div>

@@ -6,7 +6,7 @@ export default class Item extends Component {
     return (
       <Consumer>
         {
-          ({ result, del }) => {
+          ({ result, del, update }) => {
             return (
               result.map((pos, i) => {
                 return <tr key={pos.positionId} className="text-center">
@@ -14,8 +14,8 @@ export default class Item extends Component {
                   <td>{pos.city}</td>
                   <td>{pos.salary}</td>
                   <td>{pos.companyName}</td>
-                  <td><a href='' onClick={(e) => del(pos.positionId, e)}>删除</a></td>
-                  <td><a href=''>编辑</a></td>
+                  <td><button type='button' onClick={(e) => del(pos.positionId, e)}>删除</button></td>
+                  <td><button type='button' onClick={(e) => update(pos)}>编辑</button></td>
                 </tr>
               })
             )
