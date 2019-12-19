@@ -1,0 +1,58 @@
+.overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.3);
+  visibility: hidden;
+}
+.overlay.visible {
+  display: block;
+  visibility: visible;
+}
+.containe {
+  margin: 80px auto;
+  width: 60%;
+  min-height: 800px;
+  background: #fff;
+  border-radius: 4px;
+}
+
+.header {
+  display: flex;
+  padding: 16px;
+  font-size: 24px;
+  border-bottom: 1px solid #d3d3d3;
+  align-items: flex-end;
+}
+.btn-circle {
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  padding: 6px 0;
+  font-size: 12px;
+  line-height: 1.428571429;
+  border-radius: 15px;
+}
+
+.body {
+  padding: 16px;
+}
+
+.pos {
+  padding-top: 30px;
+}
+.label {
+  float: left;
+  width: 200px;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+}
+.baocun {
+  width: 80%;
+  text-align: center;
+}
+

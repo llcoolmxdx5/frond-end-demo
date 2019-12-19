@@ -1,0 +1,243 @@
+{
+  "state": 1,
+  "message": "第1页数据,每页15条, 查询成功!",
+  "content": {
+    "data": {
+      "isLogin": false,
+      "page": {
+        "pageSize": 15,
+        "start": "15",
+        "result": [
+          {
+            "logger": {
+              "traceCapable": true,
+              "name": "com.lagou.entity.mobile.MobilePosition"
+            },
+            "positionId": 6626670,
+            "positionName": "金融实习生",
+            "city": "北京",
+            "createTime": "今天 13:52",
+            "salary": "6k-12k",
+            "companyId": 184419,
+            "companyLogo": "i/image/M00/C0/94/CgqKkVjTMtiAAHfRAAKQ14PV4os344.jpg",
+            "companyName": "华壹信融",
+            "companyFullName": "华壹信融投资管理（北京）有限责任公司"
+          },
+          {
+            "logger": {
+              "traceCapable": true,
+              "name": "com.lagou.entity.mobile.MobilePosition"
+            },
+            "positionId": 6622413,
+            "positionName": "推荐算法",
+            "city": "杭州",
+            "createTime": "今天 13:46",
+            "salary": "22k-40k",
+            "companyId": 348784,
+            "companyLogo": "i/image2/M01/AC/0E/CgoB5lvvmFmAH5P5AAA5-5rnZGE002.png",
+            "companyName": "知衣科技",
+            "companyFullName": "杭州知衣科技有限公司"
+          },
+          {
+            "logger": {
+              "traceCapable": true,
+              "name": "com.lagou.entity.mobile.MobilePosition"
+            },
+            "positionId": 6625993,
+            "positionName": "UE4开发工程师",
+            "city": "成都",
+            "createTime": "今天 13:44",
+            "salary": "15k-24k",
+            "companyId": 47102,
+            "companyLogo": "i/image/M00/50/76/CgqKkVe0BhyAZhBNAAAvq-xa7n0928.png",
+            "companyName": "四方伟业",
+            "companyFullName": "成都四方伟业软件股份有限公司"
+          },
+          {
+            "logger": {
+              "traceCapable": true,
+              "name": "com.lagou.entity.mobile.MobilePosition"
+            },
+            "positionId": 6626822,
+            "positionName": "音乐编辑",
+            "city": "北京",
+            "createTime": "今天 13:43",
+            "salary": "6k-8k",
+            "companyId": 286568,
+            "companyLogo": "i/image2/M01/8B/9A/CgotOV15uyKAMCL3AAAvAzXIrFw812.png",
+            "companyName": "音娱时光",
+            "companyFullName": "北京音娱时光科技有限公司"
+          },
+          {
+            "logger": {
+              "traceCapable": true,
+              "name": "com.lagou.entity.mobile.MobilePosition"
+            },
+            "positionId": 6623317,
+            "positionName": "搜索推荐平台负责人",
+            "city": "上海",
+            "createTime": "今天 13:43",
+            "salary": "40k-70k",
+            "companyId": 69466,
+            "companyLogo": "i/image2/M01/E3/21/CgotOVxvnH2AXwmmAAAW_VBX4go109.png",
+            "companyName": "彩贝壳",
+            "companyFullName": "上海绘享网络科技有限公司"
+          },
+          {
+            "logger": {
+              "traceCapable": true,
+              "name": "com.lagou.entity.mobile.MobilePosition"
+            },
+            "positionId": 6626947,
+            "positionName": "高级招聘主管",
+            "city": "北京",
+            "createTime": "今天 13:43",
+            "salary": "13k-20k",
+            "companyId": 341494,
+            "companyLogo": "i/image2/M00/52/23/CgoB5lsVDL-ABPkzAAAOIYvg_ag922.png",
+            "companyName": "高灯科技",
+            "companyFullName": "海南高灯科技有限公司"
+          },
+          {
+            "logger": {
+              "traceCapable": true,
+              "name": "com.lagou.entity.mobile.MobilePosition"
+            },
+            "positionId": 6627478,
+            "positionName": "电商推广专员（猫超）",
+            "city": "广州",
+            "createTime": "今天 13:42",
+            "salary": "7k-13k",
+            "companyId": 24265,
+            "companyLogo": "image1/M00/00/31/Cgo8PFTUXIaAZs1cAABbd7l9vFQ632.png",
+            "companyName": "蓝月亮",
+            "companyFullName": "蓝月亮（中国）有限公司"
+          },
+          {
+            "logger": {
+              "traceCapable": true,
+              "name": "com.lagou.entity.mobile.MobilePosition"
+            },
+            "positionId": 6625479,
+            "positionName": "测试开发专家",
+            "city": "杭州",
+            "createTime": "今天 13:40",
+            "salary": "15k-25k",
+            "companyId": 83357,
+            "companyLogo": "i/image/M00/5B/70/CgpEMlmIUlmAV1tEAAAaTHpmgoA200.jpg",
+            "companyName": "阿里云",
+            "companyFullName": "阿里云计算有限公司"
+          },
+          {
+            "logger": {
+              "traceCapable": true,
+              "name": "com.lagou.entity.mobile.MobilePosition"
+            },
+            "positionId": 6627644,
+            "positionName": "c++开发工程师",
+            "city": "深圳",
+            "createTime": "今天 13:38",
+            "salary": "20k-30k",
+            "companyId": 322923,
+            "companyLogo": "i/image2/M01/BC/85/CgoB5lwgRyaAW2NSAAA1gSc7yxo001.jpg",
+            "companyName": "金蝶蝶金",
+            "companyFullName": "金蝶蝶金云计算有限公司"
+          },
+          {
+            "logger": {
+              "traceCapable": true,
+              "name": "com.lagou.entity.mobile.MobilePosition"
+            },
+            "positionId": 6625005,
+            "positionName": "（高级）人力资源专家",
+            "city": "杭州",
+            "createTime": "今天 13:38",
+            "salary": "20k-40k",
+            "companyId": 224920,
+            "companyLogo": "i/image/M00/42/CE/CgpFT1ld-4yAZLJ6AAAv0QGHSIM153.png",
+            "companyName": "钉钉",
+            "companyFullName": "阿里巴巴集团钉钉事业部"
+          },
+          {
+            "logger": {
+              "traceCapable": true,
+              "name": "com.lagou.entity.mobile.MobilePosition"
+            },
+            "positionId": 6621475,
+            "positionName": "税务会计",
+            "city": "莆田",
+            "createTime": "今天 13:35",
+            "salary": "4k-6k",
+            "companyId": 176986,
+            "companyLogo": "i/image/M00/B3/90/Cgp3O1i81EGABdDWAAAXGblOzaA917.jpg",
+            "companyName": "瑞银信",
+            "companyFullName": "深圳瑞银信信息技术有限公司"
+          },
+          {
+            "logger": {
+              "traceCapable": true,
+              "name": "com.lagou.entity.mobile.MobilePosition"
+            },
+            "positionId": 6621533,
+            "positionName": "高级软件测试工程师",
+            "city": "厦门",
+            "createTime": "今天 13:35",
+            "salary": "17k-25k",
+            "companyId": 43990,
+            "companyLogo": "i/image/M00/02/68/Cgp3O1aONUqAGH5SAAB3k-WEJ10831.png",
+            "companyName": "神州鹰",
+            "companyFullName": "厦门神州鹰软件科技有限公司"
+          },
+          {
+            "logger": {
+              "traceCapable": true,
+              "name": "com.lagou.entity.mobile.MobilePosition"
+            },
+            "positionId": 6625110,
+            "positionName": "软件工程师（java/php/python)",
+            "city": "武汉",
+            "createTime": "今天 13:33",
+            "salary": "8k-15k",
+            "companyId": 111175,
+            "companyLogo": "i/image/M00/34/9D/CgqKkVdWPSeAK6YCAAIELNuwlYo561.png",
+            "companyName": "ZingFront智线",
+            "companyFullName": "智线云科技（北京）有限公司"
+          },
+          {
+            "logger": {
+              "traceCapable": true,
+              "name": "com.lagou.entity.mobile.MobilePosition"
+            },
+            "positionId": 6628150,
+            "positionName": "建材销售",
+            "city": "郑州",
+            "createTime": "今天 13:31",
+            "salary": "7k-13k",
+            "companyId": 85693325,
+            "companyLogo": "images/logo_default.png",
+            "companyName": "河南鑫铝金属制品",
+            "companyFullName": "河南鑫铝金属制品有限公司"
+          },
+          {
+            "logger": {
+              "traceCapable": true,
+              "name": "com.lagou.entity.mobile.MobilePosition"
+            },
+            "positionId": 6626303,
+            "positionName": "高级新媒体运营专员",
+            "city": "北京",
+            "createTime": "今天 13:31",
+            "salary": "10k-15k",
+            "companyId": 173284,
+            "companyLogo": "i/image2/M01/CF/D9/CgoB5lw9ItqAesciAAAfrsVGQOQ918.png",
+            "companyName": "印象笔记",
+            "companyFullName": "北京印象笔记科技有限公司"
+          }
+        ],
+        "totalCount": "203139",
+        "pageNo": 2
+      }
+    },
+    "rows": []
+  }
+}
