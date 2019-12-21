@@ -11,7 +11,8 @@ export default class Cookbook extends Component {
     super(props);
     this.state = {
       swiperData: [1, 2, 3],
-      hotcateData: []
+      hotcateData: [],
+      list: []
     }
   }
   async getSwiper() {
@@ -28,19 +29,26 @@ export default class Cookbook extends Component {
       hotcateData: res.data.data
     })
   }
+  async getList() {
+    let res = await get('/api/list');
+    this.setState({
+      list: res.data.data.slice(0, 10)
+    })
+  }
   render() {
     return (
       <div>
         <Headbar>菜谱大全</Headbar>
         <Swiper list={this.state.swiperData}></Swiper>
-        <Search hasborder={true} bgcolor='#f8f3fa' placeholder={'想吃什么搜这里 如:川菜'} />
+        <Search hasborder={true} bgcolor='#f8f3fa' inputbgcolor='#f8f3fa' placeholder='想吃什么搜这里 如:川菜' />
         <HotCate list={this.state.hotcateData}></HotCate>
-        <Top10 list={this.state.hotcateData}></Top10>
+        <Top10 list={this.state.list}></Top10>
       </div>
     )
   }
   componentDidMount() {
     this.getSwiper()
     this.getHotcate()
+    this.getList()
   }
 }

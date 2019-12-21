@@ -13,14 +13,13 @@ export default class Top10 extends Component {
                 <li key={index}>
                   <img src={item.img} alt="" />
                   <div>
-                    <h3>{item.title}</h3>
-                    <span>12345浏览 1234收藏</span>
+                    <h3>{item.name}</h3>
+                    <span>{item.all_click}浏览 {item.favorites}收藏</span>
                   </div>
                 </li>
               )
             })
           }
-          <li>更多</li>
         </ul>
       </Top10Container>
     )

@@ -1,6 +1,7 @@
 import { TabBar } from 'antd-mobile';
 import React, { Component } from 'react'
 import Cookbook from 'views/cookbook/Cookbook'
+import Category from 'views/category/Category'
 import 'styles/reset.css'
 
 const tabList = [
@@ -17,7 +18,8 @@ const tabList = [
     icon: require('images/menu.png'),
     iconActive: require('images/menu-active.png'),
     title: '分类',
-    selectedTab: 'menu'
+    selectedTab: 'menu',
+    comp:<Category></Category>
   },
   {
     id: 3,

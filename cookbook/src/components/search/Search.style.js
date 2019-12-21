@@ -13,7 +13,7 @@ const InputContainer = styled.div`
   justify-content: center;
   align-items: center;
   height: 0.8rem;
-  background: white;
+  background: ${({inputbgcolor}) => inputbgcolor};
   i {
     width: 0.29rem;
     height: 0.29rem;
@@ -23,6 +23,8 @@ const InputContainer = styled.div`
   }
   input {
     width: 4rem;
+    background: ${({inputbgcolor}) => inputbgcolor};
+    border: none;
   }
 `;
 

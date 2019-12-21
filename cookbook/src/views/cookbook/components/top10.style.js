@@ -30,7 +30,7 @@ const Top10Container = styled.div`
       div {
         text-align: center;
         h3 {
-          font-size: 0.45rem;
+          font-size: 0.3rem;
           font-weight: 300;
           color: #090909;
         }
