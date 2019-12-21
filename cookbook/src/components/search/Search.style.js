@@ -1,7 +1,8 @@
 import styled from 'styled-components'
+import { Border1px } from '../style/Border'
 
 const SearchContainer = styled.div`
-  background: ${( {bgcolor} ) => bgcolor };
+  background: ${({ bgcolor }) => bgcolor};
   height: 1.3rem;
   padding: 0.3rem;
   box-sizing: border-box;
@@ -25,9 +26,10 @@ const InputContainer = styled.div`
   }
 `;
 
-const borderContainer = styled(InputContainer)`
-  border: 1px solid #B28969;
-  border-radius: 0.1rem;
-`;
+const borderContainer = Border1px({
+  comp: InputContainer,
+  bordercolor: '#666',
+  radius: 0.15
+})
 
 export { SearchContainer, InputContainer, borderContainer }

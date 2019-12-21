@@ -1,6 +1,6 @@
 import { TabBar } from 'antd-mobile';
 import React, { Component } from 'react'
-import Cookbook from '../cookbook/Cookbook'
+import Cookbook from 'views/cookbook/Cookbook'
 import 'styles/reset.css'
 
 const tabList = [
