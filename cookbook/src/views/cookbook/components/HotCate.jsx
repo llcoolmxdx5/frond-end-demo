@@ -3,9 +3,6 @@ import HotCateContainer from './hotcate.style'
 import Grid from 'components/grid/Grid'
 
 export default class HotCate extends Component {
-  constructor(props) {
-    super(props)
-  }
   render() {
     return (
       <HotCateContainer>

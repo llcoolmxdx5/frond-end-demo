@@ -1,5 +1,9 @@
 import styled from 'styled-components'
 
+const CategoryContainer = styled.div`
+  height: 100%;
+`
+
 const HeadTab = styled.div`
   display: flex;
   justify-content: center;
@@ -23,9 +27,8 @@ const HeadTab = styled.div`
       background-color: white;
       position: absolute;
       left: 0;
-      top: 0;
       z-index: 1;
-      transform: translate3d(${ ({dir}) => dir==='left' ? 0 : '100%'  }, 0, 0);
+      transform: translate3d(${ ({ dir }) => dir === 'left' ? 0 : '100%'}, 0, 0);
     }
     li {
       width:1.42rem;
@@ -39,4 +42,4 @@ const HeadTab = styled.div`
 
 `
 
-export { HeadTab }
+export { CategoryContainer, HeadTab }

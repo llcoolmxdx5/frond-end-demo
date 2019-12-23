@@ -13,7 +13,8 @@ import ReactDOM from 'react-dom';
 // import App from './basic/11-lifecycle/LifeCycle'
 // import App from './basic/12-context/02-demo/Dart'
 // import App from './basic/13-HOC/Index'
-import App from './adv/01-router/Index'
+// import App from './adv/01-router/Index'
+import App from './adv/02/Index'
 
 // ReactDOM.render(<App />, document.getElementById('root'));
 
