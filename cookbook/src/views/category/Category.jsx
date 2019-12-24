@@ -39,7 +39,7 @@ class Category extends Component {
         <Search bgcolor='#F8F3FA' inputbgcolor='#EFEFEF' placeholder='想吃什么搜这里 如:川菜'></Search>
         <Switch>
           <Route path='/index/category' render={() => <Cate list={this.state.category}></Cate>}></Route>
-          <Route path='/index/material' component={Material}></Route>
+          <Route path='/index/material' render={() => <Material list={this.state.material}></Material>}></Route>
           <Redirect to='/index/category' from='/'></Redirect>
         </Switch>
       </CategoryContainer>
