@@ -14,13 +14,24 @@ import ReactDOM from 'react-dom';
 // import App from './basic/12-context/02-demo/Dart'
 // import App from './basic/13-HOC/Index'
 // import App from './adv/01-router/Index'
-import App from './adv/02/Index'
+// import App from './adv/02/Index'
+
+
+import App from './adv/04-redux/TodiList'
+import { Provider } from 'react-redux'
+import store from './adv/04-redux/redux/store'
+ReactDOM.render(
+  <Provider store={store}>
+    <App></App>
+  </Provider>
+  , document.getElementById("root")
+)
 
 // ReactDOM.render(<App />, document.getElementById('root'));
 
 
-ReactDOM.render(
-  <App></App>
-  , document.getElementById("root")
-)
+// ReactDOM.render(
+//   <App></App>
+//   , document.getElementById("root")
+// )
 
