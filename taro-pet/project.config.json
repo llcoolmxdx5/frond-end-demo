@@ -1,7 +1,7 @@
 {
   "miniprogramRoot": "./dist",
-  "projectname": "taro-demo",
-  "description": "tarom-demo",
+  "projectname": "taro-pet",
+  "description": "pet market",
   "appid": "touristappid",
   "setting": {
     "urlCheck": true,

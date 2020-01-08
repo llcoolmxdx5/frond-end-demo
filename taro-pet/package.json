@@ -1,8 +1,8 @@
 {
-  "name": "taro-demo",
+  "name": "taro-pet",
   "version": "1.0.0",
   "private": true,
-  "description": "tarom-demo",
+  "description": "pet market",
   "templateInfo": {
     "name": "redux",
     "typescript": false,
