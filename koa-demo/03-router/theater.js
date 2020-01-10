@@ -5,6 +5,8 @@ const router = new Router()
 router.get('/city', (ctx) => {
   // ctx.body = 'beijing'
   let url = ctx.url
+
+  // ctx.request.query 和 ctx.query获得的结果一致 { a: 1 }
   // 从上下文的request对象中获取
   let request = ctx.request
   let req_query = request.query

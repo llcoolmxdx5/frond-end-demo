@@ -2,9 +2,11 @@ const Koa = require('koa')
 const Router = require('koa-router')
 const movieRouter = require('./movie')
 const theaterRouter = require('./theater')
+const bodyParser = require('koa-bodyparser')
 
 const app = new Koa()
 
+app.use(bodyParser())
 
 // app.use(async ctx => {
 //   ctx.body = 'hello world'
