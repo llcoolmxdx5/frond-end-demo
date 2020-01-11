@@ -502,6 +502,11 @@ koa-convert@^1.2.0:
     co "^4.6.0"
     koa-compose "^3.0.0"
 
+koa-jsonp@^2.0.2:
+  version "2.0.2"
+  resolved "https://registry.yarnpkg.com/koa-jsonp/-/koa-jsonp-2.0.2.tgz#4394214403facfd61d7df2466292c9fb0f6bf082"
+  integrity sha1-Q5QhRAP6z9YdffJGYpLJ+w9r8II=
+
 koa-mysql-session@^0.0.2:
   version "0.0.2"
   resolved "https://registry.yarnpkg.com/koa-mysql-session/-/koa-mysql-session-0.0.2.tgz#b7f32f4dd2c37a5f7992261797c59373704edc89"
