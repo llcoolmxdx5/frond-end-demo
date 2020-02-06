@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 // import App from './basic/01-quick-start/Todolist';
-// import App from './basic/02-component/CreateClass'
+import App from './basic/02-component/CreateClass'
 // import App from './basic/03-combine/Combine'
 // import App from './basic/04-jsx/Jsx'
 // import App from './basic/05-style/Search'
@@ -17,17 +17,17 @@ import ReactDOM from 'react-dom';
 // import App from './adv/02/Index'
 
 
-import App from './adv/04-redux/TodiList'
-import { Provider } from 'react-redux'
-import store from './adv/04-redux/redux/store'
-ReactDOM.render(
-  <Provider store={store}>
-    <App></App>
-  </Provider>
-  , document.getElementById("root")
-)
+// import App from './adv/04-redux/TodiList'
+// import { Provider } from 'react-redux'
+// import store from './adv/04-redux/redux/store'
+// ReactDOM.render(
+//   <Provider store={store}>
+//     <App></App>
+//   </Provider>
+//   , document.getElementById("root")
+// )
 
-// ReactDOM.render(<App />, document.getElementById('root'));
+ReactDOM.render(<App />, document.getElementById('root'));
 
 
 // ReactDOM.render(
