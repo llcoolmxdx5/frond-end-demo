@@ -1,42 +1,54 @@
-// var greeting: string = 'hell'
-// var greeting: number = 3
-// var greeting: boolean = true
-// var greeting: any[] = ['a', 'v', 1]
-// var greeting: [string, string] = ['a','b']
-// var greeting: string[] = ['a', 'b']
-// var greeting: Array<string> = ['a', 'b']
-// enum obj {
-//   a = 1,
-//   b = 'c'
+// let title: string = '千锋'
+// function greeter(person: string): string {
+//   return 'hello' + person
 // }
-// function foo(x: number, y: number): number {
-//   return x + y
+// let user: string = 'susu'
+// console.log(greeter(user))
+// interface IPerson {
+//   firstname: string
+//   lastname: string
 // }
-// foo(2, 3)
-// interface Post {
-//   title: string
-//   content: string
-//   text?: string
+// function greeter(person: IPerson): string {
+//   return `hello ${person.firstname} ${person.lastname}`
 // }
-// let post: Post = {
-//   title: 'hello',
-//   content: 'world'
+// let user = {
+//   firstname: 'lu',
+//   lastname: 'rongtao'
 // }
-// let a: number[] = [1, 2, 3, 4];
-// let ro: ReadonlyArray<number> = a;
-// ro[0] = 12; // error!
-// ro.push(5); // error!
-// ro.length = 100; // error!
-// a = ro; // error!
-// interface SquareConfig {
-//   color?: string;
-//   width?: number;
-//   [propName: string]: any;
+// greeter(user)
+// class Student {
+//   fullName: string = ''
+//   constructor(public firstName: string, public lastName: string) {
+//     this.fullName = `${this.firstName}${this.lastName}`
+//   }
 // }
-interface Fun {
-  (x: string, y:string): string
+// let student = new Student('felix', 'lu')
+// enum Color {Red = 1, Green, Blue};
+// let c: Color = Color.Blue;
+// console.log(c);    // 输出 3
+// console.log(Color[3]);    // 输出 Blue
+abstract class Department {
+  constructor(public name: string) {
+  }
+  printName(): void {
+    console.log('Department name: ' + this.name);
+  }
+  abstract printMeeting(): void; // 必须在派生类中实现
 }
-let fun: Fun = (x, z) => {
-  return x + z
+class AccountingDepartment extends Department {
+  constructor() {
+    super('Accounting and Auditing'); // 在派生类的构造函数中必须调用 super()
+  }
+  printMeeting(): void {
+    console.log('The Accounting Department meets each Monday at 10am.');
+  }
+  generateReports(): void {
+    console.log('Generating accounting reports...');
+  }
 }
-
+let department: Department; // 允许创建一个对抽象类型的引用
+// department = new Department(); // 错误: 不能创建一个抽象类的实例
+department = new AccountingDepartment(); // 允许对一个抽象子类进行实例化和赋值
+department.printName();
+department.printMeeting();
+// department.generateReports(); // 错误: 方法在声明的抽象类中不存在
