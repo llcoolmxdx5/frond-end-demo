@@ -3,7 +3,7 @@ import Home from "./pages/Home";
 import Counter from "./pages/count/Counter";
 import Hoc from "./component/Hoc";
 import Button from "./component/Button";
-// import { request } from "./utils/http"
+import { request } from "./utils/http"
 import MyInput from "./component/MyInput";
 import MyForm from "./component/MyForm";
 
@@ -13,13 +13,16 @@ interface IState {
 
 function App() {
   const [count, setCount] = useState<IState["count"]>(0);
-  // React.useEffect(async () => {
-  //   let rs = await request({
-  //     url: "http://www.baidu.com",
-  //     type: "get"
-  //   })
-  //   console.log(rs)
-  // }, [])
+  React.useEffect(() => {
+    let fun = async () => {
+      let rs =  await request({
+        url: "http://www.baidu.com",
+        type: "get"
+      })
+      console.log(rs)
+    }
+    fun()
+  }, [])
   const incrementCount = () => {
     setCount(count + 1);
   };
