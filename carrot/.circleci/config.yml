@@ -1,0 +1,149 @@
+version: 2.1
+jobs:
+  push_docker_image:
+    machine:
+      docker_layer_caching: true
+    parameters:
+      project_id:
+        type: string
+      docker_password:
+        type: string
+    steps:
+      - checkout
+      - run: docker login -u "_json_key" -p "<< parameters.docker_password >>" https://asia.gcr.io
+      - run: >-
+             docker build
+             --cache-from=asia.gcr.io/<< parameters.project_id >>/$CIRCLE_PROJECT_REPONAME
+             -t asia.gcr.io/<< parameters.project_id >>/$CIRCLE_PROJECT_REPONAME
+             .
+      - run: docker push asia.gcr.io/<< parameters.project_id >>/$CIRCLE_PROJECT_REPONAME
+  deploy_code:
+    parallelism: 1
+    docker:
+    - image: google/cloud-sdk
+      name: GCP
+    parameters:
+      project_id:
+        type: string
+      storage_buckets_key:
+        type: string
+      docker_password:
+        type: string
+      cluster_name:
+        type: string
+      vue_app_api_url:
+        type: string
+      vue_app_ws_url:
+        type: string
+      vue_app_fox_url:
+        type: string
+    steps:
+      - checkout
+      - setup_remote_docker:
+          docker_layer_caching: true
+      - run: docker login -u "_json_key" -p "<< parameters.docker_password >>" https://asia.gcr.io
+      - run: >-
+             docker run -d
+             --name=$CIRCLE_PROJECT_REPONAME
+             --env VUE_APP_API_URL=<< parameters.vue_app_api_url >>
+             --env VUE_APP_WS_URL=<< parameters.vue_app_ws_url >>
+             --env VUE_APP_FOX_URL=<< parameters.vue_app_fox_url >>
+             asia.gcr.io/<< parameters.project_id >>/$CIRCLE_PROJECT_REPONAME
+             ping google.com
+      - run: docker exec -it $CIRCLE_PROJECT_REPONAME npm run build
+      - run: docker cp $CIRCLE_PROJECT_REPONAME:/usr/src/app/dist $CIRCLE_PROJECT_REPONAME
+      - run: gcloud config set project << parameters.project_id >>
+      - run: echo << parameters.storage_buckets_key >> > storageBucketsBackendServiceKey.json
+      - run: gcloud auth activate-service-account --key-file=storageBucketsBackendServiceKey.json
+      - run: gsutil cp gs://<< parameters.project_id >>-secrets-sb/gkeDeployServiceKey.json .
+      - run: gcloud auth activate-service-account --key-file=gkeDeployServiceKey.json
+      - run: gcloud config set compute/zone asia-east2-b
+      - run: gcloud container clusters get-credentials << parameters.cluster_name >>
+      - run: kubectl cp $CIRCLE_PROJECT_REPONAME results-server-0:/usr/src/app
+      - run: kubectl exec -it results-server-0 -- bash -c "find /usr/src/app/$CIRCLE_PROJECT_REPONAME/* -mmin +5 -type f -exec rm -fv {} \;"  # remove files older than 5 minutes (to remove the previously built files)
+  deploy_notification:
+    docker:
+    - image: ubuntu
+      name: Ubuntu
+    parameters:
+      env:
+        type: string
+      url:
+        type: string
+    steps:
+      - run: >-
+             apt-get update &&
+             apt-get install curl -y &&
+             curl --data
+             "chat_id=-1001171180529
+             &text=<b>$CIRCLE_PROJECT_REPONAME</b> deployed on <b><< parameters.env >></b> environment. Kindly visit <b><< parameters.url >></b>
+             &parse_mode=HTML"
+             https://api.telegram.org/bot944044978:AAG4KbP4pU-jTdtEkrFA-33NhaRo_zR68RY/sendMessage
+
+
+workflows:
+  version: 2
+  staging_pipeline:  # used for pipeline segregation where each pipeline like has its own environment from other pipelines
+    jobs:
+      - push_docker_image:
+          project_id: $PROJECT_ID
+          docker_password: $GCR_KEY
+          filters:
+            branches:
+              only:
+                - master
+      - deploy_code:
+          project_id: $PROJECT_ID
+          storage_buckets_key: $STORAGE_BUCKETS_KEY
+          docker_password: $GCR_KEY
+          cluster_name: $PROJECT_ID-gke-cluster
+          vue_app_api_url: https://saiya-api.hga88996.com/
+          vue_app_ws_url: wss://saiya-ws.hga88996.com/v1/ws
+          vue_app_fox_url: https://staging-api.h9339.com/fox
+          requires:
+            - push_docker_image
+          filters:
+            branches:
+              only:
+              - master
+      - deploy_notification:
+          env: staging
+          url: http://staging.hga88996.com
+          requires:
+            - deploy_code
+          filters:
+            branches:
+              only:
+              - master
+  production_pipeline:
+    jobs:
+      - push_docker_image:
+          project_id: $PROD_PROJECT_ID
+          docker_password: $PROD_GCR_KEY
+          filters:
+            branches:
+              only:
+                - production
+      - deploy_code:
+          project_id: $PROD_PROJECT_ID
+          storage_buckets_key: $PROD_STORAGE_BUCKETS_KEY
+          docker_password: $PROD_GCR_KEY
+          cluster_name: $PROD_PROJECT_ID-gke-cluster
+          vue_app_api_url: https://api.hga88996.com/
+          vue_app_ws_url: wss://ws.hga88996.com/v1/ws
+          vue_app_fox_url: https://api.fh356.com/fox
+          requires:
+            - push_docker_image
+          filters:
+            branches:
+              only:
+              - production
+      - deploy_notification:
+          env: production
+          url: https://hga88996.com
+          requires:
+            - deploy_code
+          filters:
+            branches:
+              only:
+              - production

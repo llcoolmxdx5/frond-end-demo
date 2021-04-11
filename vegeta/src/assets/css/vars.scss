@@ -1,0 +1,59 @@
+$primary: #488ded!default;
+// color
+$red: #d0021b;
+$green: #7bb32e;
+$azul: #488ded;
+
+$white: #fff;
+$grayscale1: #f0f0f0;
+$grayscale2: #DDDDDD;
+$grayscale3: #C8C8CD;
+$grayscale4: #999999;
+$grayscale5: #666666;
+$grayscale6: #333333;
+$orange: #ff9800;
+$yellow: #fcc100;
+
+$font-large: 16px;
+
+$global-loading-mask-zindex: 999;
+$global-toast-zindex: 3000;
+$global-popup-zindex: 2000;
+$topbar-zindex: 200;
+$global-dialog-zindex: 2100;
+$primary: #488ded!default;
+$cell-height: 35px;
+$cell-border: 1px solid #e0e0e0;
+$blue: #1976D2;
+$red: #FA5555;
+$green: #67c23a;
+$yellow: #fcc100;
+$brownish-orange: #c98c28;
+$dark-blue-grey: #213a57;
+$dark-slate-blue: #132b47;
+$lightblue: #9cc5f5;
+$marine-blue: #002857;
+$darkish-blue: #00397c;
+$azul: #156fd8;
+$pinkish-grey: #f0f0f0;
+$watermelon: #ff435a;
+$small_container_width: 1280px;
+$container_width: 1440px;
+$main_width: 1050px;
+$form_width: 220px;
+$border_color: #eaeaf3;
+
+
+$rightmenu-width: 65px;
+
+$z-main: 100;
+$z-customerservice: 101;
+$z-rightmenu: 400;
+$z-header: $z-rightmenu + 1;
+
+:export {
+  primary: $primary;
+  toastZindex: $global-toast-zindex;
+  popupZindex: $global-popup-zindex;
+  dialogZindex: $global-dialog-zindex;
+}

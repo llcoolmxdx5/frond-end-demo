@@ -1,0 +1,33 @@
+$primary: #488ded!default;
+$cell-height: 35px;
+$cell-border: 1px solid #e0e0e0;
+$blue: #1976D2;
+$red: #FA5555;
+$green: #67c23a;
+$yellow: #fcc100;
+$brownish-orange: #c98c28;
+$dark-blue-grey: #213a57;
+$dark-slate-blue: #132b47;
+$lightblue: #9cc5f5;
+$marine-blue: #002857;
+$darkish-blue: #00397c;
+$azul: #156fd8;
+$pinkish-grey: #f0f0f0;
+$watermelon: #ff435a;
+$small_container_width: 1280px;
+$container_width: 1440px;
+$main_width: 1050px;
+$form_width: 220px;
+$border_color: #eaeaf3;
+
+
+$rightmenu-width: 65px;
+
+$z-main: 100;
+$z-customerservice: 101;
+$z-rightmenu: 400;
+$z-header: $z-rightmenu + 1;
+
+:export {
+  primary: $primary;
+}

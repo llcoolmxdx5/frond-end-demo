@@ -1,0 +1,111 @@
+.result-time-lottery, .result-instant-lottery, .result-fc3d {
+  background: url("~@/assets/img/ball_hk6.png") no-repeat;
+  background-size: 100% 1100%;
+  width: 26px;
+  height: 26px;
+  @for $num from 0 through 9 {
+    &.resultnum-#{$num} {
+      background-position: 0 (-26px * $num);
+    }
+  } 
+}
+
+.result-instant-lottery.resultnum-unknown {
+  background-position: 0 (-26px * 10)
+}
+
+.result-pk10, .result-nn {
+  background: url("~@/assets/img/racingicon.jpg") no-repeat;
+  background-size: 100% 1000%;
+  width: 26px;
+  height: 26px;
+  @for $num from 1 through 10 {
+    &.resultnum-#{$num} {
+      background-position: 0 (-26px * ($num - 1 ));
+    }
+  }
+}
+
+.result-11pick5 {
+  background: url("~@/assets/img/ball_1.png") no-repeat;
+  background-size: 100% 2000%;
+  width: 30px;
+  height: 30px;
+  @for $num from 1 through 11 {
+    &.resultnum-#{$num} {
+      background-position: 0 (-30px * ($num - 1 ));
+    }
+  }
+}
+
+.result-k3 {
+  background: url("~@/assets/img/ball_4.png") no-repeat;
+  background-size: 100% 600%;
+  width: 28px;
+  height: 28px;
+  @for $num from 1 through 6 {
+    &.resultnum-#{$num} {
+      background-position: 0 (-28px * ($num - 1 ));
+    }
+  }
+}
+
+.result-mark6 {
+  background: url("~@/assets/img/ball_hk6.png") no-repeat;
+  background-size: 100% 4900%;
+  width: 28px;
+  height: 28px;
+  @for $num from 1 through 49 {
+    &.resultnum-#{$num} {
+      background-position: 0 (-28px * ($num - 1 ));
+    }
+  }
+}
+
+.result-dd {
+  background: url("~@/assets/img/ball_pcdd.png") no-repeat;
+  background-size: 100% 2800%;
+  width: 30px;
+  height: 30px;
+  @for $num from 0 through 27 {
+    &.resultnum-#{$num} {
+      background-position: 0 (-30px * $num);
+    }
+  }
+}
+
+.result-cqlf {
+  background: url("~@/assets/img/ball_nc_top.png") no-repeat;
+  background-size: 100% 2000%;
+  width: 30px;
+  height: 30px;
+  @for $num from 1 through 20 {
+    &.resultnum-#{$num} {
+      background-position: 0 (-30px * ($num - 1 ));
+    }
+  }
+}
+
+.result-gdklsf {
+  background: url("~@/assets/img/ball_1.png") no-repeat;
+  background-size: 100% 2000%;
+  width: 30px;
+  height: 30px;
+  @for $num from 1 through 20 {
+    &.resultnum-#{$num} {
+      /*background-position: 0 (-30px * ($num - 1 ));*/
+    }
+  }
+}
+
+.result-kl8 {
+  background: url("~@/assets/img/ball_5_small.png") no-repeat;
+  background-size: 100% 8000%;
+  width: 26px;
+  height: 26px;
+  @for $num from 1 through 80 {
+    &.resultnum-#{$num} {
+      background-position: 0 (-26px * ($num - 1 ));
+    }
+  }
+}

@@ -1,0 +1,44 @@
+@import './setOnepx.scss';
+
+.v-1px, .v-1px-t, .v-1px-b, .v-1px-tb, .v-1px-l, .v-1px-r {
+  position: relative;
+}
+
+.v-1px {
+  &:before {
+    @include setLine();
+  }
+}
+
+.v-1px-t {
+  &:before {
+    @include setTopLine();
+  }
+}
+
+.v-1px-b {
+  &:after {
+    @include setBottomLine();
+  }
+}
+
+.v-1px-tb {
+  &:before {
+    @include setTopLine();
+  }
+  &:after {
+    @include setBottomLine();
+  }
+}
+
+.v-1px-l {
+  &:before {
+    @include setLeftLine();
+  }
+}
+
+.v-1px-r {
+  &:after {
+    @include setRightLine();
+  }
+}
