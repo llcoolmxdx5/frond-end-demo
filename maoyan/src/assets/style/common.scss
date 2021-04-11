@@ -1,0 +1,18 @@
+html,
+body {
+  height: 100%;
+}
+
+body {
+  font-family: PingFangSC-Regular, Hiragino Sans GB, sans-serif;
+}
+
+::-webkit-scrollbar {
+  height: 0 !important;
+}
+
+.line-ellipsis {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
