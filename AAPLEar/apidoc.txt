@@ -1,0 +1,154 @@
+地址 : http://10.9.42.247:4000
+
+版本号 : /v1
+
+获取商品列表：
+    /goodsList
+        默认：
+            /goodsList?page=1&s=featured
+        排序：最新：
+            /goodsList?page=1&s=newest
+        排序：价格由低到高
+            /goodsList?page=1&s=priceLH
+        排序：价格由高到地
+            /goodsList?page=1&s=priceHL
+        产品类型：耳机
+            /goodsList?page=1&f=headphone
+        产品类型：扬声器
+            /goodsList?page=1&f=speaker
+        产品类型：耳机保护壳
+            /goodsList?page=1&f=headphonecase
+        产品类型：音频适配器
+            /goodsList?page=1&f=audioadapter
+        产品类型：耳机+音频适配器
+            /goodsList?page=1&f=headphone-audioadapter
+        请求数据类型:JSON(application/json)
+        请求方式:GET
+        返回:
+        {
+            "head": {
+                "status": "200",
+                "data": e
+            },
+            "body": {
+                "results": {
+                    "hasResults": true,
+                    "items": [
+                        {
+                            "id": 10001,
+                            "title": "AirPods (配无线充电盒)",
+                            "violatorTranslatedText": "免费激光镌刻服务",
+                            "productPrice":799,
+                            "productImages": {
+                                "items": [
+                                    {
+                                        "alt": null,
+                                        "height": 445,
+                                        "width": 445,
+                                        "src": ""
+                                    }
+                                ],
+                                "size":1
+                            },
+                            "colorGallery": {
+                                "items": [
+                                    {"colorText":"暗蓝色","alt": "暗蓝色","height": "16","width": "16","src":""}
+                                ],
+                                "size": 1
+                            },
+                            "time":1571837934,
+                            "type": "headphone"
+                        }
+                    ],
+                    "size": 30,
+                    "page":2
+                }
+            }
+        }
+商品详情：
+    /detail?id=10000
+    请求方式：GET
+    数据类型：JSON(application/json)
+    返回:
+        {
+            "head": {
+                "status": "200",
+                "data": e
+            },
+            "body": {
+                "id": 10001,
+                "title": "AirPods (配无线充电盒)",
+                "violatorTranslatedText": "免费激光镌刻服务",
+                "productPrice": 1558,
+                "productImages": {
+                    "items": [
+                        {
+                            "alt": null,
+                            "height": 445,
+                            "width": 445,
+                            "src": "./img/01-01.jpeg"
+                        },
+                        {
+                            "alt": null,
+                            "height": 445,
+                            "width": 445,
+                            "src": "./img/01-02.jpeg"
+                        }
+                    ],
+                    "size": 2
+                },
+                "colorGallery": {
+                    "items": [],
+                    "size": 0
+                },
+                "time": 1571837934,
+                "type": "headphone"
+            }
+        }
+购物车列表
+    req:{
+        type:0x01
+    }
+添加商品到购物车
+    req:{
+        type:0x02,
+        id:1001
+    }
+3\修改商品数量
+     req:{
+        type:0x03,
+        id:1001,
+        num:1
+    }
+4\删除商品
+    req:{
+        type:0x04,
+        id:1001
+    }
+5\单选
+  req:{
+        type:0x05,
+        id:10001,
+        select:true
+   }
+6、全选
+  req:{
+      type:0x06,
+      select:true
+  }
+  res:{
+      "head": {
+          "status": "200",
+          "data": e
+      },
+      "body":[
+           {
+               id: 10001, title: "AirPods ", price: 1558, image: "src/assets/img/img-01-01.jpeg",
+               count: 1, selected: true
+           },
+           {
+               id: 10002, title: "AirPods (配无线充电盒)", price: 1758, image: "src/assets/img/img-02-01.jpeg",
+               count: 2, selected: false
+           },
+      ];
+  }
